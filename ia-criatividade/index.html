@@ -11,21 +11,15 @@
   <meta property="og:locale" content="pt_BR">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;family=Playfair+Display:wght@700;900&amp;display=swap" rel="stylesheet">
   <style>
     :root {
-      --cream: #e9ecf1;
-      --cream-2: #c3c9d4;
-      --ink: #0e1116;
-      --ink-2: #161a22;
-      --ink-soft: #232936;
-      --paper-text: #14171d;
-      --muted: #7c8597;
-      --c01: #e23b4e;
-      --c02: #3a7bd5;
-      --c03: #1ba39c;
-      --c04: #c44fd0;
-      --line: rgba(255, 255, 255, .12);
+      --black: #111;
+      --white: #fff;
+      --mid: #707070;
+      --light-gray: #e5e5e5;
+      --cream: #f7f5f1;
+      --accent: #c45a2d;
     }
 
     * {
@@ -39,31 +33,32 @@
     }
 
     body {
-      background: var(--ink);
-      color: var(--cream);
-      font-family: 'IBM Plex Mono', monospace;
+      background: var(--white);
+      color: var(--black);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      font-weight: 300;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
 
-    .wrap {
-      width: min(1080px, calc(100% - 56px));
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1080px, calc(100% - 48px));
       margin: 0 auto;
     }
 
-    .serif {
-      font-family: 'Instrument Serif', serif;
-      font-style: italic;
-      font-weight: 400;
-    }
-
-    .hook-text,
-    .card .desc,
-    .pull-quote,
-    .feat p,
-    .final p {
-      font-family: 'IBM Plex Sans', sans-serif;
+    .narrow {
+      width: min(820px, calc(100% - 48px));
+      margin: 0 auto;
     }
 
     .sr-only {
@@ -78,511 +73,293 @@
       border: 0;
     }
 
+    h2,
+    h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      color: var(--black);
+      letter-spacing: -0.025em;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1.12;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
     .hero {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 84px 0 76px;
-      overflow: hidden;
-      background:
-        radial-gradient(900px 580px at 92% 0%, rgba(196, 79, 208, .15), transparent 62%),
-        radial-gradient(800px 520px at 5% 100%, rgba(27, 163, 156, .13), transparent 64%),
-        var(--ink);
-    }
-
-    .hero-art {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-
-    .hero-art img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      box-shadow: 0 30px 90px rgba(0, 0, 0, .55);
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      margin-top: 38px;
-    }
-
-    .hero-cta .cta-row {
-      justify-content: center;
-      margin-top: 28px;
-    }
-
-    .hero-cta .datenote {
-      margin-top: 22px;
+      padding: 48px 0 72px;
       text-align: center;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--line) 1px, transparent 1px);
-      background-size: 64px 64px;
-      -webkit-mask-image: radial-gradient(circle at 52% 42%, #000 0%, transparent 74%);
-      mask-image: radial-gradient(circle at 52% 42%, #000 0%, transparent 74%);
-      opacity: .52;
+    .hero-image {
+      padding: 12px;
+      border: 1px solid var(--light-gray);
+      background: var(--white);
+      box-shadow: 0 16px 40px rgba(17, 17, 17, 0.1);
     }
 
-    .hero::after {
-      content: "IA";
-      position: absolute;
-      right: -4vw;
-      bottom: -16vw;
-      font-family: 'Instrument Serif', serif;
-      font-style: italic;
-      font-size: clamp(18rem, 42vw, 42rem);
-      line-height: 1;
-      color: var(--c04);
-      opacity: .055;
-      pointer-events: none;
+    .hero-image img {
+      width: 100%;
+      height: auto;
     }
 
-    .hero .wrap {
-      position: relative;
-      z-index: 1;
+    .hero-copy {
+      width: min(760px, 100%);
+      margin: 34px auto 0;
     }
 
     .kicker {
-      display: inline-block;
-      padding: 9px 14px;
-      border: 1.5px solid var(--c02);
-      border-radius: 6px;
-      margin-bottom: 30px;
-      color: var(--c02);
-      font-size: 11px;
-      line-height: 1.6;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      max-width: 10.5ch;
-      font-family: 'Instrument Serif', serif;
-      font-size: clamp(4.2rem, 11.5vw, 8.4rem);
-      font-style: italic;
-      font-weight: 400;
-      letter-spacing: -.025em;
-      line-height: .83;
-    }
-
-    .subtitle {
-      max-width: 32ch;
-      margin-top: 30px;
-      color: var(--cream);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: clamp(1rem, 2.1vw, 1.35rem);
+      color: var(--accent);
+      font-size: 0.78rem;
       font-weight: 500;
-      letter-spacing: .015em;
-      line-height: 1.35;
+      letter-spacing: 0.12em;
+      line-height: 1.5;
+      text-transform: uppercase;
     }
 
     .byline {
-      margin-top: 20px;
-      color: var(--cream-2);
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+      margin-top: 12px;
+      color: var(--black);
+      font-size: 1rem;
+      font-weight: 400;
     }
 
-    .byline strong {
-      color: var(--cream);
-    }
-
-    .cta-row {
+    .actions {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
       align-items: center;
-      gap: 16px;
-      margin-top: 38px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 16px 30px;
-      border-radius: 999px;
-      font-size: 13.5px;
-      font-weight: 700;
-      letter-spacing: .04em;
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: transform .15s ease, box-shadow .15s ease;
-    }
-
-    .btn-primary {
-      background: var(--c02);
-      color: #fff;
-      box-shadow: 0 10px 30px rgba(58, 123, 213, .3);
-    }
-
-    .btn-primary:hover,
-    .btn-primary:focus-visible {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 38px rgba(58, 123, 213, .42);
-    }
-
-    .btn-ghost {
-      border: 1px solid var(--cream);
-      color: var(--cream);
-    }
-
-    .btn-ghost:hover,
-    .btn-ghost:focus-visible {
-      background: var(--cream);
-      color: var(--ink);
-    }
-
-    .datenote {
-      margin-top: 22px;
-      color: var(--c02);
-      font-size: 13px;
-      letter-spacing: .04em;
-    }
-
-    section {
-      position: relative;
-      padding: 96px 0;
-    }
-
-    .sec-label {
-      margin-bottom: 18px;
-      color: var(--c02);
-      font-size: 12px;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-    }
-
-    .opening {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: var(--ink-2);
-    }
-
-    .opening .wrap {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 56px;
-      align-items: start;
-    }
-
-    .opening .sec-label {
-      padding-top: 10px;
-      color: var(--c03);
-    }
-
-    .hook-text {
-      max-width: 27ch;
-      font-size: clamp(1.75rem, 4.4vw, 3.1rem);
+      justify-content: center;
+      padding: 12px 22px;
+      border: 1px solid var(--black);
+      font-size: 0.9rem;
       font-weight: 500;
-      letter-spacing: -.025em;
-      line-height: 1.12;
+      line-height: 1.2;
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
 
-    .hook-text strong {
-      color: var(--c03);
+    .button-primary {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .button-primary:hover,
+    .button-primary:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+
+    .button-secondary {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .button-secondary:hover,
+    .button-secondary:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .date-note {
+      margin-top: 20px;
+      color: var(--mid);
+      font-size: 0.88rem;
+    }
+
+    .hook {
+      padding: 64px 0;
+      background: var(--cream);
+    }
+
+    .hook p {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.45;
     }
 
     .modules {
-      background: var(--cream);
-      color: var(--paper-text);
+      padding: 88px 0 80px;
     }
 
-    .modules .sec-label {
-      color: var(--c01);
+    .section-intro {
+      margin-bottom: 34px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--black);
     }
 
-    .modules h2,
-    .rules h2 {
-      margin-bottom: 48px;
-      font-size: clamp(2.3rem, 6vw, 4rem);
-      line-height: 1.02;
-    }
-
-    .module-grid {
+    .module {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 26px;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 22px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--light-gray);
     }
 
-    .card {
-      --accent: var(--c01);
-      position: relative;
-      min-height: 100%;
-      overflow: hidden;
-      padding: 38px 34px;
-      border: 1px solid rgba(0, 0, 0, .08);
-      border-top: 5px solid var(--accent);
-      border-radius: 18px;
-      background: #f4f6fa;
-      box-shadow: 0 14px 40px rgba(10, 15, 30, .06);
-    }
-
-    .card:last-child {
-      grid-column: 1 / -1;
-    }
-
-    .card .badge {
-      display: inline-block;
-      padding: 7px 13px;
-      border: 1.5px solid var(--accent);
-      border-radius: 6px;
-      margin-bottom: 22px;
+    .module-number {
+      padding-top: 2px;
       color: var(--accent);
-      font-size: 11px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.1rem;
       font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
     }
 
-    .card h3 {
-      max-width: 17ch;
-      margin-bottom: 22px;
-      color: #15171c;
-      font-family: 'Instrument Serif', serif;
-      font-size: clamp(1.8rem, 3.4vw, 2.4rem);
-      font-style: italic;
-      font-weight: 400;
-      line-height: 1.08;
-    }
-
-    .card .crule {
-      width: 46px;
-      height: 2px;
-      margin-bottom: 22px;
-      background: rgba(0, 0, 0, .18);
-    }
-
-    .card .desc {
-      position: relative;
-      z-index: 1;
-      max-width: 66ch;
-      color: #454c5a;
-      font-size: 14.5px;
-    }
-
-    .card .ghostnum {
-      position: absolute;
-      right: 4px;
-      bottom: -45px;
-      color: var(--accent);
-      font-family: 'Instrument Serif', serif;
-      font-size: 140px;
-      font-style: italic;
-      line-height: 1;
-      opacity: .08;
-      pointer-events: none;
-    }
-
-    .module-close {
-      margin-top: 54px;
-      padding-top: 54px;
-      border-top: 1px solid rgba(0, 0, 0, .14);
+    .module p {
+      max-width: 850px;
+      margin-top: 10px;
+      color: #444;
+      font-size: 1rem;
+      line-height: 1.65;
     }
 
     .pull-quote {
-      max-width: 28ch;
-      color: var(--paper-text);
-      font-size: clamp(1.7rem, 4vw, 2.8rem);
-      font-weight: 600;
-      line-height: 1.12;
-    }
-
-    .pull-quote::before {
-      content: "“";
-      display: block;
-      height: .7em;
-      margin-left: -.04em;
-      color: var(--c01);
-      font-family: 'Instrument Serif', serif;
-      font-size: 4.5rem;
-      font-style: italic;
-      line-height: .8;
+      margin-top: 56px;
+      padding: 30px 34px;
+      border-left: 4px solid var(--accent);
+      background: var(--cream);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.42;
     }
 
     .rules {
-      border-top: 1px solid var(--line);
-      background:
-        radial-gradient(800px 460px at 100% 100%, rgba(196, 79, 208, .09), transparent 62%),
-        var(--ink-2);
+      padding: 84px 0 88px;
+      background: var(--cream);
     }
 
-    .rules .sec-label {
-      color: var(--c04);
-    }
-
-    .feat-grid {
+    .rules-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      gap: 20px;
+      margin-top: 36px;
     }
 
-    .feat {
-      padding: 34px 30px;
-      border: 1px solid var(--line);
-      border-top: 4px solid var(--accent);
-      border-radius: 18px;
-      background: var(--ink-2);
+    .rule {
+      padding: 26px;
+      border: 1px solid var(--light-gray);
+      background: var(--white);
     }
 
-    .feat .ico {
-      display: flex;
-      width: 54px;
-      height: 54px;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 22px;
-      border: 1px solid color-mix(in srgb, var(--accent) 42%, transparent);
-      border-radius: 14px;
-      background: color-mix(in srgb, var(--accent) 14%, transparent);
+    .rule p {
+      margin-top: 12px;
+      color: #444;
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .rule a,
+    footer a {
       color: var(--accent);
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    .feat h3 {
-      margin-bottom: 14px;
-      color: var(--cream);
-      font-family: 'Instrument Serif', serif;
-      font-size: 1.5rem;
-      font-style: italic;
-      font-weight: 400;
-      line-height: 1.12;
-    }
-
-    .feat p {
-      color: var(--cream-2);
-      font-size: 14px;
-    }
-
-    .feat a {
-      color: var(--accent);
+      font-weight: 500;
       overflow-wrap: anywhere;
-      text-decoration: none;
-      border-bottom: 1px solid color-mix(in srgb, var(--accent) 48%, transparent);
+      text-underline-offset: 3px;
     }
 
-    .feat a:hover,
-    .feat a:focus-visible {
-      color: var(--cream);
-    }
-
-    .final {
-      border-top: 1px solid var(--line);
-      background:
-        radial-gradient(900px 500px at 50% 120%, rgba(58, 123, 213, .16), transparent 60%),
-        var(--ink-2);
+    .final-cta {
+      padding: 84px 0;
       text-align: center;
     }
 
-    .final .kicker {
-      margin-bottom: 26px;
+    .final-cta p {
+      max-width: 620px;
+      margin: 18px auto 0;
+      color: var(--mid);
+      font-size: 1rem;
     }
 
-    .final h2 {
-      margin-bottom: 24px;
-      font-size: clamp(2.6rem, 7.5vw, 5rem);
-      line-height: .98;
-    }
-
-    .final p {
-      max-width: 46ch;
-      margin: 0 auto 38px;
-      color: var(--cream-2);
-      font-size: 16px;
+    .final-cta .button {
+      margin-top: 28px;
     }
 
     footer {
-      padding: 50px 0 70px;
-      background: var(--ink);
-      color: var(--muted);
-      font-size: 13px;
+      padding: 28px 0;
+      border-top: 1px solid var(--light-gray);
+      color: var(--mid);
+      font-size: 0.88rem;
       text-align: center;
     }
 
-    footer .contato {
-      color: var(--cream-2);
-      font-size: 15px;
-    }
-
-    footer a {
-      color: var(--c02);
-      overflow-wrap: anywhere;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(58, 123, 213, .4);
-    }
-
-    footer a:hover,
-    footer a:focus-visible {
-      color: var(--cream);
-    }
-
-    a:focus-visible {
-      outline: 3px solid var(--cream);
-      outline-offset: 4px;
-    }
-
     @media (max-width: 800px) {
-      .opening .wrap {
+      .container,
+      .narrow {
+        width: min(100% - 32px, 1080px);
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .hero {
+        padding: 24px 0 56px;
+      }
+
+      .hero-image {
+        padding: 7px;
+      }
+
+      .hook {
+        padding: 52px 0;
+      }
+
+      .hook p {
+        font-size: 1.35rem;
+      }
+
+      .modules,
+      .rules,
+      .final-cta {
+        padding-top: 64px;
+        padding-bottom: 64px;
+      }
+
+      .rules-grid {
         grid-template-columns: 1fr;
-        gap: 18px;
-      }
-
-      .opening .sec-label {
-        padding-top: 0;
-      }
-
-      .module-grid,
-      .feat-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .card:last-child {
-        grid-column: auto;
-      }
-
-      section {
-        padding: 72px 0;
       }
     }
 
     @media (max-width: 560px) {
-      .wrap {
-        width: min(100% - 36px, 1080px);
+      .kicker {
+        font-size: 0.72rem;
       }
 
-      .hero {
-        min-height: auto;
-        padding: 70px 0 64px;
-      }
-
-      h1 {
-        font-size: clamp(3.6rem, 20vw, 5.5rem);
-      }
-
-      .cta-row {
-        align-items: stretch;
+      .actions {
         flex-direction: column;
       }
 
-      .btn {
-        text-align: center;
+      .button {
+        width: 100%;
       }
 
-      .card,
-      .feat {
-        padding: 30px 24px;
+      .module {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 26px 0;
+      }
+
+      .pull-quote {
+        padding: 24px;
+        font-size: 1.3rem;
+      }
+
+      .rule {
+        padding: 22px;
       }
     }
 
@@ -591,146 +368,103 @@
         scroll-behavior: auto;
       }
 
-      .btn {
+      .button {
         transition: none;
-      }
-    }
-
-    @media print {
-      body,
-      .hero,
-      .opening,
-      .rules,
-      .final,
-      footer {
-        background: #fff !important;
-        color: #111 !important;
-      }
-
-      .hero::before,
-      .hero::after {
-        display: none;
-      }
-
-      * {
-        box-shadow: none !important;
-        text-shadow: none !important;
-      }
-
-      .card,
-      .feat {
-        break-inside: avoid;
-        border: 1px solid #ccc !important;
-        background: #fff !important;
-      }
-
-      .btn {
-        border: 1px solid #111;
-        color: #111;
       }
     }
   </style>
 </head>
 <body>
-  <header class="hero" id="topo">
-    <div class="wrap">
-      <h1 class="sr-only">A reportagem ainda é sua! Como usar IA sem abrir mão da criatividade</h1>
-      <div class="hero-art">
-        <img src="hero.jpg" alt="Luiz Fernando Toledo e Ju Faddul, ilustrados em estilo pixel art atrás de um cartaz: 'A reportagem ainda é sua! Como usar IA sem abrir mão da criatividade'">
-      </div>
-      <div class="hero-cta">
-        <span class="kicker">Curso ao vivo · Datas a definir</span>
-        <p class="byline">Com <strong>Luiz Fernando Toledo</strong> e <strong>Juliana Faddul</strong></p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSepI2SLGVb9_Jizwzn9kq5rbafKfXpSLDOe7Cu3KGglP6znlQ/viewform" target="_blank" rel="noopener">Entrar na lista de espera</a>
-          <a class="btn btn-ghost" href="#modulos">Ver os módulos</a>
-        </div>
-        <p class="datenote">Datas das aulas: <strong>a definir</strong></p>
-      </div>
-    </div>
-  </header>
-
   <main>
-    <section class="opening" aria-labelledby="abertura">
-      <div class="wrap">
-        <p class="sec-label" id="abertura">Por que este curso?</p>
-        <p class="hook-text">Tá desesperado (e perdido) com medo da IA roubar a sua criatividade? A verdade é que nenhuma tecnologia pode substituir a sua forma de pensar, a sua curiosidade ou o seu olhar sobre uma história. <strong>Mas pode te ajudar! E muito!</strong></p>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="container">
+        <h1 id="page-title" class="sr-only">A reportagem ainda é sua! Como usar IA sem abrir mão da criatividade</h1>
+        <div class="hero-image">
+          <img src="hero.jpg" alt="A reportagem ainda é sua! Como usar IA sem abrir mão da criatividade, com Luiz Fernando Toledo e Juliana Faddul" width="1600" height="887">
+        </div>
+        <div class="hero-copy">
+          <p class="kicker">Curso ao vivo · 14, 16, 21 e 23 de setembro · 19h às 21h</p>
+          <p class="byline">Com Luiz Fernando Toledo e Juliana Faddul</p>
+          <div class="actions">
+            <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSepI2SLGVb9_Jizwzn9kq5rbafKfXpSLDOe7Cu3KGglP6znlQ/viewform" target="_blank" rel="noopener">Entrar na lista de espera</a>
+            <a class="button button-secondary" href="#modulos">Ver os módulos</a>
+          </div>
+          <p class="date-note">Datas das aulas: 14, 16, 21 e 23 de setembro, das 19h às 21h</p>
+        </div>
       </div>
     </section>
 
-    <section class="modules" id="modulos" aria-labelledby="titulo-modulos">
-      <div class="wrap">
-        <p class="sec-label">O programa</p>
-        <h2 class="serif" id="titulo-modulos">Os módulos</h2>
+    <section class="hook">
+      <div class="narrow">
+        <p>Tá desesperado (e perdido) com medo da IA roubar a sua criatividade? A verdade é que nenhuma tecnologia pode substituir a sua forma de pensar, a sua curiosidade ou o seu olhar sobre uma história. Mas pode te ajudar! E muito!</p>
+      </div>
+    </section>
 
-        <div class="module-grid">
-          <article class="card" style="--accent: var(--c01);">
-            <span class="badge">Módulo 01</span>
+    <section class="modules" id="modulos" aria-labelledby="modules-title">
+      <div class="container">
+        <div class="section-intro">
+          <h2 id="modules-title">Os módulos</h2>
+        </div>
+
+        <article class="module">
+          <div class="module-number" aria-hidden="true">01</div>
+          <div>
             <h3>Muito além do ChatGPT</h3>
-            <div class="crule"></div>
-            <p class="desc">Para tirar o melhor das ferramentas de inteligência artificial, é fundamental saber qual usar em cada situação. A IA pode te ajudar a encontrar dados, documentos e informações em lugares que você nem imaginava existir. Neste módulo, vamos conhecer ferramentas que vale a pena testar, com exemplos já testados no jornalismo. Falaremos, por exemplo, de fluxos de trabalho criativo com Codex / ChatGPT Work e do Claude Cowork / Claude Code, uma baita mão na roda de muitos profissionais. E não precisa saber nada de programação — tipo a Ju — pra acompanhar, tá?</p>
-            <span class="ghostnum" aria-hidden="true">01</span>
-          </article>
+            <p>Para tirar o melhor das ferramentas de inteligência artificial, é fundamental saber qual usar em cada situação. A IA pode te ajudar a encontrar dados, documentos e informações em lugares que você nem imaginava existir. Neste módulo, vamos conhecer ferramentas que vale a pena testar, com exemplos já testados no jornalismo. Falaremos, por exemplo, de fluxos de trabalho criativo com Codex / ChatGPT Work e do Claude Cowork / Claude Code, uma baita mão na roda de muitos profissionais. E não precisa saber nada de programação — tipo a Ju — pra acompanhar, tá?</p>
+          </div>
+        </article>
 
-          <article class="card" style="--accent: var(--c02);">
-            <span class="badge">Módulo 02</span>
+        <article class="module">
+          <div class="module-number" aria-hidden="true">02</div>
+          <div>
             <h3>Pororoca de ideias</h3>
-            <div class="crule"></div>
-            <p class="desc">Sabe aquela ideia maluca, que você pensou “nossa, isso nunca vai ser aprovado, mas que legal seria se fosse?”. Pois bem, aqui a IA pode ser super útil, nem que seja para criar apenas um protótipo dessa ideia. Que tal um jogo interativo sobre um assunto complexo? Ou uma ferramenta que compara diferentes versões de uma mesma música? Um portfólio interativo diferentão? Mesmo que nada saia pro mundo, criatividade é também sobre experimentar.</p>
-            <span class="ghostnum" aria-hidden="true">02</span>
-          </article>
+            <p>Sabe aquela ideia maluca, que você pensou nossa, isso nunca vai ser aprovado, mas que legal seria se fosse?. Pois bem, aqui a IA pode ser super útil, nem que seja para criar apenas um protótipo dessa ideia. Que tal um jogo interativo sobre um assunto complexo? Ou uma ferramenta que compara diferentes versões de uma mesma música? Um portfólio interativo diferentão? Mesmo que nada saia pro mundo, criatividade é também sobre experimentar.</p>
+          </div>
+        </article>
 
-          <article class="card" style="--accent: var(--c03);">
-            <span class="badge">Módulo 03</span>
+        <article class="module">
+          <div class="module-number" aria-hidden="true">03</div>
+          <div>
             <h3>Como não ser controlado pela IA</h3>
-            <div class="crule"></div>
-            <p class="desc">Aqui é tão sério que nem tem piadinha: vamos te mostrar como duvidamos de uma resposta de IA e formas que usamos para checar as respostas com responsabilidade.</p>
-            <span class="ghostnum" aria-hidden="true">03</span>
-          </article>
+            <p>Aqui é tão sério que nem tem piadinha: vamos te mostrar como duvidamos de uma resposta de IA e formas que usamos para checar as respostas com responsabilidade.</p>
+          </div>
+        </article>
 
-          <article class="card" style="--accent: var(--c04);">
-            <span class="badge">Módulo 04</span>
+        <article class="module">
+          <div class="module-number" aria-hidden="true">04</div>
+          <div>
             <h3>Use a sua neurose ao seu favor</h3>
-            <div class="crule"></div>
-            <p class="desc">Aqui é onde os pensamentos intrusivos assumem o prompt! Vamos fazer atividades práticas para entender onde você está criativamente emperrado, quais obstáculos precisamos driblar e como fazer uma ideia maluca virar uma reportagem.</p>
-            <span class="ghostnum" aria-hidden="true">04</span>
-          </article>
+            <p>Aqui é onde os pensamentos intrusivos assumem o prompt! Vamos fazer atividades práticas para entender onde você está criativamente emperrado, quais obstáculos precisamos driblar e como fazer uma ideia maluca virar uma reportagem.</p>
+          </div>
+        </article>
 
-          <article class="card" style="--accent: var(--c01);">
-            <span class="badge">Módulo 05</span>
+        <article class="module">
+          <div class="module-number" aria-hidden="true">05</div>
+          <div>
             <h3>Plantão de dúvidas e... uma surpresa!</h3>
-            <div class="crule"></div>
-            <p class="desc">Aqui você vai tirar as últimas dúvidas e, se participar de todas as aulas, vai ganhar um mimo.</p>
-            <span class="ghostnum" aria-hidden="true">05</span>
-          </article>
-        </div>
+            <p>Aqui você vai tirar as últimas dúvidas e, se participar de todas as aulas, vai ganhar um mimo.</p>
+          </div>
+        </article>
 
-        <div class="module-close">
-          <blockquote class="pull-quote">A IA pode roubar seu tempo, seus dados e até a sua água, mas nunca as caraminholas da tua cabeça. Então vem com a gente!</blockquote>
-        </div>
+        <blockquote class="pull-quote">A IA pode roubar seu tempo, seus dados e até a sua água, mas nunca as caraminholas da tua cabeça. Então vem com a gente!</blockquote>
       </div>
     </section>
 
-    <section class="rules" aria-labelledby="titulo-regras">
-      <div class="wrap">
-        <p class="sec-label">Antes de se inscrever</p>
-        <h2 class="serif" id="titulo-regras">Regras do curso</h2>
-
-        <div class="feat-grid">
-          <article class="feat" style="--accent: var(--c01);">
-            <div class="ico" aria-hidden="true">01</div>
+    <section class="rules" aria-labelledby="rules-title">
+      <div class="container">
+        <h2 id="rules-title">Regras do curso</h2>
+        <div class="rules-grid">
+          <article class="rule">
             <h3>As aulas NÃO serão gravadas</h3>
             <p>Primeiro: quase ninguém assiste às gravações depois. Segundo: queremos criar um ambiente seguro e livre de julgamentos. Terceiro: a ideia não é oferecer uma fórmula genérica, mas ajudar você a construir seu próprio mecanismo para exercitar ideias.</p>
           </article>
 
-          <article class="feat" style="--accent: var(--c03);">
-            <div class="ico" aria-hidden="true">02</div>
+          <article class="rule">
             <h3>Bolsas e descontos</h3>
             <p>As bolsas integrais serão destinadas prioritariamente a pessoas afastadas de centros urbanos e/ou em situação de vulnerabilidade social (áreas de conflito ou dificuldade socioeconômica). As bolsas com 50% de desconto são destinadas a profissionais acima de 60 anos e ex-alunos de qualquer curso realizado pela Ju e pelo Toledo. Se você se enquadra em alguma dessas condições, escreva para <a href="mailto:jornalismoindependentecurso@gmail.com">jornalismoindependentecurso@gmail.com</a>.</p>
           </article>
 
-          <article class="feat" style="--accent: var(--c04);">
-            <div class="ico" aria-hidden="true">03</div>
+          <article class="rule">
             <h3>Por que cobramos esse preço?</h3>
             <p>Porque esse é, em média, o valor mínimo que muitas redações pagam por uma única reportagem. A ideia é simples: se este curso ajudar você a produzir apenas uma boa pauta, ele praticamente se paga. Pagamento no PIX tem desconto! Quer saber mais? Escreva para <a href="mailto:jornalismoindependentecurso@gmail.com">jornalismoindependentecurso@gmail.com</a>.</p>
           </article>
@@ -738,19 +472,18 @@
       </div>
     </section>
 
-    <section class="final" id="inscricao" aria-labelledby="titulo-inscricao">
-      <div class="wrap">
-        <span class="kicker">Lista de espera</span>
-        <h2 class="serif" id="titulo-inscricao">Entrar na lista de espera</h2>
-        <p>Como usar IA sem abrir mão da criatividade. Datas a definir.</p>
-        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSepI2SLGVb9_Jizwzn9kq5rbafKfXpSLDOe7Cu3KGglP6znlQ/viewform" target="_blank" rel="noopener">Entrar na lista de espera</a>
+    <section class="final-cta" aria-labelledby="final-title">
+      <div class="narrow">
+        <h2 id="final-title">Entrar na lista de espera</h2>
+        <p>Como usar IA sem abrir mão da criatividade. 14, 16, 21 e 23 de setembro, das 19h às 21h.</p>
+        <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSepI2SLGVb9_Jizwzn9kq5rbafKfXpSLDOe7Cu3KGglP6znlQ/viewform" target="_blank" rel="noopener">Entrar na lista de espera</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">
-      <p class="contato">Ficou com alguma dúvida? Fale conosco no <a href="mailto:jornalismoindependentecurso@gmail.com">jornalismoindependentecurso@gmail.com</a></p>
+    <div class="container">
+      <p>Ficou com alguma dúvida? Fale conosco no <a href="mailto:jornalismoindependentecurso@gmail.com">jornalismoindependentecurso@gmail.com</a></p>
     </div>
   </footer>
 </body>
