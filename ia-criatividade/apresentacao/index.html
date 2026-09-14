@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>A reportagem ainda é sua! Como usar IA sem abrir mão da criatividade</title>
+    <script async src="https://www.instagram.com/embed.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --black: #111;
+            --white: #fff;
+            --mid: #888;
+            --light-gray: #e5e5e5;
+            --cream: #f7f5f1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        .reveal { font-family: 'Inter', -apple-system, sans-serif; color: var(--black); }
+        .reveal .slides { text-align: left; }
+        .reveal .slides section {
+            background: var(--white);
+            padding: 46px 70px;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 900;
+            color: var(--black);
+            text-transform: none;
+            letter-spacing: -0.03em;
+            line-height: 1.08;
+        }
+
+        .reveal p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 0.95em;
+            line-height: 1.65;
+            color: var(--mid);
+        }
+
+        .reveal .progress { color: var(--black); height: 5px; bottom: 0; }
+        .reveal .progress span { background: var(--black); }
+
+        /* Custom top bar: Bloco · progresso */
+        .class-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--light-gray);
+            padding: 10px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--mid);
+            z-index: 40;
+        }
+        .class-bar .cb-block { color: var(--black); }
+        .class-bar .cb-counter {
+            font-family: 'Playfair Display', serif;
+            font-size: 12px;
+            letter-spacing: 0;
+            color: var(--black);
+            font-weight: 700;
+            text-transform: none;
+        }
+        .class-bar .cb-track {
+            position: absolute;
+            bottom: -1px; left: 0;
+            height: 2px;
+            background: var(--black);
+            width: 0;
+            transition: width 0.4s ease;
+        }
+        .reveal .controls { color: var(--black); }
+        .reveal .slide-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.55em;
+            color: var(--mid);
+            background: none;
+        }
+
+        .divider { width: 50px; height: 2px; background: var(--black); margin: 16px 0; }
+        .divider-center { width: 50px; height: 2px; background: var(--black); margin: 20px auto; }
+        .divider-white { background: rgba(255,255,255,0.4) !important; }
+
+        .tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.55em;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--mid);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .slide-concept {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1em;
+            font-weight: 900;
+            color: var(--black);
+            margin-bottom: 16px;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .btn-read {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65em;
+            font-weight: 600;
+            color: var(--white);
+            background: var(--black);
+            padding: 10px 24px;
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            margin-top: 14px;
+            transition: opacity 0.2s;
+        }
+        .btn-read:hover { opacity: 0.7; }
+
+        .slide-title {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center !important;
+            background: var(--black) !important;
+        }
+        .slide-title h1 {
+            color: var(--white);
+            font-size: 3em;
+            max-width: 920px;
+            line-height: 1.05;
+        }
+        .slide-title .divider-center { background: var(--white); margin: 28px auto; }
+        .slide-title .author {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05em;
+            font-weight: 400;
+            color: rgba(255,255,255,0.78);
+            letter-spacing: 0.06em;
+        }
+        .slide-title .site {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78em;
+            font-weight: 400;
+            color: rgba(255,255,255,0.5);
+            margin-top: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .slide-title .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8em;
+            color: rgba(255,255,255,0.55);
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .article-layout { display: flex; gap: 40px; align-items: center; height: 100%; }
+        .article-layout .img-side { flex: 1.1; overflow: hidden; }
+        .article-layout .img-side img {
+            width: 100%; height: 400px; object-fit: cover;
+            display: block; filter: grayscale(15%);
+        }
+        .article-layout .text-side { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .article-layout .text-side h2 { font-size: 1.4em; margin-bottom: 10px; }
+        .article-layout .text-side p { font-size: 0.8em; }
+
+        .photo-focus {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center !important;
+        }
+        .photo-focus .bbc-mark {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7em; font-weight: 700;
+            letter-spacing: 0.2em;
+            background: var(--black); color: var(--white);
+            padding: 6px 18px; margin-bottom: 16px;
+            display: inline-block;
+        }
+        .photo-focus .slide-concept { margin-bottom: 12px; }
+        .photo-focus img {
+            width: 680px; max-width: 100%;
+            height: 320px; object-fit: cover;
+            display: block; margin: 0 auto;
+        }
+        .photo-focus h3 {
+            font-size: 1em; margin-top: 16px;
+            max-width: 620px; text-align: center;
+        }
+
+        .duo-layout { display: flex; gap: 28px; align-items: stretch; }
+        .duo-card { flex: 1; display: flex; flex-direction: column; }
+        .duo-card img { width: 100%; height: 250px; object-fit: cover; display: block; }
+        .duo-card .duo-text { padding: 16px 0 0; flex: 1; }
+        .duo-card .duo-text h3 { font-size: 0.9em; line-height: 1.3; margin-bottom: 8px; }
+        .duo-separator { width: 1px; background: var(--light-gray); align-self: stretch; }
+
+        .section-break {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center !important;
+            background: var(--black) !important;
+        }
+        .section-break h2 { color: var(--white); font-size: 2.2em; max-width: 820px; }
+        .section-break .divider-center { background: rgba(255,255,255,0.3); margin: 18px auto; }
+        .section-break p { color: rgba(255,255,255,0.4); text-align: center; }
+        .section-break .eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7em; font-weight: 600;
+            letter-spacing: 0.25em;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        /* Epstein grid */
+        .ep-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 8px; }
+        .ep-item {
+            text-decoration: none; color: inherit; display: block;
+            border: 1px solid var(--light-gray); transition: box-shadow 0.2s;
+        }
+        .ep-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+        .ep-item img { width: 100%; height: 100px; object-fit: cover; display: block; }
+        .ep-item .ep-title {
+            padding: 8px 10px;
+            font-size: 0.55em;
+            font-weight: 500;
+            line-height: 1.4;
+            font-family: 'Inter', sans-serif;
+        }
+        .ep-highlight {
+            grid-column: 1 / -1;
+            display: flex;
+            background: var(--black);
+            text-decoration: none;
+            color: var(--white);
+            border: none;
+            align-items: stretch;
+        }
+        .ep-highlight img { width: 38%; height: 130px; object-fit: cover; }
+        .ep-highlight .ep-wrap {
+            flex: 1;
+            padding: 14px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .ep-highlight .ep-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.45em;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .ep-highlight .ep-title {
+            color: var(--white);
+            font-family: 'Playfair Display', serif;
+            font-size: 0.85em;
+            font-weight: 700;
+            padding: 0;
+            line-height: 1.25;
+        }
+
+        /* Latest Epstein banner (no image available, strong design) */
+        .ep-new {
+            grid-column: 1 / -1;
+            display: flex;
+            background: var(--white);
+            color: var(--black);
+            border: 2px solid var(--black);
+            text-decoration: none;
+            align-items: stretch;
+        }
+        .ep-new .ep-wrap {
+            flex: 1;
+            padding: 18px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .ep-new .ep-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.48em;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            color: var(--black);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .ep-new .ep-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 0.95em;
+            line-height: 1.2;
+            color: var(--black);
+            padding: 0;
+        }
+        .ep-new .ep-arrow {
+            width: 70px;
+            background: var(--black);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+        }
+
+        img { background: var(--light-gray); }
+
+        /* ===== PARTE NOVA ===== */
+        .center-slide {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center !important;
+        }
+
+        .kicker {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.68em;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--mid);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .big-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 2em;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            max-width: 960px;
+        }
+        .big-title.center { margin: 0 auto; text-align: center; }
+
+        .lead {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 1em;
+            line-height: 1.65;
+            color: var(--mid);
+            max-width: 820px;
+            margin-top: 20px;
+        }
+        .lead.center { margin: 20px auto 0; text-align: center; }
+
+        .minimal-list {
+            list-style: none;
+            margin: 26px 0 0;
+            padding: 0;
+            max-width: 880px;
+        }
+        .minimal-list li {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 1em;
+            line-height: 1.55;
+            color: var(--black);
+            padding: 15px 0 15px 32px;
+            border-bottom: 1px solid var(--light-gray);
+            position: relative;
+        }
+        .minimal-list li::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 26px;
+            width: 16px; height: 1px;
+            background: var(--black);
+        }
+        .minimal-list li:last-child { border-bottom: none; }
+
+        .compare { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 40px; margin-top: 22px; }
+        .compare .col h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            margin-bottom: 14px;
+        }
+        .compare .col ul { list-style: none; padding: 0; margin: 0; }
+        .compare .col ul li {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 0.88em;
+            line-height: 1.5;
+            color: var(--black);
+            padding: 11px 0 11px 20px;
+            border-bottom: 1px solid var(--light-gray);
+            position: relative;
+        }
+        .compare .col ul li::before { content: "—"; position: absolute; left: 0; color: var(--mid); }
+        .compare .col ul li:last-child { border-bottom: none; }
+        .compare .sep { background: var(--light-gray); width: 1px; }
+
+        .q-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 22px;
+            max-width: 980px;
+        }
+        .q-card {
+            border: 1px solid var(--light-gray);
+            padding: 22px 18px;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95em;
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--black);
+            min-height: 130px;
+            display: flex;
+            align-items: center;
+        }
+        .q-card.dark { background: var(--black); color: var(--white); border-color: var(--black); }
+
+        .auth-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin-top: 18px;
+            max-width: 960px;
+            border-top: 1px solid var(--light-gray);
+        }
+        .auth-table .head {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.58em;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--mid);
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .auth-table .q {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 0.95em;
+            line-height: 1.25;
+            color: var(--black);
+            padding: 20px 20px 20px 0;
+            border-right: 1px solid var(--light-gray);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .auth-table .a {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 0.78em;
+            line-height: 1.5;
+            color: var(--mid);
+            padding: 20px 0 20px 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-top: 26px;
+            max-width: 1020px;
+        }
+        .step { border-top: 2px solid var(--black); padding-top: 14px; }
+        .step .num {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.8em;
+            font-weight: 700;
+            color: var(--mid);
+            display: block;
+            margin-bottom: 6px;
+            letter-spacing: 0.05em;
+        }
+        .step .txt {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72em;
+            font-weight: 500;
+            line-height: 1.35;
+            color: var(--black);
+        }
+        .steps-foot { margin-top: 22px; max-width: 920px; font-size: 0.78em !important; }
+
+        .pull-quote {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1.3em;
+            line-height: 1.35;
+            color: var(--black);
+            max-width: 820px;
+            position: relative;
+            padding-left: 26px;
+        }
+        .pull-quote::before {
+            content: "“";
+            position: absolute;
+            left: -6px; top: -24px;
+            font-size: 3.4em;
+            color: var(--light-gray);
+            font-family: 'Playfair Display', serif;
+        }
+        .pull-quote .cite {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            font-size: 0.5em;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--mid);
+            margin-top: 18px;
+        }
+
+        /* Pdf page embed */
+        .pdf-shot {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center !important;
+            padding: 24px 40px !important;
+            background: var(--cream) !important;
+        }
+        .pdf-shot img {
+            max-width: 95%;
+            max-height: 560px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            box-shadow: 0 14px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+            background: #fff;
+        }
+        .pdf-shot .shot-cap {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.58em;
+            font-weight: 400;
+            color: var(--mid);
+            margin-top: 12px;
+            letter-spacing: 0.02em;
+        }
+
+        .pair-list { margin-top: 24px; max-width: 820px; }
+        .pair-list .row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 24px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .pair-list .row:last-child { border-bottom: none; }
+        .pair-list .label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.62em;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--black);
+        }
+        .pair-list .value {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 0.8em;
+            line-height: 1.55;
+            color: var(--black);
+        }
+
+        .schedule {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: 820px;
+            margin-top: 10px;
+        }
+        .schedule .item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 24px;
+            padding: 22px 0;
+            border-bottom: 1px solid var(--light-gray);
+            align-items: baseline;
+        }
+        .schedule .item:first-child { border-top: 1px solid var(--light-gray); }
+        .schedule .date {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 0.95em;
+            color: var(--black);
+        }
+        .schedule .desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85em;
+            font-weight: 400;
+            color: var(--black);
+            line-height: 1.5;
+        }
+        .schedule .tag-today {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            font-size: 0.55em;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            padding: 5px 12px;
+            margin-right: 10px;
+            vertical-align: middle;
+            text-transform: uppercase;
+        }
+
+        .bios {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            max-width: 960px;
+            margin: 14px auto 0;
+        }
+        .bio { display: flex; flex-direction: column; align-items: flex-start; }
+        .bio .portrait {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(12%);
+            margin-bottom: 18px;
+            background: var(--light-gray);
+        }
+        .bio h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+            margin-bottom: 4px;
+        }
+        .bio .role {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6em;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--mid);
+            display: block;
+            margin-bottom: 14px;
+        }
+        .bio p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 0.76em;
+            line-height: 1.6;
+            color: var(--black);
+        }
+        .bio .divider { margin: 10px 0; width: 36px; }
+
+        .url-badge {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72em;
+            font-weight: 500;
+            color: var(--black);
+            border: 1px solid var(--black);
+            padding: 12px 22px;
+            text-decoration: none;
+            margin-top: 20px;
+            letter-spacing: 0.04em;
+        }
+        .url-badge:hover { background: var(--black); color: var(--white); }
+        .url-badge.big {
+            font-size: 0.9em;
+            padding: 16px 30px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+        }
+
+        .agenda-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+            max-width: 820px;
+            counter-reset: ag;
+        }
+        .agenda-list li {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95em;
+            font-weight: 400;
+            color: var(--black);
+            padding: 18px 0 18px 56px;
+            border-bottom: 1px solid var(--light-gray);
+            position: relative;
+            counter-increment: ag;
+        }
+        .agenda-list li::before {
+            content: counter(ag, decimal-leading-zero);
+            position: absolute;
+            left: 0; top: 18px;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9em;
+            font-weight: 700;
+            color: var(--mid);
+        }
+        .agenda-list li:last-child { border-bottom: none; }
+
+        .dark-slide { background: var(--black) !important; color: var(--white); }
+        .dark-slide h1, .dark-slide h2, .dark-slide h3 { color: var(--white); }
+        .dark-slide p, .dark-slide .lead { color: rgba(255,255,255,0.7); }
+        .dark-slide .kicker { color: rgba(255,255,255,0.55); }
+        .dark-slide .minimal-list li { color: var(--white); border-bottom-color: rgba(255,255,255,0.15); }
+        .dark-slide .minimal-list li::before { background: var(--white); }
+
+        /* Tool cards (Base dos Dados, Aleph, etc) */
+        .tool-card {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .tool-card .left { display: flex; flex-direction: column; }
+        .tool-card .org {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.58em;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--mid);
+        }
+        .tool-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4em;
+            font-weight: 900;
+            line-height: 1;
+            margin: 6px 0 12px;
+        }
+        .tool-card .desc {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 0.8em;
+            line-height: 1.6;
+            color: var(--black);
+            margin-bottom: 14px;
+        }
+        .tool-card .tool-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72em;
+            font-weight: 600;
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 1px solid var(--black);
+            padding-bottom: 3px;
+            align-self: flex-start;
+        }
+        .tool-card .right img {
+            width: 100%;
+            max-height: 380px;
+            object-fit: contain;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid var(--light-gray);
+        }
+
+        /* Estrutura pedidos — icons grid */
+        .request-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1000px;
+            margin-top: 24px;
+        }
+        .req-card {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            gap: 20px;
+            padding: 22px;
+            border: 1px solid var(--light-gray);
+            align-items: center;
+        }
+        .req-icon {
+            width: 70px; height: 70px;
+            border: 1.5px solid var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .req-icon svg {
+            width: 34px; height: 34px;
+            stroke: var(--black);
+            fill: none;
+            stroke-width: 1.4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .req-card h3 { font-family: 'Playfair Display', serif; font-size: 1em; margin-bottom: 6px; }
+        .req-card p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 0.72em;
+            line-height: 1.5;
+            color: var(--mid);
+        }
+
+        .thanks-slide {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center !important;
+            background: var(--white) !important;
+        }
+        .thanks-slide h1 { font-size: 4em; }
+        .thanks-slide .divider-center { margin: 20px auto; }
+        .thanks-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 1em;
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid var(--black);
+            padding-bottom: 3px;
+        }
+
+        .video-slide { text-align: center !important; overflow: hidden; }
+        .video-slide .slide-concept { text-align: center; display: block; margin-bottom: 6px; }
+        .video-slide p { text-align: center; max-width: 700px; margin: 0 auto 16px; font-size: 0.8em; }
+        .video-grid { display: flex; gap: 12px; justify-content: center; }
+        .video-grid .instagram-media {
+            min-width: 0 !important;
+            max-width: 250px !important;
+            width: 250px !important;
+            margin: 0 !important;
+        }
+
+        /* Dona Maria slide — história > dados */
+        .reveal .slides section.story-slide {
+            display: grid !important;
+            grid-template-columns: 1fr 0.9fr 0.7fr;
+            gap: 26px;
+            align-items: center;
+            flex-direction: unset;
+        }
+        .story-slide .story-text { display: flex; flex-direction: column; }
+        .story-slide .story-text .kicker { margin-bottom: 14px; }
+        .story-slide .story-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            font-weight: 900;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            margin-bottom: 14px;
+        }
+        .story-slide .story-text .story-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82em;
+            font-weight: 300;
+            line-height: 1.55;
+            color: var(--mid);
+            margin-bottom: 14px;
+        }
+        .story-slide .story-text a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.62em;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            background: var(--black);
+            text-decoration: none;
+            padding: 10px 20px;
+            align-self: flex-start;
+            text-transform: uppercase;
+        }
+        .story-slide img {
+            width: 100%;
+            max-height: 540px;
+            object-fit: cover;
+            display: block;
+            border: 1px solid var(--light-gray);
+        }
+        .story-slide .chart { background: var(--white); object-fit: contain; }
+
+        /* ============================================ */
+        /* REFINAMENTOS EDITORIAIS                      */
+        /* ============================================ */
+
+        /* Tabular numbers everywhere for precision */
+        .reveal .slides section, .class-bar, .cb-counter {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Subtle paper feel on content slides */
+        .reveal .slides > section:not(.slide-title):not(.section-break):not(.dark-slide):not(.pdf-shot):not(.thanks-slide):not(.apostila-slide) {
+            background: #fafaf8;
+        }
+
+        /* Refined kicker: leading em-dash */
+        .kicker::before {
+            content: "— ";
+            color: var(--mid);
+            letter-spacing: 0;
+        }
+
+
+
+        /* Refined big-title: small caps affix */
+        .big-title {
+            font-feature-settings: "liga", "dlig", "kern";
+        }
+
+        /* Refined class bar: serif counter + running label */
+        .class-bar {
+            padding: 11px 26px;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .class-bar .cb-block {
+            position: relative;
+            padding-left: 18px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .class-bar .cb-block::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 50%;
+            width: 10px; height: 1px;
+            background: var(--black);
+            transform: translateY(-50%);
+        }
+        .class-bar .cb-block::after {
+            content: " ▾";
+            font-size: 0.7em;
+            opacity: 0.5;
+        }
+
+        /* Slide nav dropdown */
+        .slide-nav {
+            position: fixed;
+            top: 44px; left: 0; right: 0;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            z-index: 39;
+            display: none;
+            padding: 10px 26px;
+            gap: 0;
+            flex-wrap: wrap;
+        }
+        .slide-nav.open { display: flex; }
+        .slide-nav a {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--mid);
+            text-decoration: none;
+            padding: 9px 16px;
+            white-space: nowrap;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: color 0.15s;
+        }
+        .slide-nav a:hover { color: var(--black); }
+        .slide-nav a.active {
+            color: var(--black);
+            border-bottom-color: var(--black);
+        }
+
+        body.dark-ctx .slide-nav {
+            background: rgba(0,0,0,0.85);
+        }
+        body.dark-ctx .slide-nav a { color: rgba(255,255,255,0.5); }
+        body.dark-ctx .slide-nav a:hover,
+        body.dark-ctx .slide-nav a.active { color: var(--white); border-bottom-color: var(--white); }
+        .class-bar .cb-counter {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: 0.02em;
+        }
+        .class-bar .cb-counter span {
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        /* Refined pdf-shot: cream with tiny caption rule */
+        .pdf-shot {
+            background: #f5f2ec !important;
+        }
+        .pdf-shot .shot-cap {
+            position: relative;
+            padding-top: 12px;
+            max-width: 720px;
+        }
+        .pdf-shot .shot-cap::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 50%;
+            width: 30px; height: 1px;
+            background: var(--black);
+            transform: translateX(-50%);
+            opacity: 0.3;
+        }
+
+        /* Minimal-list: refined hover with animated rule */
+        .minimal-list li {
+            transition: padding-left 0.3s ease;
+        }
+        .minimal-list li:hover {
+            padding-left: 34px;
+        }
+        .minimal-list li:hover::before {
+            width: 20px;
+        }
+        .minimal-list li::before {
+            transition: width 0.3s ease;
+        }
+
+
+        /* Subtle slide-number refinement */
+        .reveal .slide-number {
+            font-family: 'Playfair Display', serif !important;
+            font-style: italic;
+            font-size: 12px !important;
+            right: 26px;
+            bottom: 14px;
+        }
+
+
+        /* Progress bar: refined with end marker */
+        .reveal .progress {
+            height: 2px;
+            background: rgba(0,0,0,0.08);
+        }
+
+        /* Dark-context class bar (title, section-break, dark slides) */
+        body.dark-ctx .class-bar {
+            background: rgba(0,0,0,0.6);
+            border-bottom-color: rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.5);
+        }
+        body.dark-ctx .class-bar .cb-block { color: var(--white); }
+        body.dark-ctx .class-bar .cb-block::before { background: var(--white); }
+        body.dark-ctx .class-bar .cb-counter { color: var(--white); }
+        body.dark-ctx .class-bar .cb-track { background: var(--white); }
+
+        /* Apostila CTA */
+        .apostila-slide {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center !important;
+            background: var(--cream) !important;
+        }
+        .tutorial-shot { position:relative; width:100%; max-width:960px; margin:14px auto 0; border:1px solid var(--light-gray); background:var(--cream); padding:10px; }
+        .tutorial-shot img { display:block; width:100%; max-height:430px; object-fit:contain; object-position:center; }
+        /* O conteúdo deve funcionar no telão sem depender de legendas miúdas. */
+        .tutorial-caption, .shot-cap { display:none !important; }
+    </style>
+</head>
+
+<body>
+    <div class="class-bar">
+        <div class="cb-block" id="cb-block" onclick="document.getElementById('slide-nav').classList.toggle('open')">Abertura</div>
+        <div class="cb-counter" id="cb-counter">01 / 01</div>
+        <div class="cb-track" id="cb-track"></div>
+    </div>
+    <nav class="slide-nav" id="slide-nav"></nav>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- 1 · TÍTULO -->
+            <section class="slide-title">
+                <img src="assets/capa-reportagem-ia.png" alt="Capa desenhada: A reportagem ainda é sua! Como usar IA sem abrir mão da criatividade" style="width:100%;height:100%;object-fit:contain;display:block;">
+            </section>
+
+            <!-- 2 · BIOS com fotos -->
+            <section>
+                <span class="kicker">Quem apresenta</span>
+                <h2 class="big-title" style="font-size:1.6em; margin-bottom:8px;">Ju Faddul &amp; Luiz Fernando Toledo</h2>
+                <div class="bios">
+                    <div class="bio">
+<img class="portrait" src="https://cursos.datafixers.org/jornalismo-investigativo/photos/ju.png" alt="Ju Faddul">
+                        <h3>Ju Faddul</h3>
+                        <span class="role">Jornalista independente</span>
+                        <div class="divider"></div>
+                        <p>Colaboradora fixa do <em>New York Times</em> e da revista <em>piauí</em>. Suas reportagens
+                            já ganharam financiamento do Pulitzer Center, Earth Journalism Network, Princeton
+                            University e Unesco.</p>
+                    </div>
+                    <div class="bio">
+                        <img class="portrait" src="https://cursos.datafixers.org/jornalismo-investigativo/photos/luiz.jpg" alt="Luiz Fernando Toledo">
+                        <h3>Luiz Fernando Toledo</h3>
+                        <span class="role">BBC News Brasil · Univ. Cambridge</span>
+                        <div class="divider"></div>
+                        <p>Repórter da BBC News Brasil em Londres e pesquisador da Universidade de Cambridge.
+                            Trabalha com dados abertos, transparência e investigações sobre políticas públicas.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3 · CRONOGRAMA -->
+            <section>
+                <span class="kicker">Cronograma do curso</span>
+                <h2 class="big-title" style="font-size:1.7em; margin-bottom:18px;">O que ainda vem por aí</h2>
+                <div class="schedule">
+                    <div class="item">
+                        <div class="date"><span class="tag-today">Encontro 1</span></div>
+                        <div class="desc">O que é inteligência artificial? Vocabulário, capacidades, corrida tecnológica e principais ferramentas.</div>
+                    </div>
+                    <div class="item">
+                        <div class="date">Encontro 2</div>
+                        <div class="desc">Traga uma ideia que você gostaria de fazer. Vamos escolher algumas e tentar criar um protótipo juntos. Pode ser uma pauta, um site legal, um portfólio, um site sobre música ou qualquer outra coisa que você tenha vontade de experimentar!</div>
+                    </div>
+                    <div class="item">
+                        <div class="date">Encontro 3</div>
+                        <div class="desc">Novos formatos: newsgames, infográficos, sites interativos e outras experiências.</div>
+                    </div>
+                    <div class="item">
+                        <div class="date">Encontro 4</div>
+                        <div class="desc">Checagem, limites da IA e espaço para perguntas e dúvidas.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NOVO BLOCO · IA, VOCABULÁRIO E CONTEXTO -->
+            <section class="section-break">
+                <div class="eyebrow">Bloco 1 · Antes das ferramentas</div>
+                <h2>O que mudou quando falamos em IA?</h2>
+                <div class="divider-center"></div>
+                <p>Do autocomplete ao agente que executa uma tarefa inteira — e por que isso importa para uma reportagem.</p>
+            </section>
+
+            <section>
+                <span class="kicker">Explicando sem mistério</span>
+                <h2 class="big-title" style="font-size:1.8em;">O que exatamente queremos dizer quando falamos em IA?</h2>
+                <div style="margin:30px auto 24px;max-width:930px;background:#fff;border:2px solid var(--black);padding:26px 32px;font-size:1.25em;line-height:1.5;"><span style="color:var(--mid);">“O repórter abriu o...”</span> <strong style="color:#e87925;">documento</strong> <span style="color:var(--mid);">/ navegador / arquivo</span></div>
+                <p class="lead center" style="max-width:900px;margin:auto;">Um modelo de linguagem lê o que veio antes e calcula quais palavras ou pedaços de palavra têm mais chance de vir depois. Repetindo isso muitas vezes, ele produz uma resposta.</p>
+                <p class="lead center" style="max-width:900px;margin-top:18px;"><strong style="color:#e87925;">Token</strong> é só o nome dado a esses pedaços de texto.</p>
+            </section>
+
+            <section>
+                <span class="kicker">Como o treinamento muda o comportamento</span>
+                <h2 class="big-title" style="font-size:1.8em;">“Recompensa” quer dizer: dar um sinal de que uma resposta foi melhor</h2>
+                <div style="display:flex;align-items:stretch;justify-content:center;gap:12px;margin:28px 0 20px;flex-wrap:wrap;"><div style="background:#fff;border:2px solid #111;padding:20px;width:250px;"><div style="font-size:2em;">🤖</div><h3>Tentativa</h3><p style="font-size:.75em;">O modelo responde de dois jeitos.</p></div><div style="font-size:2em;align-self:center;">→</div><div style="background:#fff;border:2px solid #e87925;padding:20px;width:250px;"><div style="font-size:2em;">👀</div><h3>Avaliação</h3><p style="font-size:.75em;">Pessoas, modelos ou testes indicam qual funciona melhor.</p></div><div style="font-size:2em;align-self:center;">→</div><div style="background:#fff;border:2px solid #3156a8;padding:20px;width:250px;"><div style="font-size:2em;">🔁</div><h3>Ajuste</h3><p style="font-size:.75em;">O treinamento aumenta a chance de repetir a estratégia escolhida.</p></div></div>
+                <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px;"><a class="url-badge" href="https://openai.com/index/instruction-following/" target="_blank">OpenAI · como o feedback ajusta modelos</a><a class="url-badge" href="https://arxiv.org/abs/2203.02155" target="_blank">Artigo InstructGPT · leitura técnica</a><a class="url-badge" href="https://arxiv.org/abs/2005.14165" target="_blank">GPT-3 · previsão do próximo token</a></div>
+            </section>
+
+            <section>
+                <span class="kicker">O trabalho humano por trás da IA</span>
+                <h2 class="big-title" style="font-size:1.7em;">Para uma IA parecer “natural”, muita gente precisou fazer um trabalho difícil</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:18px;align-items:start;">
+                    <div><img src="assets/ai-moderadores-quenia.png" alt="Print real de reportagem sobre moderadores quenianos que treinaram modelos de IA" style="width:100%;height:235px;object-fit:cover;object-position:top;display:block;"><p class="tutorial-caption">Moderadores no Quênia relataram baixo pagamento, demissões e o trauma de ler material gráfico para treinar modelos.</p></div>
+                    <div><img src="assets/trabalho-humano-chatgpt.png" alt="Print real de reportagem da BBC News Brasil sobre o trabalho humano por trás do ChatGPT" style="width:100%;height:235px;object-fit:cover;object-position:top;display:block;"><p class="tutorial-caption">A BBC News Brasil também mostrou o trabalho invisível por trás do ChatGPT.</p></div>
+                </div>
+                <p class="lead" style="margin-top:18px;">A “recompensa” do treinamento não cai do céu: pessoas rotulam exemplos, comparam respostas e ajudam a ensinar ao sistema o que parece útil, seguro ou adequado.</p>
+                <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px;"><a class="url-badge" href="https://www.theguardian.com/technology/2023/aug/02/ai-chatbot-training-human-toll-content-moderator-meta-openai" target="_blank">The Guardian · moderadores no Quênia</a><a class="url-badge" href="https://www.youtube.com/watch?v=HEwY0WKeKjc" target="_blank">BBC News Brasil · o trabalho por trás do ChatGPT</a><a class="url-badge" href="https://time.com/6247678/openai-chatgpt-kenya/" target="_blank">TIME · trabalhadores que tornaram o ChatGPT menos tóxico</a></div>
+            </section>
+
+            <section>
+                <span class="kicker">Teaser de vocabulário</span>
+                <h2 class="big-title" style="font-size:1.8em;">As palavras que você vai ouvir toda hora</h2>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px;"><div style="background:#fff;padding:18px;border-left:4px solid #111;"><h3>Modelo</h3><p style="font-size:.7em;">o sistema que gera a resposta</p></div><div style="background:#fff;padding:18px;border-left:4px solid #111;"><h3>Contexto</h3><p style="font-size:.7em;">o material disponível nesta tarefa</p></div><div style="background:#fff;padding:18px;border-left:4px solid #111;"><h3>Multimodal</h3><p style="font-size:.7em;">texto, imagem, áudio, vídeo ou código</p></div><div style="background:#fff;padding:18px;border-left:4px solid #e87925;"><h3>Token</h3><p style="font-size:.7em;">unidade que o modelo processa</p></div><div style="background:#fff;padding:18px;border-left:4px solid #e87925;"><h3>Agente</h3><p style="font-size:.7em;">planeja e executa etapas</p></div><div style="background:#fff;padding:18px;border-left:4px solid #e87925;"><h3>Alucinação</h3><p style="font-size:.7em;">resposta inventada ou sem sustentação</p></div></div>
+            </section>
+
+            <section>
+                <span class="kicker">O que ela pode fazer?</span>
+                <h2 class="big-title" style="font-size:1.8em;">De responder perguntas a executar tarefas</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center;margin-top:18px;"><div><img src="https://cursos.datafixers.org/jornalismo-investigativo/photos/codex_screenshot.png" alt="Print real de um agente de IA trabalhando com documentos" style="width:100%;height:270px;object-fit:cover;display:block;"><p class="tutorial-caption">Agentes combinam conversa, pesquisa e ação.</p></div><div><ul class="minimal-list"><li>ler e resumir</li><li>transcrever e comparar</li><li>pesquisar e cruzar fontes</li><li>escrever código e protótipos</li><li>usar ferramentas sob supervisão</li></ul></div></div>
+                <p class="lead center" style="margin-top:16px;">A capacidade aumenta. A responsabilidade de decidir, verificar e publicar continua humana.</p>
+            </section>
+
+            <section>
+                <span class="kicker">A corrida da IA</span>
+                <h2 class="big-title" style="font-size:1.8em;">Por que toda semana parece haver uma novidade?</h2>
+                <p class="lead">Laboratórios competem por modelos mais capazes, chips, dados, usuários e infraestrutura. A disputa não é apenas técnica: envolve dinheiro, energia, propriedade intelectual, trabalho e poder geopolítico.</p>
+                <ul class="minimal-list">
+                    <li><strong>Mais escala</strong>: modelos maiores e mais caros de treinar.</li>
+                    <li><strong>Mais eficiência</strong>: modelos menores, especializados e baratos de rodar.</li>
+                    <li><strong>Mais ação</strong>: sistemas que deixam de só conversar e passam a usar ferramentas.</li>
+                </ul>
+            </section>
+
+            <section>
+                <span class="kicker">Reuters Institute · tendências 2026</span>
+                <h2 class="big-title" style="font-size:1.65em;">As pessoas já se informam com IA</h2>
+                <p class="lead" style="font-size:.92em;margin-bottom:14px;">Buscar informações é um dos usos mais comuns dos chatbots. Segundo o Reuters Institute, notícias atualizadas já fazem parte desse hábito.</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:12px;"><div style="background:#fff;padding:12px;"><iframe title="Número de encaminhamentos para sites de notícias no mundo" src="https://datawrapper.dwcdn.net/RFSAr/5/" style="width:100%;height:225px;border:0;" loading="lazy"></iframe><p class="tutorial-caption">Tráfego de busca para sites de notícias na rede global da Chartbeat.</p></div><div style="background:#fff;padding:12px;"><iframe title="Onde os publishers pretendem investir mais ou menos em 2026" src="https://datawrapper.dwcdn.net/dfIoL/1/" style="width:100%;height:225px;border:0;" loading="lazy"></iframe><p class="tutorial-caption">O que os publishers dizem que vão priorizar em 2026.</p></div></div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;"><div style="background:#111;color:#fff;padding:14px;"><strong style="font-size:1.25em;">−43%</strong><p style="font-size:.66em;margin:6px 0 0;">é a expectativa de queda do tráfego vindo de buscadores em três anos.</p></div><div style="background:#e87925;color:#111;padding:14px;"><strong style="font-size:1.25em;">75%</strong><p style="font-size:.66em;margin:6px 0 0;">esperam grande impacto de ferramentas agentic na indústria.</p></div><div style="background:#3156a8;color:#fff;padding:14px;"><strong style="font-size:1.25em;">+91</strong><p style="font-size:.66em;margin:6px 0 0;">é a prioridade líquida para mais investigação original e reportagem de rua.</p></div></div>
+                <p class="tutorial-caption" style="margin-top:10px;">O relatório ouviu 280 líderes digitais em 51 países. <a href="https://reutersinstitute.politics.ox.ac.uk/journalism-media-and-technology-trends-and-predictions-2026" target="_blank">Ler o relatório completo →</a></p>
+            </section>
+
+            <section>
+                <span class="kicker">Segurança e controle</span>
+                <h2 class="big-title" style="font-size:1.7em;">Quanto mais capacidade, maior a discussão sobre controle</h2>
+                <p class="lead" style="font-size:.9em;margin-bottom:18px;">Em setembro de 2026, Dario Amodei pediu que os laboratórios desacelerassem o avanço dos modelos para dar tempo a testes e medidas de segurança. Sam Altman e Elon Musk apoiaram publicamente a proposta.</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;">
+                    <div><img src="assets/dario-pace-frontier.png" alt="Print real do texto We Must Pace the Frontier, de Dario Amodei" style="width:100%;height:270px;object-fit:cover;object-position:top;display:block;"><p class="tutorial-caption"><strong>Dario Amodei:</strong> “We Must Pace the Frontier” · <a href="https://darioamodei.com/post/we-must-pace-the-frontier" target="_blank">ler o texto original</a></p></div>
+                    <div><img src="assets/guardian-pace-frontier.png" alt="Print real da reportagem do Guardian sobre o apoio de Sam Altman e Elon Musk à proposta de desacelerar a corrida da IA" style="width:100%;height:270px;object-fit:cover;object-position:center 70%;display:block;"><p class="tutorial-caption"><strong>The Guardian:</strong> rivais da corrida da IA apoiam a desaceleração · <a href="https://www.theguardian.com/technology/2026/sep/13/openai-sam-altman-elon-musk-back-anthropic-calls-brakes-ai-development" target="_blank">ler a reportagem</a></p></div>
+                </div>
+            </section>
+
+            <section class="section-break">
+                <div class="eyebrow">Casos práticos</div>
+                <h2>Exemplos práticos</h2>
+                <div class="divider-center"></div>
+                <p>Como usar IA para descobrir pistas, encontrar fontes e investigar padrões.</p>
+            </section>
+
+            <section>
+                <span class="kicker">Principais ferramentas</span>
+                <h2 class="big-title" style="font-size:1.7em;">Qual usar? Depende do trabalho</h2>
+                <div class="compare"><div class="col"><h3>Conversa, pesquisa e fontes</h3><ul><li>ChatGPT</li><li>Claude</li><li>Gemini</li><li>Perplexity</li><li>NotebookLM</li></ul></div><div></div><div class="col"><h3>Ambientes de trabalho e agentes</h3><ul><li>ChatGPT Work e Claude Cowork</li><li>Codex e Claude Code</li><li>Gemini Spark</li><li>Automação e APIs</li><li>Planilhas, Python e dashboards com assistência de IA</li></ul></div></div>
+                <p class="lead">A diferença importante não é só “qual responde melhor”: é se a ferramenta consegue ver as fontes, usar ferramentas, deixar rastros e permitir que você confira.</p>
+            </section>
+
+            <section>
+                <span class="kicker">IA como detector de pistas</span>
+                <h2 class="big-title" style="font-size:1.75em;">Encontrar informações que você nem sabia que existiam</h2>
+                <div class="tutorial-shot" style="margin-top:22px;"><img src="assets/bbc-fake-doctors-ai.png" alt="Print real de matéria da BBC News Brasil sobre médicos falsos feitos por IA" style="width:100%;max-height:510px;object-fit:contain;object-position:center;background:#f4f4f1;display:block;"></div>
+            </section>
+
+            <section>
+                <span class="kicker">Caso concreto · médicos de IA</span>
+                <h2 class="big-title" style="font-size:1.7em;">A entrevistada que estava entre mais de 2 mil comentários</h2>
+                <div style="display:grid;grid-template-columns:.8fr 1.2fr;gap:24px;margin-top:18px;align-items:center;">
+                    <div><img src="assets/entrevistada-medicos-ia.png" alt="Foto da entrevistada encontrada entre os comentários de um vídeo" style="width:100%;height:330px;object-fit:cover;object-position:center;display:block;"></div>
+                    <div>
+                        <p class="lead" style="font-size:1em;">O prompt foi direto: ler os comentários do vídeo e identificar pessoas que disseram que seguiriam os conselhos do médico.</p>
+                        <blockquote style="background:#fff;border-left:5px solid #e87925;padding:18px 22px;margin:18px 0;font-family:'Playfair Display',serif;font-size:1.05em;">“Não me animei [com a orientação do oftalmologista], pois ainda vejo bem. Agora vou seguir sua orientação”, escreveu ela nos comentários do vídeo.</blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <span class="kicker">Caso concreto · rastrear a origem</span>
+                <h2 class="big-title" style="font-size:1.7em;">Quem está vendendo isso?</h2>
+                <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:22px;margin-top:18px;align-items:start;">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;background:#fff;padding:12px;"><img src="assets/doctor-ai-prototype.png" alt="Print real da página de venda do infoproduto médico" style="width:100%;height:250px;object-fit:contain;object-position:center;background:#f4f4f1;display:block;"><img src="assets/doctor-ai-checkout.png" alt="Print real do checkout do infoproduto médico" style="width:100%;height:250px;object-fit:contain;object-position:center;background:#f4f4f1;display:block;"></div>
+                    <div><p class="lead" style="font-size:1em;"><strong>Perguntamos à IA:</strong> quem está vendendo isso?</p><div style="background:#111;color:#fff;padding:18px;margin:16px 0;font-family:monospace;font-size:.78em;line-height:1.55;"><div style="color:#e87925;">Inspecionar elemento</div><div>&lt;a href=<span style="color:#9dd7ff;">"mailto:[e-mail encontrado]"</span>&gt;</div><div style="color:#bbb;">→ contato localizado no código da página</div></div><p style="font-size:.82em;">A IA foi até o código-fonte da página e encontrou um e-mail de contato. Esse tipo de pista pode ser rechecado manualmente no HTML antes de virar uma fonte ou um contato jornalístico.</p></div>
+                </div>
+            </section>
+
+            <section>
+                <span class="kicker">Caso concreto · médicos de IA</span>
+                <h2 class="big-title" style="font-size:1.7em;">A IA também encontra padrões entre canais</h2>
+                <div style="display:grid;grid-template-columns:1.25fr .75fr;gap:24px;margin-top:18px;align-items:center;">
+                    <div><img src="assets/medicos-ia-canais-semelhantes.png" alt="Print real mostrando vídeos de diferentes canais com títulos e imagens muito semelhantes sobre médicos de IA" style="width:100%;height:210px;object-fit:cover;object-position:center;display:block;margin-bottom:12px;"><img src="assets/medicos-ia-alcance.png" alt="Print real da quantificação do alcance acumulado de vídeos semelhantes sobre médicos de IA" style="width:100%;height:210px;object-fit:cover;object-position:center;display:block;"></div>
+                    <div><p class="lead" style="font-size:1em;">Pedimos à IA para procurar canais com títulos semelhantes e hashtags reproduzidas por vários canais — e também para quantificar o alcance.</p><ul class="minimal-list"><li>comparar títulos e miniaturas;</li><li>agrupar hashtags recorrentes;</li><li>encontrar novos canais;</li><li>somar as visualizações e estimar o alcance acumulado.</li></ul></div>
+                </div>
+            </section>
+
+            <section>
+                <span class="kicker">Encontrar fontes e personagens</span>
+                <h2 class="big-title" style="font-size:1.75em;">Raspar comentários públicos do YouTube para descobrir pautas</h2>
+                <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-top:18px;align-items:center;">
+                    <div><img src="assets/entrevistada-medicos-ia.png" alt="Foto da entrevistada encontrada após a análise de mais de 2 mil comentários públicos de um vídeo no YouTube" style="width:100%;height:300px;object-fit:contain;object-position:center;background:#f4f4f1;display:block;"><p class="tutorial-caption">A entrevistada do caso foi encontrada depois que a IA analisou mais de 2 mil comentários públicos de um vídeo.</p></div>
+                    <div><ol class="minimal-list" style="margin-top:0;"><li>Coletar comentários públicos de vídeos relacionados ao tema.</li><li>Usar IA para agrupar nomes, lugares, experiências e pistas recorrentes.</li><li>Voltar aos comentários originais e procurar os personagens.</li><li>Confirmar identidade, contexto e autorização antes de fazer contato.</li></ol></div>
+                </div>
+            </section>
+
+            <section>
+                <span class="kicker">Jornalismo e tecnologia</span>
+                <h2 class="big-title" style="font-size:1.75em;">Usar IA / Cobrir o universo da IA</h2>
+                <p class="lead">Mesmo que você decida não usar essas ferramentas, compreendê-las pode ajudar a encontrar pautas. Suas fontes estarão usando IA; seus entrevistados também; e, eventualmente, alguém que você esteja investigando poderá estar usando-a.</p>
+                <ul class="minimal-list"><li><strong>Usar IA</strong>: ganhar tempo, explorar documentos e criar protótipos com supervisão.</li><li><strong>Cobrir IA</strong>: investigar promessas, negócios, impactos, erros, trabalhadores, usuários e quem fica de fora.</li><li><strong>A pergunta jornalística</strong>: o que essa ferramenta mudou na vida de alguém — e quem pode provar?</li></ul>
+            </section>
+
+            <section>
+                <span class="kicker">Vantagens e riscos</span>
+                <h2 class="big-title" style="font-size:1.7em;">A mesma capacidade pode ajudar — ou atrapalhar</h2>
+                <div class="compare"><div class="col"><h3>Vantagens</h3><ul><li>Economiza tempo em tarefas repetitivas.</li><li>Ajuda a explorar grandes volumes de material.</li><li>Facilita protótipos e novas linguagens.</li><li>Amplia a capacidade de uma equipe pequena.</li><li>Ensina caminhos técnicos que você pode reproduzir.</li></ul></div><div></div><div class="col"><h3>Riscos</h3><ul><li>Alucinações e falsas fontes.</li><li>Viés.</li><li>Dependência de plataformas privadas.</li><li>Desinformação, deepfakes e perda de confiança.</li></ul></div></div>
+            </section>
+
+            <section>
+                <span class="kicker">A pergunta dos ricos — e dos riscos</span>
+                <h2 class="big-title" style="font-size:1.7em;">Quem ganha tempo? Quem paga a conta?</h2>
+                <p class="lead">A IA pode baratear acesso a pesquisa e produção, mas seus benefícios não se distribuem automaticamente. Infraestrutura custa energia, água, chips e dinheiro; dados e trabalho humano também entram nessa conta.</p>
+                <ul class="minimal-list"><li>Ricos em recursos podem comprar modelos, dados, consultoria e tempo de revisão.</li><li>Redações pequenas podem ganhar escala — ou ficar dependentes de serviços que mudam preço e regra.</li><li>O custo invisível aparece em privacidade, autoria, empregos e confiança pública.</li></ul>
+            </section>
+
+            <section>
+                <div class="article-layout"><div class="img-side"><img src="assets/bbc-eye-multi-agent.png" alt="Print real do relatório sobre o sistema multiagente da BBC Eye filtrando milhares de posts russos"></div><div class="text-side"><span class="kicker">Jornalismo · relatório</span><h2>A IA pode fazer mais jornalismo — mas não decide o que importa</h2><p>A BBC Eye, por exemplo, relatou o uso de um sistema multiagente para filtrar milhares de posts russos. A tecnologia acelera a triagem; especialistas e repórteres continuam responsáveis por contexto, confirmação e publicação.</p><a class="btn-read" href="https://reutersinstitute.politics.ox.ac.uk/ai-journalism-future-news" target="_blank">VER RELATÓRIO E EXEMPLOS</a></div></div>
+            </section>
+
+            <!-- TUTORIAIS · PRINTS REAIS DA APRESENTAÇÃO ORIGINAL -->
+            <section class="section-break">
+                <div class="eyebrow">Casos práticos</div>
+                <h2>O caso Epstein Files</h2>
+                <div class="divider-center"></div>
+                <p>Como a IA pode ajudar a trabalhar com grandes bases de documentos.</p>
+            </section>
+
+            <section>
+                <span class="kicker">Antes do agente · caso Epstein</span>
+                <h2 class="big-title" style="font-size:1.65em;">IA para grandes bases de documentos (alô, Banco Master!)</h2>
+                <p class="lead">O governo americano publicou uma quantidade enorme de documentos, organizados em páginas e arquivos difíceis de baixar e ler um a um. Para quem queria apurar, o primeiro obstáculo era encontrar um caminho navegável dentro do volume.</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;"><div><img src="https://image.thum.io/get/width/1200/crop/900/https://www.justice.gov/epstein/doj-disclosures" alt="Print do site oficial do Departamento de Justiça dos Estados Unidos com os arquivos Epstein" style="width:100%;height:230px;object-fit:cover;object-position:top;display:block;"><p class="tutorial-caption">Print do site oficial do Departamento de Justiça dos EUA · <a href="https://www.justice.gov/epstein/doj-disclosures" target="_blank">abrir fonte</a></p></div><div><img src="https://jmail.world/social-preview.png" alt="Print real do Jmail, interface de Gmail com arquivos de Epstein" style="width:100%;height:230px;object-fit:cover;display:block;"><p class="tutorial-caption">O Jmail reorganizou os e-mails numa interface parecida com Gmail · <a href="https://jmail.world/" target="_blank">abrir Jmail</a></p></div></div>
+            </section>
+
+            <section>
+                <span class="kicker">Tutorial · agente em ação</span>
+                <h2 class="big-title" style="font-size:1.65em;">O que observar num agente trabalhando?</h2>
+                <div class="tutorial-shot"><img src="https://cursos.datafixers.org/jornalismo-investigativo/photos/codex_screenshot.png" alt="Print real do Codex trabalhando com dados"></div>
+                <p class="tutorial-caption">Agora entra o agente: acompanhe a tarefa, as ferramentas usadas, os passos e o resultado. O ponto é comparar o que ele encontrou com os documentos originais.</p>
+            </section>
+
+            <section>
+                <span class="kicker">Tutorial · evidência</span>
+                <h2 class="big-title" style="font-size:1.65em;">O agente entra, filtra e devolve tudo mastigado</h2>
+                <div class="tutorial-shot"><img src="https://cursos.datafixers.org/jornalismo-investigativo/photos/codex_resultado.png" alt="Print real do resultado do Codex"></div>
+                <p class="tutorial-caption">No tutorial, observe o achado, a fonte e o ponto que ainda precisa de confirmação. Uma boa saída facilita a auditoria.</p>
+            </section>
+
+            <!-- Epstein grid movido para o início -->
+            <section>
+                <span class="slide-concept" style="text-align:center; display:block; margin-bottom:12px;">Navegar por
+                    milhões de arquivos em busca de pautas</span>
+                <div class="ep-grid">
+                    <a class="ep-item" href="https://www.bbc.com/portuguese/articles/cvg83wprk37o" target="_blank">
+                        <img referrerpolicy="no-referrer"
+                            src="https://ichef.bbci.co.uk/news/1024/branded_portuguese/9c0e/live/289ab5e0-04dc-11f1-b7e1-afb6d0884c18.png" alt="">
+                        <div class="ep-title">Epstein financiou modelos brasileiras e avisou dias antes sobre sua prisão</div>
+                    </a>
+                    <a class="ep-item" href="https://www.bbc.com/portuguese/articles/cm24mr6el23o" target="_blank">
+                        <img referrerpolicy="no-referrer"
+                            src="https://ichef.bbci.co.uk/news/1024/branded_portuguese/ed82/live/b1af3020-002e-11f1-b7e1-afb6d0884c18.png" alt="">
+                        <div class="ep-title">Os indícios de como bilionário pretendia recrutar mulheres no Brasil</div>
+                    </a>
+                    <a class="ep-item" href="https://www.bbc.com/portuguese/articles/cnv2937j42ro" target="_blank">
+                        <img referrerpolicy="no-referrer"
+                            src="https://ichef.bbci.co.uk/news/1024/branded_portuguese/e841/live/a689bce0-dfd8-11f0-aae2-2191c0e48a3b.jpg" alt="">
+                        <div class="ep-title">O elo com o Brasil revelado em novos documentos: 'Grande grupo brasileiro'</div>
+                    </a>
+                    <a class="ep-item" href="https://www.bbc.com/portuguese/articles/c1w91pvnqwxo" target="_blank">
+                        <img referrerpolicy="no-referrer"
+                            src="https://ichef.bbci.co.uk/news/1024/branded_portuguese/413c/live/f4fe5a00-e02f-11f0-997b-df531e67f496.jpg" alt="">
+                        <div class="ep-title">'Umas 50 brasileiras' estiveram na mansão do bilionário, diz vítima à BBC</div>
+                    </a>
+                    <a class="ep-item" href="https://www.bbc.com/portuguese/articles/cp817772k2go" target="_blank">
+                        <img referrerpolicy="no-referrer"
+                            src="https://ichef.bbci.co.uk/news/1024/branded_portuguese/b464/live/f063e5e0-07e5-11f1-b7e1-afb6d0884c18.jpg" alt="">
+                        <div class="ep-title">MPF abre investigação sobre rede de aliciamento de mulheres após reportagem da BBC</div>
+                    </a>
+                    <a class="ep-item" href="https://www.bbc.com/portuguese/articles/c2047g008dgo" target="_blank">
+                        <img referrerpolicy="no-referrer"
+                            src="https://ichef.bbci.co.uk/news/1024/branded_portuguese/d530/live/8839d6a0-0786-11f1-b7e1-afb6d0884c18.png" alt="">
+                        <div class="ep-title">Epstein tinha CPF e tentou ponte com empresários brasileiros para negócios</div>
+                    </a>
+                    <a class="ep-highlight" href="https://www.bbc.com/portuguese/articles/c5y6g6yzev5o" target="_blank">
+                        <img referrerpolicy="no-referrer"
+                            src="https://ichef.bbci.co.uk/news/1024/branded_portuguese/f363/live/6c95cca0-133f-11f1-801d-ed3cff6bf876.jpg" alt="">
+                        <div class="ep-wrap">
+                            <div class="ep-tag">BBC News Brasil</div>
+                            <div class="ep-title">Caso Epstein: mãe impediu modelo brasileira de viajar aos EUA com recrutador de bilionário</div>
+                        </div>
+                    </a>
+                    <a class="ep-new" href="https://www.bbc.com/news/articles/cr4576v66kno" target="_blank">
+                        <div class="ep-wrap">
+                            <div class="ep-tag">BBC · World Service · In English</div>
+                            <div class="ep-title">Epstein used modelling agent to recruit girls, Brazilian women tell BBC</div>
+                        </div>
+                        <div class="ep-arrow">→</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- NotebookLM para Epstein Files -->
+            <section>
+                <span class="kicker">Ferramentas usadas na investigação</span>
+                <h2 class="big-title" style="font-size:1.6em;">NotebookLM, o novo jeito (quase obrigatório) de pesquisar em muitos documentos ao mesmo tempo</h2>
+                <div class="divider"></div>
+                <p class="lead">Um caso concreto: usamos vídeos de entrevistas e podcasts para investigar a origem política de uma emenda que chegou a Juazeirinho.</p>
+                <div style="display:flex; gap:14px; margin-top:22px; flex-wrap:wrap;">
+                    <a class="url-badge" href="https://notebooklm.google.com/" target="_blank">NotebookLM →</a>
+                    <a class="url-badge" href="https://notebook.google.com/notebook/051ab054-bfb1-407a-8253-a9d1c8b043d9" target="_blank">Visitar o caderno desta apuração →</a>
+                    <a class="url-badge" href="https://www.youtube.com/watch?v=-yDqqTsV0TE" target="_blank">Vídeo tutorial →</a>
+                    <a class="url-badge" href="https://abraji.org.br/noticias/abraji-publica-novos-conteudos-do-kit-de-ferramentas-gemini-para-jornalistas" target="_blank">Curso Abraji · Gemini →</a>
+                </div>
+            </section>
+
+            <section>
+                <span class="kicker">Tutorial visual · criar o repositório</span>
+                <h2 class="big-title" style="font-size:1.65em;">Comece pelas fontes</h2>
+                <div class="article-layout" style="margin-top:16px;">
+                    <div class="img-side"><img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/notebooklm_youtube_audio_hero.width-1300.jpg" alt="Interface oficial do NotebookLM para adicionar fontes, incluindo URL do YouTube"></div>
+                    <div class="text-side">
+                        <p>Abra um notebook e clique em <strong>Adicionar fonte</strong>. O NotebookLM aceita PDFs, sites, documentos, textos, arquivos de áudio e URLs públicas do YouTube.</p>
+                        <ul class="minimal-list"><li>Crie um notebook para uma pauta específica.</li><li>Dê um nome que identifique a investigação.</li></ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <span class="kicker">Tutorial visual · vídeos do YouTube</span>
+                <h2 class="big-title" style="font-size:1.65em;">Como mandar um vídeo do YouTube para o notebook</h2>
+                <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:start;margin-top:16px;">
+                    <div class="tutorial-shot"><img src="assets/notebooklm-anna-virginia.png" alt="Print real do episódio do Ser+ Podcast com Anna Virgínia no YouTube"></div>
+                    <div><ul class="minimal-list"><li>Copie a URL de um vídeo público do YouTube.</li><li>No notebook, clique em <strong>Adicionar fonte</strong> e escolha <strong>YouTube</strong>.</li><li>Cole o endereço e confirme a importação.</li><li>Espere a transcrição aparecer na lista de fontes.</li></ul></div>
+                </div>
+            </section>
+
+            <section>
+                <span class="kicker">Tutorial visual · extensão do Chrome</span>
+                <h2 class="big-title" style="font-size:1.65em;">Dá para puxar vários vídeos de um canal de uma vez</h2>
+                <div class="tutorial-shot" style="margin-top:14px;"><img src="assets/youtube-notebooklm-extension.png" alt="Print real da extensão YouTube to NotebookLM na Chrome Web Store"></div>
+                <p class="tutorial-caption">A extensão “YouTube to NotebookLM” adiciona um atalho para enviar vídeos ao notebook. Instale-a pela Chrome Web Store e use-a para montar rapidamente um conjunto de fontes.</p>
+                <div style="margin-top:16px;display:grid;grid-template-columns:1.4fr .6fr;gap:20px;align-items:start;">
+                    <div style="position:relative;"><img src="assets/youtube-canal-notebooklm.png" alt="Print real do canal TV Celular Flavio Bolsonaro com botão NotebookLM" style="width:100%;display:block;"><span style="position:absolute;left:78%;top:35%;width:18%;height:20%;border:5px solid #e53935;border-radius:999px;transform:rotate(-4deg);box-shadow:0 0 0 2px rgba(255,255,255,.7);pointer-events:none;"></span></div>
+                    <div><h3 style="margin-top:0;">Onde clicar</h3><p>Clique no botão <strong>NotebookLM</strong> que aparece no cabeçalho do canal. A partir dali, selecione os vídeos que quer transformar em fontes.</p></div>
+                </div>
+                <p class="lead" style="margin-top:14px;">Para uma apuração, isso permite reunir entrevistas, podcasts e vídeos de um mesmo canal sem copiar cada URL manualmente — depois, o NotebookLM pesquisa as transcrições em conjunto.</p>
+                <a class="url-badge" href="https://chromewebstore.google.com/search/YouTube%20to%20NotebookLM" target="_blank">Abrir a busca da extensão na Chrome Web Store →</a>
+            </section>
+
+            <section>
+                <span class="kicker">Tutorial visual · conversar com as fontes</span>
+                <h2 class="big-title" style="font-size:1.65em;">Achar uma informação simples em conteúdos (muito) longos</h2>
+                <div class="tutorial-shot" style="margin-top:16px;"><img src="assets/notebooklm-interface-apuracao.png" alt="Print real do NotebookLM com a pergunta sobre emendas, resposta com citações e painel Estúdio"></div>
+                <div class="compare" style="margin-top:14px;"><div class="col"><h3>A pergunta</h3><p>“A prefeita cita emendas? Em qual contexto? De quem?”</p></div><div></div><div class="col"><h3>Como ler a resposta</h3><p>O NotebookLM aponta a fonte e os trechos usados. Neste caso, indicou falas sobre quase R$ 2 milhões para pavimentação e a atribuição do recurso ao deputado Hugo Motta.</p><p class="tutorial-caption">Clique nas citações, volte ao vídeo e confira antes de usar na reportagem.</p></div></div>
+            </section>
+
+            <section>
+                <span class="kicker">Tutorial · entrevistas e fontes</span>
+                <h2 class="big-title" style="font-size:1.65em;">Transcrever entrevistas e cruzar falas</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center;margin-top:22px;"><div class="tutorial-shot" style="margin:0;"><img src="assets/notebooklm-interface-apuracao.png" alt="Interface do NotebookLM usada para pesquisar falas de entrevistas" style="max-height:250px;"></div><div><ul class="minimal-list"><li>Adicione entrevistas, podcasts e vídeos de fontes diferentes.</li><li>Peça a transcrição, os trechos sobre um termo e o contexto de cada fala.</li><li>Compare versões: quem disse o quê, quando e sobre qual fato.</li><li>Volte ao áudio ou vídeo original antes de publicar.</li></ul></div></div>
+                <div style="margin-top:22px;padding:16px 20px;border-left:5px solid #c94b37;background:#fff5f2;"><strong>Importante:</strong> não coloque no NotebookLM informação sensível, sigilosa, dados pessoais ou material cuja divulgação possa colocar uma fonte em risco. Combine a ferramenta com as regras da redação e com a proteção da fonte.</div>
+            </section>
+
+            <section>
+                <span class="kicker">Tutorial visual · painel Estúdio</span>
+                <h2 class="big-title" style="font-size:1.65em;">Outras funções do NotebookLM</h2>
+                <div class="article-layout" style="margin-top:16px;">
+                    <div class="img-side"><img src="assets/notebooklm-studio-menu.png" alt="Print real do menu Estúdio do NotebookLM com resumo em áudio, apresentação, resumo em vídeo, mapa mental, relatórios, cartões didáticos, teste, infográfico e tabela de dados"></div>
+                    <div class="text-side"><ul class="minimal-list"><li><strong>Resumo em áudio e vídeo</strong>: ouvir ou assistir a uma síntese das fontes.</li><li><strong>Mapa mental</strong>: visualizar temas e conexões.</li><li><strong>Relatórios</strong>: organizar achados em briefing, guia ou outro formato.</li><li><strong>Infográfico, tabela e outros artefatos</strong>: criar saídas para explorar e revisar.</li></ul><p class="tutorial-caption">Esses formatos ajudam a explorar o material, mas não substituem a leitura das fontes nem a checagem jornalística.</p></div>
+                </div>
+            </section>
+
+            <section>
+                <span class="kicker">Caso concreto · BBC News Brasil</span>
+                <h2 class="big-title" style="font-size:1.65em;">A pergunta era: quem articulou a emenda?</h2>
+                <div class="article-layout" style="margin-top:18px;">
+                    <div class="img-side">
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start;">
+                            <div><img src="assets/juazeirinho-hugo-anna.png" alt="Hugo Motta e Anna Virgínia em encontro divulgado nas redes sociais" style="width:100%;height:210px;object-fit:cover;display:block;"><p class="tutorial-caption">Hugo Motta e Anna Virgínia</p></div>
+                            <div><img src="assets/juazeirinho-homenagem-calcamento.png" alt="Placa de entrega de obras de pavimentação com os nomes de Anna Virgínia e Hugo Motta" style="width:100%;height:210px;object-fit:cover;display:block;"><p class="tutorial-caption">Placa de entrega das obras</p></div>
+                        </div>
+                    </div>
+                    <div class="text-side">
+                        <p>A reportagem investigava como uma emenda parlamentar apoiada por Hugo Motta foi parar em uma obra de pavimentação em Juazeirinho (PB).</p>
+                        <p>Além de documentos oficiais, havia entrevistas e podcasts em vídeo com a prefeita Anna Virgínia. O desafio era localizar, em horas de fala, cada menção a “emenda” e entender o contexto.</p>
+                        <a class="btn-read" href="https://www.bbc.com/portuguese/articles/c1drv0wkr9ro" target="_blank">LER MATÉRIA</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- O que é um agente de IA -->
+            <section>
+                <span class="kicker">Parênteses</span>
+                <h2 class="big-title" style="font-size:1.7em;">O que é um agente de IA?</h2>
+                <p class="lead">Um programa que recebe uma tarefa em linguagem natural — como "leia estes 500 PDFs e me diga
+                    quem aparece mais de uma vez" — e executa sozinho, passo a passo, sem que você precise programar nada.</p>
+                <ul class="minimal-list" style="margin-top:26px;">
+                    <li><strong style="color:var(--black);">Codex</strong> (OpenAI) — roda no navegador, dentro do ChatGPT. Raspa sites, analisa documentos em lote e cruza informações</li>
+                    <li><strong style="color:var(--black);">Claude Code</strong> (Anthropic) — roda no navegador, no terminal ou na nuvem. Leitura de documentos longos, apuração assistida e automação</li>
+                    <li>Ambos funcionam da mesma forma: você descreve a tarefa em português e o agente escreve e executa o código sozinho. Não precisa saber programar</li>
+                </ul>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- BLOCO 2 · POR QUE USAR DADOS                  -->
+            <!-- ============================================ -->
+
+            <section>
+                <h2 class="big-title" style="font-size:1.7em;">Achar dados para reportagens</h2>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;">
+                    <a href="https://www.estadao.com.br/brasil/aluno-pobre-tem-so-0-16-de-chance-de-estar-entre-os-melhores-do-enem/" target="_blank" style="display:block;color:inherit;text-decoration:none;background:#fff;border:1px solid var(--light-gray);"><img referrerpolicy="no-referrer" src="https://www.estadao.com.br/resizer/v2/RJY6XSK55NNQLEY3DR3YKASIXY.jpg?quality=80&amp;auth=13db7c5e17266e4f46961a165c8efe716ae332149fcfd894620fb9f7dccdaf50&amp;width=1200&amp;height=630&amp;focal=0,0" alt="Imagem da reportagem sobre desigualdade entre os melhores alunos do Enem" style="width:100%;height:125px;object-fit:cover;display:block;"><h3 style="font-size:.55em;line-height:1.25;padding:10px 12px;margin:0;">Aluno pobre tem só 0,16% de chance de estar entre os melhores do Enem</h3></a>
+                    <a href="https://www.bbc.com/portuguese/articles/c62dx1nl619o" target="_blank" style="display:block;color:inherit;text-decoration:none;background:#fff;border:1px solid var(--light-gray);"><img referrerpolicy="no-referrer" src="https://ichef.bbci.co.uk/news/1024/branded_portuguese/87d6/live/203357b0-79b2-11ef-b02d-c5f3b724a1ea.jpg" alt="Imagem da reportagem sobre candidatos multados por danos ambientais" style="width:100%;height:125px;object-fit:cover;display:block;"><h3 style="font-size:.55em;line-height:1.25;padding:10px 12px;margin:0;">Os 2,8 mil candidatos multados por danos ao meio ambiente</h3></a>
+                    <a href="https://www.bbc.com/portuguese/articles/c3rlz7g9914o" target="_blank" style="display:block;color:inherit;text-decoration:none;background:#fff;border:1px solid var(--light-gray);"><img referrerpolicy="no-referrer" src="https://ichef.bbci.co.uk/news/1024/branded_portuguese/5896/live/da0eaff0-8686-11ef-822c-a50726bfda2e.jpg" alt="Imagem da reportagem sobre doadores do mercado imobiliário" style="width:100%;height:125px;object-fit:cover;display:block;"><h3 style="font-size:.55em;line-height:1.25;padding:10px 12px;margin:0;">Empresários do mercado imobiliário são metade dos 50 maiores doadores</h3></a>
+                    <a href="https://www.bbc.com/portuguese/articles/cevy34jwl8do" target="_blank" style="display:block;color:inherit;text-decoration:none;background:#fff;border:1px solid var(--light-gray);"><img referrerpolicy="no-referrer" src="https://ichef.bbci.co.uk/news/1024/branded_portuguese/5d5c/live/b5401e40-8d46-11ef-8e6d-e3e64e16c628.png" alt="Imagem da reportagem sobre turismo e violações ambientais em Fernando de Noronha" style="width:100%;height:125px;object-fit:cover;display:block;"><h3 style="font-size:.55em;line-height:1.25;padding:10px 12px;margin:0;">‘Turismo de Instagram’ aumenta violações ambientais em Fernando de Noronha</h3></a>
+                    <a href="https://www.bbc.com/portuguese/articles/c20xkrxny32o" target="_blank" style="display:block;color:inherit;text-decoration:none;background:#fff;border:1px solid var(--light-gray);"><img referrerpolicy="no-referrer" src="https://ichef.bbci.co.uk/news/1024/branded_portuguese/cec5/live/a8ca9950-147e-11f0-8a1e-3ff815141b98.png" alt="Imagem da reportagem sobre produtos feitos com trabalho escravo" style="width:100%;height:125px;object-fit:cover;display:block;"><h3 style="font-size:.55em;line-height:1.25;padding:10px 12px;margin:0;">Trabalho escravo: como produto de mão de obra escrava vai parar na sua calçada</h3></a>
+                    <a href="https://www.bbc.com/portuguese/articles/c1drv0wkr9ro" target="_blank" style="display:block;color:inherit;text-decoration:none;background:#fff;border:1px solid var(--light-gray);"><img referrerpolicy="no-referrer" src="https://ichef.bbci.co.uk/news/1024/branded_portuguese/00ba/live/d624daf0-29be-11f0-8f57-b7237f6a66e6.jpg" alt="Imagem da reportagem sobre emenda apoiada por Hugo Motta e trabalho escravo" style="width:100%;height:125px;object-fit:cover;display:block;"><h3 style="font-size:.55em;line-height:1.25;padding:10px 12px;margin:0;">Como emenda apoiada por Hugo Motta foi parar em obra com produto de trabalho escravo</h3></a>
+                </div>
+            </section>
+
+            <!-- Planos de governo -->
+            <section>
+                <div class="article-layout">
+                    <div class="img-side">
+                        <img referrerpolicy="no-referrer"
+                            src="https://ichef.bbci.co.uk/news/1024/branded_portuguese/3292/live/7f7b3040-7f47-11ef-822c-a50726bfda2e.jpg"
+                            alt="Planos de governo">
+                    </div>
+                    <div class="text-side">
+                        <span class="slide-concept">Buscar padrões em texto que revelem histórias de interesse público</span>
+                        <span class="tag">BBC News Brasil · Eleições 2024</span>
+                        <h2>Candidatos que usam propostas idênticas em planos de governo</h2>
+                        <div class="divider"></div>
+                        <p>"Nada se cria, tudo se copia", diz autor de plano.</p>
+                        <a class="btn-read" href="https://www.bbc.com/portuguese/articles/cpw5yl8jgelo"
+                            target="_blank">LER MATÉRIA</a>
+                    </div>
+                </div>
+            </section>
+
+<!-- Parênteses: IA reproduzindo o levantamento -->
+            <section class="pdf-shot" style="background:#fafaf8 !important;">
+                <span class="kicker" style="color:var(--mid);margin-bottom:8px;">Parênteses · IA no jornalismo</span>
+                <h2 style="font-family:'Playfair Display',serif;font-weight:900;font-size:1.25em;letter-spacing:-0.02em;margin-bottom:10px;text-align:center;max-width:900px;">
+                    Com IA ficou possível automatizar o mesmo levantamento</h2>
+                <p style="text-align:center;font-size:0.85em;color:var(--mid);margin-bottom:16px;max-width:860px;">
+                    Essa reportagem foi feita nas eleições de 2024. Em 2026, com IA, eu consegui reproduzir o mesmo
+                    levantamento em alguns segundos — mas eu precisei desenvolver, antes, o método para fazer isso.</p>
+                <img src="https://cursos.datafixers.org/jornalismo-investigativo/photos/planos_dashboard.png" alt="Dashboard de planos de governo — análise de plágio feita com IA">
+                <div class="shot-cap" style="margin-top:14px;">
+                    <a href="https://luizftoledo.github.io/planos-governo-dashboard/" target="_blank"
+                        style="color:var(--black);border-bottom:1px solid var(--black);text-decoration:none;font-weight:600;">
+                        luizftoledo.github.io/planos-governo-dashboard →</a>
+                </div>
+            </section>
+
+            <!-- Vídeos multimídia -->
+            <!-- NOVO BLOCO · LAI COMO FERRAMENTA PARA USAR IA NA APURAÇÃO -->
+            <section class="section-break">
+                <div class="eyebrow">Bloco final · dados públicos</div>
+                <h2>Quando a resposta não está na internet</h2>
+                <div class="divider-center"></div>
+                <p>A IA também pode ajudar a descobrir como pedir uma informação pública — e a quem pedir.</p>
+            </section>
+
+            <section>
+                <span class="kicker">LAI + IA · antes de enviar</span>
+                <h2 class="big-title" style="font-size:1.75em;">Peça ajuda para formular a pergunta certa</h2>
+                <ul class="minimal-list">
+                    <li>Explique o que você quer descobrir e deixe a IA sugerir termos de busca.</li>
+                    <li>Peça que ela identifique qual órgão provavelmente guarda o dado.</li>
+                    <li>Compare pedidos semelhantes e veja como outras pessoas formularam a solicitação.</li>
+                    <li>Use a IA para revisar clareza, período, formato e unidade responsável — sem inventar a base legal.</li>
+                </ul>
+            </section>
+
+            <section class="pdf-shot" style="background:#fafaf8 !important;">
+                <span class="kicker">Busca LAI · ferramenta oficial</span>
+                <h2 class="big-title" style="font-size:1.7em;">Antes de escrever, pesquise quem já perguntou</h2>
+                <img src="https://cursos.datafixers.org/jornalismo-investigativo/pdf_pages/page-68.jpg" alt="Print real da Busca LAI">
+                <div class="shot-cap">Print real reaproveitado da apresentação original. A Busca LAI reúne pedidos e respostas para você encontrar caminhos e órgãos responsáveis.</div>
+                <a class="btn-read" href="https://buscalai.cgu.gov.br/" target="_blank">ABRIR BUSCA LAI</a>
+            </section>
+
+            <section>
+                <span class="kicker">Tutorial · do achado ao pedido</span>
+                <h2 class="big-title" style="font-size:1.7em;">Um fluxo que você consegue repetir</h2>
+                <div class="compare"><div class="col"><h3>1 · Descobrir</h3><ul><li>Busque pedidos semelhantes.</li><li>Note órgão, período e formato.</li><li>Abra a resposta e confira o que foi entregue.</li></ul></div><div></div><div class="col"><h3>2 · Redigir</h3><ul><li>Peça à IA uma versão objetiva.</li><li>Revise você mesmo a pergunta.</li><li>Solicite planilha, PDF ou série histórica quando necessário.</li></ul></div></div>
+            </section>
+
+            <section class="center-slide">
+                <span class="kicker">Aula 2 · próximo encontro</span>
+                <h2>Como desbloquear a criatividade de forma prática</h2>
+                <div class="divider-center"></div>
+                <p class="lead center">Traga uma ideia que você gostaria de fazer. Vamos escolher algumas e tentar criar um protótipo juntos.</p>
+                <p class="lead center">Pode ser uma pauta, um site legal, um portfólio, um site sobre música ou qualquer outra coisa que você tenha vontade de experimentar!</p>
+            </section>
+            <section class="thanks-slide">
+                <h1>Obrigado!</h1>
+                <div class="divider-center"></div>
+                <a class="thanks-link" href="https://luizftoledo.github.io" target="_blank">luizftoledo.github.io</a>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+    <script>
+        /*
+         * Revisão editorial: organiza a narrativa antes de o Reveal montar o deck.
+         * A ordem deixa fundamentos, ferramentas e riscos juntos; só então entram
+         * os casos práticos. Slides redundantes permanecem fora da apresentação.
+         */
+        (function normalizeDeck() {
+            const root = document.querySelector('.reveal .slides');
+            const original = Array.from(root.children).filter(el => el.tagName === 'SECTION');
+            const clean = value => (value || '').replace(/\s+/g, ' ').trim();
+            const byTitle = title => original.find(slide => {
+                const heading = slide.querySelector('h1, h2');
+                return heading && clean(heading.textContent) === title;
+            });
+            const byText = text => original.find(slide => clean(slide.textContent).includes(text));
+
+            const agent = byTitle('De responder perguntas a executar tarefas');
+            agent.innerHTML = `
+                <span class="kicker">Do chat ao agente</span>
+                <h2 class="big-title" style="font-size:1.8em;">O que é um agente de IA?</h2>
+                <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;margin-top:22px;">
+                    <img src="https://cursos.datafixers.org/jornalismo-investigativo/photos/codex_screenshot.png" alt="Print real de um agente de IA trabalhando com documentos" style="width:100%;height:315px;object-fit:contain;background:#fff;display:block;">
+                    <div>
+                        <p class="lead" style="font-size:1em;color:var(--black);"><strong>Um agente recebe um objetivo, divide o trabalho em etapas e usa ferramentas para chegar a um resultado.</strong></p>
+                        <ul class="minimal-list" style="margin-top:18px;">
+                            <li>abre páginas e arquivos;</li>
+                            <li>pesquisa, compara e organiza;</li>
+                            <li>executa código e cria protótipos;</li>
+                            <li>mostra o caminho para você revisar.</li>
+                        </ul>
+                    </div>
+                </div>`;
+
+            const tools = byTitle('Qual usar? Depende do trabalho');
+            tools.innerHTML = `
+                <span class="kicker">Principais ferramentas</span>
+                <h2 class="big-title" style="font-size:1.75em;">Qual usar? Depende do trabalho</h2>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px;">
+                    <div style="background:#fff;border-top:5px solid #111;padding:22px;"><h3>Chat e pesquisa</h3><p style="font-size:.78em;margin-top:12px;"><strong>ChatGPT, Claude, Gemini e Perplexity</strong><br>Perguntar, pesquisar na web, resumir e trabalhar com arquivos.</p></div>
+                    <div style="background:#fff;border-top:5px solid #e87925;padding:22px;"><h3>Muitas fontes</h3><p style="font-size:.78em;margin-top:12px;"><strong>NotebookLM</strong><br>Pesquisar documentos, vídeos e áudios dentro de um conjunto controlado.</p></div>
+                    <div style="background:#fff;border-top:5px solid #3156a8;padding:22px;"><h3>Construir e executar</h3><p style="font-size:.78em;margin-top:12px;"><strong>ChatGPT Work, Codex, Claude Cowork/Code e Gemini</strong><br>Automatizar tarefas longas, analisar dados e criar protótipos.</p></div>
+                </div>
+                <p class="lead center" style="margin-top:22px;">A melhor ferramenta é a que permite ver as fontes, acompanhar as etapas e conferir o resultado.</p>`;
+
+            const notebook = byTitle('NotebookLM, o novo jeito (quase obrigatório) de pesquisar em muitos documentos ao mesmo tempo');
+            notebook.innerHTML = `
+                <span class="kicker">Ferramentas · muitas fontes</span>
+                <h2 class="big-title" style="font-size:1.7em;">NotebookLM para pesquisar muitas fontes</h2>
+                <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center;margin-top:18px;">
+                    <img src="assets/notebooklm-interface-apuracao.png" alt="Interface real do NotebookLM com fontes, conversa e painel Estúdio" style="width:100%;height:330px;object-fit:cover;object-position:left top;display:block;">
+                    <div>
+                        <ul class="minimal-list" style="margin-top:0;">
+                            <li><strong>Fontes:</strong> reúna PDFs, sites, áudios e vídeos.</li>
+                            <li><strong>Conversa:</strong> faça perguntas ao conjunto.</li>
+                            <li><strong>Estúdio:</strong> crie mapas, tabelas, áudios e resumos.</li>
+                            <li><strong>Entrevistas:</strong> transcreva e compare falas; não envie material sigiloso.</li>
+                        </ul>
+                        <a class="btn-read" href="https://notebook.google.com/notebook/051ab054-bfb1-407a-8253-a9d1c8b043d9" target="_blank">VISITAR O CADERNO</a>
+                    </div>
+                </div>`;
+
+            const notebookCase = document.createElement('section');
+            notebookCase.innerHTML = `
+                <span class="kicker">NotebookLM · caso concreto</span>
+                <h2 class="big-title" style="font-size:1.7em;">A história da emenda em Juazeirinho</h2>
+                <div style="display:grid;grid-template-columns:1.08fr .92fr;gap:28px;align-items:center;margin-top:18px;">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                        <img src="assets/juazeirinho-hugo-anna.png" alt="Hugo Motta e Anna Virgínia em encontro divulgado nas redes sociais" style="width:100%;height:290px;object-fit:cover;display:block;">
+                        <img src="assets/juazeirinho-homenagem-calcamento.png" alt="Placa de entrega de obras de pavimentação com os nomes de Anna Virgínia e Hugo Motta" style="width:100%;height:290px;object-fit:cover;display:block;">
+                    </div>
+                    <div>
+                        <p class="lead" style="font-size:.95em;color:var(--black);">Uma emenda apoiada por Hugo Motta financiou obras de pavimentação em Juazeirinho, na Paraíba.</p>
+                        <p style="font-size:.83em;margin-top:16px;">Reunimos entrevistas e podcasts da prefeita Anna Virgínia no NotebookLM e perguntamos: <strong>“Ela cita emendas? Em qual contexto? De quem?”</strong></p>
+                        <p style="font-size:.83em;margin-top:14px;">A ferramenta localizou a menção a quase R$ 2 milhões para pavimentação e a Hugo Motta. Depois, conferimos os vídeos e os documentos.</p>
+                        <a class="btn-read" href="https://www.bbc.com/portuguese/articles/c1drv0wkr9ro" target="_blank">LER MATÉRIA</a>
+                    </div>
+                </div>`;
+
+            const youtubeNotebook = byTitle('Dá para puxar vários vídeos de um canal de uma vez');
+            youtubeNotebook.innerHTML = `
+                <span class="kicker">NotebookLM · vídeos do YouTube</span>
+                <h2 class="big-title" style="font-size:1.65em;">Um vídeo por URL — ou vários de uma vez</h2>
+                <div style="display:grid;grid-template-columns:.95fr 1.25fr;gap:22px;align-items:center;margin-top:18px;">
+                    <a href="https://chromewebstore.google.com/search/YouTube%20to%20NotebookLM" target="_blank"><img src="assets/youtube-notebooklm-extension.png" alt="Extensão YouTube to NotebookLM na Chrome Web Store" style="width:100%;height:250px;object-fit:contain;background:#fff;display:block;"></a>
+                    <div style="position:relative;"><img src="assets/youtube-canal-notebooklm.png" alt="Canal do YouTube com o botão NotebookLM no canto direito" style="width:100%;height:250px;object-fit:cover;object-position:right top;display:block;"><span style="position:absolute;right:3.5%;top:33%;width:21%;height:24%;border:6px solid #e53935;border-radius:999px;transform:rotate(-4deg);pointer-events:none;"></span></div>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px;"><div><h3>1. Adicione</h3><p style="font-size:.75em;">Cole uma URL pública do YouTube.</p></div><div><h3>2. Importe em lote</h3><p style="font-size:.75em;">A extensão envia vários vídeos de um canal.</p></div><div><h3>3. Pergunte</h3><p style="font-size:.75em;">Pesquise todas as transcrições em conjunto.</p></div></div>`;
+
+            const paid = document.createElement('section');
+            paid.innerHTML = `
+                <span class="kicker">Planos gratuitos e pagos</span>
+                <h2 class="big-title" style="font-size:1.75em;">Quando vale pagar por uma ferramenta de IA?</h2>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;">
+                    <div style="background:#fff;border:1px solid var(--light-gray);padding:24px;"><h3>Grátis</h3><p style="font-size:.8em;margin-top:12px;">Para experimentar, aprender e resolver tarefas ocasionais.</p></div>
+                    <div style="background:#111;color:#fff;padding:24px;"><h3 style="color:#fff;">Individual</h3><p style="font-size:.8em;margin-top:12px;color:#ddd;">Mais uso, modelos mais capazes, pesquisa, arquivos e agentes.</p></div>
+                    <div style="background:#fff;border:1px solid var(--light-gray);padding:24px;"><h3>Equipe</h3><p style="font-size:.8em;margin-top:12px;">Administração, privacidade, conectores e trabalho compartilhado.</p></div>
+                </div>
+                <p class="lead center" style="margin-top:24px;color:var(--black);"><strong>Vale pagar quando o limite gratuito interrompe um trabalho real.</strong> Para uso ocasional, comece de graça.</p>
+                <div style="display:flex;gap:10px;justify-content:center;margin-top:16px;"><a class="url-badge" href="https://openai.com/chatgpt/pricing" target="_blank">ChatGPT</a><a class="url-badge" href="https://support.anthropic.com/en/articles/11049762-choosing-a-claude-ai-plan" target="_blank">Claude</a><a class="url-badge" href="https://one.google.com/about/google-ai-plans/" target="_blank">Google AI</a></div>`;
+
+            const beforeNow = document.createElement('section');
+            beforeNow.innerHTML = `
+                <span class="kicker">Antes e agora</span>
+                <h2 class="big-title" style="font-size:1.75em;">Da IA que reconhece padrões à IA que produz e age</h2>
+                <div style="display:grid;grid-template-columns:1fr 90px 1fr;gap:18px;align-items:stretch;margin-top:30px;">
+                    <div style="background:#fff;border:2px solid #111;padding:26px;"><div style="font-size:2.2em;margin-bottom:10px;">🔎</div><h3>Antes</h3><p style="font-size:.82em;margin-top:12px;">Classificar spam, recomendar vídeos, reconhecer imagens e prever padrões.</p></div>
+                    <div style="display:flex;align-items:center;justify-content:center;font-size:2.4em;">→</div>
+                    <div style="background:#111;color:#fff;padding:26px;"><div style="font-size:2.2em;margin-bottom:10px;">🛠️</div><h3 style="color:#fff;">Agora</h3><p style="font-size:.82em;margin-top:12px;color:#ddd;">Gerar texto, imagem e código; conversar em linguagem natural; usar ferramentas para executar tarefas.</p></div>
+                </div>
+                <p class="lead center" style="margin-top:24px;">A IA anterior não desapareceu. A novidade é a interface generativa e, depois, a capacidade de agir.</p>`;
+
+            const electionIdeas = document.createElement('section');
+            electionIdeas.innerHTML = `
+                <span class="kicker">Para pensar antes da próxima aula</span>
+                <h2 class="big-title" style="font-size:1.75em;max-width:980px;">Que pautas da eleição você poderia fazer com dados obtidos com apoio de IA?</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 56px;margin-top:28px;">
+                    <ul class="minimal-list" style="margin-top:0;">
+                        <li><strong>Doações a candidatos</strong></li>
+                        <li><strong>Patrimônio dos candidatos</strong><br><span style="color:var(--mid);">e evolução patrimonial</span></li>
+                        <li><strong>Nome dos candidatos</strong><br><span style="color:var(--mid);">policial, professor e outros termos</span></li>
+                    </ul>
+                    <ul class="minimal-list" style="margin-top:0;">
+                        <li><strong>Cruzar com outros dados</strong><br><span style="color:var(--mid);">multas ambientais ou dívida com a União</span></li>
+                        <li><strong>Planos de governo</strong><br><span style="color:var(--mid);">dividir por tema e comparar propostas</span></li>
+                    </ul>
+                </div>`;
+
+            const safety = byTitle('Quanto mais capacidade, maior a discussão sobre controle');
+            safety.innerHTML = `
+                <span class="kicker">Segurança e controle</span>
+                <h2 class="big-title" style="font-size:1.65em;">Quanto mais capacidade, maior a discussão sobre controle</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px;">
+                    <a href="https://darioamodei.com/post/we-must-pace-the-frontier" target="_blank" style="color:inherit;text-decoration:none;background:#fff;"><img src="assets/dario-pace-frontier.png" alt="Texto de Dario Amodei defendendo desacelerar a fronteira da IA" style="width:100%;height:235px;object-fit:cover;object-position:top;display:block;"><div style="padding:16px 18px;"><strong>Dario Amodei</strong><p style="font-size:.78em;margin-top:6px;">“We Must Pace the Frontier”</p></div></a>
+                    <a href="https://www.theguardian.com/technology/2026/sep/13/openai-sam-altman-elon-musk-back-anthropic-calls-brakes-ai-development" target="_blank" style="color:inherit;text-decoration:none;background:#fff;"><img src="assets/guardian-pace-frontier.png" alt="Reportagem sobre o apoio de Sam Altman à proposta de desacelerar a corrida da IA" style="width:100%;height:235px;object-fit:cover;object-position:center 70%;display:block;"><div style="padding:16px 18px;"><strong>Sam Altman</strong><p style="font-size:.78em;margin-top:6px;">“I agree with Dario that we need to pace the frontier.”</p></div></a>
+                </div>`;
+
+            const reuters = byTitle('As pessoas já se informam com IA');
+            reuters.innerHTML = `
+                <span class="kicker">Reuters Institute · tendências 2026</span>
+                <h2 class="big-title" style="font-size:1.7em;">As pessoas já se informam com IA</h2>
+                <div style="display:grid;grid-template-columns:1.25fr .75fr;gap:26px;align-items:center;margin-top:20px;">
+                    <img src="assets/reuters-report-chart.png" alt="Gráfico do Reuters Institute sobre a queda dos encaminhamentos do Google para sites de notícias" style="width:100%;height:330px;object-fit:contain;background:#fff;display:block;">
+                    <div><p class="lead" style="font-size:.95em;color:var(--black);">Os chatbots já respondem perguntas sobre fatos recentes e alteram como o público chega às notícias.</p><div style="font-family:'Playfair Display',serif;font-size:2.8em;font-weight:900;line-height:1;margin:18px 0 8px;">−43%</div><p style="font-size:.78em;">é a expectativa média de queda do tráfego de busca para publishers nos próximos três anos.</p><a class="btn-read" href="https://reutersinstitute.politics.ox.ac.uk/journalism-media-and-technology-trends-and-predictions-2026" target="_blank">LER O RELATÓRIO</a></div>
+                </div>`;
+
+            const automated = byText('Com IA ficou possível automatizar o mesmo levantamento');
+            automated.innerHTML = `
+                <span class="kicker">O mesmo método, outra velocidade</span>
+                <h2 class="big-title" style="font-size:1.65em;text-align:center;max-width:950px;margin:auto;">Projetos que antes levavam semanas agora podem ser reproduzidos mais rapidamente</h2>
+                <img src="https://cursos.datafixers.org/jornalismo-investigativo/photos/planos_dashboard.png" alt="Dashboard que reproduz com IA o levantamento sobre plágio em planos de governo" style="width:820px;max-width:100%;height:340px;object-fit:contain;display:block;margin:18px auto;">
+                <a class="btn-read" href="https://luizftoledo.github.io/planos-governo-dashboard/" target="_blank" style="display:table;margin:0 auto;">ABRIR O PROJETO</a>`;
+
+            const epsteinGrid = original.find(slide => clean(slide.textContent).includes('Navegar por milhões de arquivos em busca de pautas'));
+            const dataStories = byTitle('Achar dados para reportagens');
+            const sequence = [
+                original[0], original[1], original[2],
+                byTitle('O que mudou quando falamos em IA?'),
+                byTitle('O que exatamente queremos dizer quando falamos em IA?'),
+                beforeNow,
+                byTitle('“Recompensa” quer dizer: dar um sinal de que uma resposta foi melhor'),
+                byTitle('Para uma IA parecer “natural”, muita gente precisou fazer um trabalho difícil'),
+                byTitle('As palavras que você vai ouvir toda hora'),
+                agent, tools, notebook, notebookCase, youtubeNotebook, paid,
+                byTitle('Por que toda semana parece haver uma novidade?'),
+                byTitle('A mesma capacidade pode ajudar — ou atrapalhar'),
+                byTitle('Quem ganha tempo? Quem paga a conta?'),
+                safety, reuters,
+                byTitle('Usar IA / Cobrir o universo da IA'),
+                byTitle('Exemplos práticos'),
+                byTitle('Encontrar informações que você nem sabia que existiam'),
+                byTitle('Quem está vendendo isso?'),
+                byTitle('A entrevistada que estava entre mais de 2 mil comentários'),
+                byTitle('A IA também encontra padrões entre canais'),
+                byTitle('O caso Epstein Files'),
+                byTitle('IA para grandes bases de documentos (alô, Banco Master!)'),
+                byTitle('O agente entra, filtra e devolve tudo mastigado'),
+                epsteinGrid,
+                byTitle('Candidatos que usam propostas idênticas em planos de governo'),
+                automated,
+                dataStories,
+                byTitle('Quando a resposta não está na internet'),
+                byTitle('Peça ajuda para formular a pergunta certa'),
+                byTitle('Antes de escrever, pesquise quem já perguntou'),
+                byTitle('Um fluxo que você consegue repetir'),
+                electionIdeas,
+                byTitle('Como desbloquear a criatividade de forma prática'),
+                byTitle('Obrigado!')
+            ].filter(Boolean);
+
+            root.replaceChildren(...sequence);
+        })();
+
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'none',
+            width: 1200,
+            height: 700,
+            margin: 0.04
+        });
+        // Class progress bar — derives blocks from section titles after reordering
+        (function () {
+            const slidesAtStart = Array.from(document.querySelectorAll('.reveal .slides > section'));
+            const clean = value => (value || '').replace(/\s+/g, ' ').trim();
+            const findSlide = title => slidesAtStart.findIndex(slide => {
+                const heading = slide.querySelector('h1, h2');
+                return heading && clean(heading.textContent) === title;
+            }) + 1;
+            const blockMap = [
+                { from: 1, label: 'Abertura' },
+                { from: findSlide('O que mudou quando falamos em IA?'), label: 'Bloco 1 · IA e agentes' },
+                { from: findSlide('Exemplos práticos'), label: 'Casos práticos' },
+                { from: findSlide('O caso Epstein Files'), label: 'Caso Epstein Files' },
+                { from: findSlide('Candidatos que usam propostas idênticas em planos de governo'), label: 'Casos e dados' },
+                { from: findSlide('Quando a resposta não está na internet'), label: 'LAI e apuração' },
+                { from: findSlide('Como desbloquear a criatividade de forma prática'), label: 'Fechamento' },
+            ].filter(block => block.from > 0).sort((a, b) => a.from - b.from);
+            function currentBlock(n) {
+                let out = blockMap[0].label;
+                for (const b of blockMap) { if (n >= b.from) out = b.label; }
+                return out;
+            }
+            function update() {
+                const slides = document.querySelectorAll('.reveal .slides > section');
+                const total = slides.length;
+                const current = (Reveal.getIndices().h || 0) + 1;
+                document.getElementById('cb-counter').innerHTML =
+                    '<span>' + String(current).padStart(2, '0') + '</span> / ' + String(total).padStart(2, '0');
+                document.getElementById('cb-block').textContent = currentBlock(current);
+                document.getElementById('cb-track').style.width = ((current / total) * 100) + '%';
+
+                // Swap class bar theme on dark slides
+                const slide = Reveal.getCurrentSlide();
+                const isDark = slide && (
+                    slide.classList.contains('slide-title') ||
+                    slide.classList.contains('section-break') ||
+                    slide.classList.contains('dark-slide')
+                );
+                document.body.classList.toggle('dark-ctx', isDark);
+            }
+            Reveal.on('ready', update);
+            Reveal.on('slidechanged', update);
+
+            // Build slide nav menu
+            var nav = document.getElementById('slide-nav');
+            blockMap.forEach(function (b) {
+                var a = document.createElement('a');
+                a.textContent = b.label;
+                a.onclick = function () {
+                    Reveal.slide(b.from - 1);
+                    nav.classList.remove('open');
+                };
+                nav.appendChild(a);
+            });
+
+            // Highlight active nav item
+            function updateNav() {
+                var current = (Reveal.getIndices().h || 0) + 1;
+                var curLabel = currentBlock(current);
+                nav.querySelectorAll('a').forEach(function (a) {
+                    a.classList.toggle('active', a.textContent === curLabel);
+                });
+            }
+            Reveal.on('ready', updateNav);
+            Reveal.on('slidechanged', updateNav);
+        })();
+
+        Reveal.on('slidechanged', function () {
+            if (window.instgrm) {
+                window.instgrm.Embeds.process();
+            }
+        });
+    </script>
+</body>
+
+</html>
