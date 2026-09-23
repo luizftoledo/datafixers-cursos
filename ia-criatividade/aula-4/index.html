@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="class-bar"><span id="cb-block">ABERTURA</span><span id="cb-counter">01 / 60</span><button id="menu-toggle" aria-label="Abrir índice">ÍNDICE</button><div id="cb-track"></div></div>
+  <div class="class-bar"><span id="cb-block">ABERTURA</span><span id="cb-counter">01 / 54</span><button id="menu-toggle" aria-label="Abrir índice">ÍNDICE</button><div id="cb-track"></div></div>
   <nav id="slide-nav" aria-label="Índice da aula"></nav>
 
   <div class="reveal"><div class="slides">
@@ -24,27 +24,34 @@
       <div class="agenda"><div><b>01</b><h3>Caso 1: Vila COP</h3><p>Documentos, pasta no Drive e índice com links.</p></div><div><b>02</b><h3>Caso 2: pesquisa eleitoral</h3><p>Conferir uma planilha contra TSE e PDFs.</p></div><div><b>03</b><h3>Link para o original</h3><p>Exemplos dos painéis do Data Fixers.</p></div><div><b>04</b><h3>Outras formas de checar</h3><p>Técnicas e prompts para usar sempre.</p></div></div>
     </section>
 
-
     <section class="section-break"><p class="eyebrow">Caso 1 · Parte 1</p><h2>A tarefa e os prompts</h2><div class="divider-center"></div><p>Vila COP: contratos, financiamento e trabalho de presos</p></section>
+
     <section><span class="tag">Tarefa</span><h2>O pedido</h2>
       <div class="prompt"><small>Prompt 1</small>encontre qualquer coisa sobre as delegações que ficaram na Vila COP. Contratos sobre a construção e financiamento pelo estado. A quantidade de presos que trabalhou nos móveis, salário (se existia), e descrições de condições de trabalho. Tudo que tiver nesse âmbito.
 monte uma pasta no meu google drive com tudo que obtiver e um arquivo google docs de índice com links e resumo de cada documento</div>
       <p class="note">A última frase do pedido é a mais importante para a checagem: ela obriga a IA a entregar os arquivos, não só a resposta.</p>
     </section>
+
     <section><span class="tag">Tarefa</span><h2>O que a IA fez, em ordem</h2><div class="divider"></div>
       <div class="steps"><div><b>1</b><h3>Buscou</h3><p>Notícias para achar nomes de órgãos, programas e números.</p></div><div><b>2</b><h3>Foi à origem</h3><p>Diário Oficial, portal de compras (PNCP), site da secretaria.</p></div><div><b>3</b><h3>Baixou e leu</h3><p>PDFs completos, página por página.</p></div><div><b>4</b><h3>Organizou</h3><p>Pasta no Drive e índice com link para cada arquivo.</p></div></div>
     </section>
+
     <section><span class="tag">Prompts</span><h2>Os outros pedidos durante o trabalho</h2>
       <div class="two-col"><div><div class="prompt"><small>Prompt 2</small>oq falta</div><p>Pedir um balanço no meio do caminho: o que já foi achado, o que falta e o que não abriu.</p></div><div><div class="prompt"><small>Prompt 3</small>liguei vpn e agora</div><p>Sites do governo do Pará não abriam fora do Brasil. Com VPN brasileira, a IA conseguiu baixar o contrato e o relatório da secretaria.</p></div></div>
     </section>
+
     <section><span class="tag">Prompt</span><h2>Como pedir para poder checar depois</h2><div class="divider"></div>
       <div class="steps"><div><b>1</b><h3>Fonte primária</h3><p>“Use documentos oficiais, não só notícias.”</p></div><div><b>2</b><h3>Arquivo</h3><p>“Baixe cada documento que você usar.”</p></div><div><b>3</b><h3>Localização</h3><p>“Diga a página e o trecho de cada número.”</p></div><div><b>4</b><h3>Lacunas</h3><p>“Liste o que você não encontrou.”</p></div></div>
     </section>
-    <section class="section-break"><p class="eyebrow">Caso 1 · Parte 2</p><h2>Fontes primárias</h2><div class="divider-center"></div><p>A notícia aponta o caminho. O documento é a prova.</p></section>
+
+    <section class="section-break"><p class="eyebrow">Caso 1 · Parte 2</p><h2>Fontes primárias</h2><div class="divider-center"></div></section>
+
     <section><span class="tag">Notícia × documento</span><h2>O que dizia a notícia oficial e o que diz o contrato</h2>
       <div class="two-col"><div><h3>Notícia do governo (04/11/2025)</h3><p>“25 pessoas privadas de liberdade (...) trabalham na confecção e montagem de quase 3 mil móveis.”</p><p>Não diz quanto custou, quem pagou nem quanto os presos receberam.</p></div><div><h3>Termo de Execução Descentralizada 01/2025</h3><p>2.796 móveis. R$ 2.023.584,63. Dinheiro do convênio com a Itaipu, depositado no Fundo do Trabalho Penitenciário.</p><p>Assinado pelos secretários, com plano de trabalho e preços por m².</p></div></div>
     </section>
+
     <section><span class="tag">Documento</span><h2>O contrato dos móveis feitos por presos</h2><img class="doc-shot" src="assets/ted_clausulas.png" alt="Cláusulas 1ª e 2ª do TED 01/2025"><p class="cap">TED 01/2025 Setur–Seap, página 1</p></section>
+
     <section><span class="tag">Onde procurar</span><h2>Onde estão os documentos</h2>
       <table class="src-table"><tr><th>Fonte</th><th>O que tem</th><th>Como foi usada</th></tr>
       <tr><td><b>Diário Oficial do estado</b></td><td>Extratos de contratos, convênios, portarias, leis</td><td>Leitura de todas as edições de ago/2024 a jun/2026 procurando “Vila COP”</td></tr>
@@ -52,12 +59,16 @@ monte uma pasta no meu google drive com tudo que obtiver e um arquivo google doc
       <tr><td><b>Site do órgão</b></td><td>Relatórios de gestão, convênios, termos</td><td>Contrato com os presos e relatório de 2025 da Seap</td></tr>
       <tr><td><b>Wayback Machine</b></td><td>Cópias antigas de páginas</td><td>Agência Pará, fora do ar no período eleitoral</td></tr></table>
     </section>
+
     <section><span class="tag">Diário Oficial</span><h2>A publicação oficial confirma o contrato</h2><img class="doc-shot" src="assets/doe_ted_extrato.png" alt="Extrato do TED no Diário Oficial"><p class="cap">Diário Oficial do Pará, 27/06/2025, p. 97</p></section>
+
     <section><span class="tag">Obstáculos</span><h2>Quando a fonte não abre</h2><div class="divider"></div>
       <div class="three-col"><div><h3>Site bloqueado fora do Brasil</h3><p>Ligar VPN com saída no Brasil.</p></div><div><h3>Site fora do ar</h3><p>Procurar a página no Wayback Machine (web.archive.org).</p></div><div><h3>Documento escaneado</h3><p>Pedir leitura do texto por OCR e conferir na imagem.</p></div></div>
       <p class="note">Registre no índice qual caminho foi usado para cada arquivo.</p>
     </section>
+
     <section class="section-break"><p class="eyebrow">Caso 1 · Parte 3</p><h2>Pasta e links</h2><div class="divider-center"></div></section>
+
     <section><span class="tag">Pasta</span><h2>Uma pasta por tema</h2>
       <div class="two-col"><div class="tree">Vila COP — pesquisa 23-09-2026/
 ├── ÍNDICE (Google Docs)
@@ -67,104 +78,110 @@ monte uma pasta no meu google drive com tudo que obtiver e um arquivo google doc
 ├── 04 Pós-COP/                 3 arquivos
 └── 05 Diário Oficial/          1 compilado</div><div><h3>Nome do arquivo diz o que é</h3><p class="code">DOE-PA_2025-06-27_Extrato_TED_01-2025.pdf</p><p>Fonte, data e assunto no nome. Dá para achar sem abrir.</p><p class="note">Os PDFs originais ficam salvos. Se o site sair do ar, a prova continua na pasta.</p></div></div>
     </section>
+
     <section><span class="tag">Índice</span><h2>Cada afirmação aponta para um arquivo</h2><img class="doc-shot" src="assets/indice_doc.png" alt="Índice em Google Docs com links"><p class="cap">Índice no Google Docs: resumo, link e página de cada documento</p></section>
+
     <section><span class="tag">Links</span><h2>Como os links foram feitos</h2><div class="divider"></div>
       <div class="steps"><div><b>1</b><h3>Criar a pasta</h3><p>Pelo conector do Google Drive.</p></div><div><b>2</b><h3>Copiar os arquivos</h3><p>Para a pasta do Drive sincronizada no computador.</p></div><div><b>3</b><h3>Pegar o endereço</h3><p>Cada arquivo tem um código no Drive. O link é drive.google.com/file/d/código.</p></div><div><b>4</b><h3>Montar o índice</h3><p>Texto com link em cada trecho, enviado como Google Docs.</p></div></div>
       <p class="note">Para quem não usa código: peça “no índice, coloque o link do arquivo e a página de onde saiu cada número”.</p>
     </section>
+
     <section class="section-break"><p class="eyebrow">Caso 1 · Parte 4</p><h2>Checar</h2><div class="divider-center"></div></section>
+
     <section><span class="tag">Método</span><h2>Para cada afirmação</h2>
       <div class="checklist"><p><b>1</b>Clique no link.</p><p><b>2</b>Vá à página indicada.</p><p><b>3</b>Compare o número ou o trecho.</p><p><b>4</b>Veja a data e quem assina.</p><p><b>5</b>Classifique: documento, declaração ou lacuna.</p></div>
     </section>
+
     <section><span class="tag">Exemplo 1</span><h2>De onde veio o dinheiro dos móveis</h2>
       <img class="doc-shot wide" src="assets/ted_itaipu.png" alt="Cláusula terceira do TED" style="max-width:900px;margin-top:10px"><img class="doc-shot" src="assets/doe_convenio_setur.png" alt="Portaria do convênio Setur-Itaipu" style="max-height:200px;margin-top:14px">
       <p class="note">Contrato diz “convênio com a Itaipu”. O Diário Oficial mostra o número do convênio: 4500076711.</p>
     </section>
+
     <section><span class="tag">Exemplo 2</span><h2>Salário: o que a lei manda</h2><img class="doc-shot short" src="assets/lei9078_remuneracao.png" alt="Lei 9.078/2020, arts. 6º a 8º"><p class="cap">Lei estadual 9.078/2020: pelo menos 1 salário mínimo e contracheque mensal</p></section>
+
     <section><span class="tag">Exemplo 2</span><h2>Salário: o que a portaria da Seap diz</h2>
       <div class="two-col docs"><img src="assets/portaria465_bolsa.png" alt="Portaria 465/2020, art. 11"><img src="assets/portaria465_anexo.png" alt="Portaria 465/2020, Anexo I"></div>
       <p class="note">Bolsa de R$ 450 na marcenaria do Coqueiro, para “somente uma parcela”. Termo assinado pelo preso: “sem remuneração momentânea”.</p>
     </section>
+
     <section><span class="tag">Exemplo 2</span><h2>Conclusão correta</h2><div class="divider"></div>
       <p class="lead">Nenhum documento encontrado mostra quanto os 25 presos receberam, nem se receberam.</p>
       <p>A lei, a portaria e o relatório da secretaria dizem coisas diferentes. O plano de trabalho do contrato não tem linha de pagamento de mão de obra.</p>
       <p class="note">Próximo passo: pedir os contracheques por Lei de Acesso à Informação.</p>
     </section>
-    <section><span class="tag">Exemplo 3</span><h2>O portal errou, o PDF não</h2>
-      <div class="two-col"><div><h3>No PNCP</h3><p class="big-list">R$ 157.859.009,00</p><p>Valor cadastrado no portal para o Contrato 20/2025.</p></div><div><h3>No contrato assinado</h3><img class="doc-shot" src="assets/contrato20_valor.png" alt="Valor total do contrato 20/2025"></div></div>
-      <p class="note">Tabelas e portais podem ter erro de digitação. Confira no documento assinado.</p>
-    </section>
-    <section><span class="tag">Exemplo 4</span><h2>Um documento pode abrir outra pergunta</h2><img class="doc-shot" src="assets/viapara_clausula.png" alt="Cláusula 9.2 g do contrato da operadora"><p class="note">Todas as suítes ficaram reservadas ao governo de 05 a 22/11/2025. A lista de hóspedes existe e pode ser pedida à Secretaria de Turismo.</p></section>
+
     <section><span class="tag">Classificar</span><h2>Separe o que está provado</h2>
       <div class="three-col"><div><h3>Documento</h3><p>Contrato de R$ 2,02 mi.</p><p>2.796 móveis previstos.</p><p>Convênio Itaipu nº 4500076711.</p></div><div><h3>Declaração</h3><p>“25 presos” e “quase 3 mil móveis” (governo).</p><p>“Remunerados com salário mínimo” (relatório da Seap).</p></div><div><h3>Lacuna</h3><p>Quanto cada preso recebeu.</p><p>Condições na marcenaria (sem inspeção independente).</p><p>Quem se hospedou.</p></div></div>
     </section>
-    <section><span class="tag">Cuidados</span><h2>Antes de usar o material</h2><div class="divider"></div>
-      <div class="agenda"><div><b>01</b><h3>Dados pessoais</h3><p>Documentos oficiais trazem CPF e endereço. Corte antes de mostrar.</p></div><div><b>02</b><h3>Transcrição não é original</h3><p>Texto extraído de página arquivada deve ser conferido no link original.</p></div><div><b>03</b><h3>Datas</h3><p>Contratos têm aditivos. Procure publicações depois da assinatura.</p></div><div><b>04</b><h3>Revisão humana</h3><p>A IA indica onde olhar. A leitura final é sua.</p></div></div>
-    </section>
+
     <section><span class="tag">Caso 1 · Resumo</span><h2>O que levar do caso 1</h2>
       <div class="checklist"><p><b>1</b>Pedir fonte primária.</p><p><b>2</b>Baixar e guardar cada arquivo.</p><p><b>3</b>Índice com link e página.</p><p><b>4</b>Abrir e comparar.</p><p><b>5</b>Dizer o que não foi encontrado.</p></div>
     </section>
 
-
     <section class="section-break"><p class="eyebrow">Caso 2 · Parte 1</p><h2>O pedido</h2><div class="divider-center"></div><p>Planilha de pesquisas eleitorais por estado</p></section>
+
     <section><span class="tag">Prompt</span><h2>O pedido original</h2>
-      <div class="prompt"><small>Prompt 1</small>baixe dados do resultado eleitoral para lula e bolsonaro no primeiro turno em cada estado em 2022; depois, pegue os dados da ultima pesquisa qest por estado e compare; veja o que tem aqui e compare com o que vc obteve e diga se tem algo errado
+      <p>A planilha foi feita primeiro no ChatGPT. Depois pedi ao Claude para refazer o processo e checar o resultado.</p>
+      <div class="prompt"><small>Prompt 1 · Claude</small>baixe dados do resultado eleitoral para lula e bolsonaro no primeiro turno em cada estado em 2022; depois, pegue os dados da ultima pesquisa qest por estado e compare; veja o que tem aqui e compare com o que vc obteve e diga se tem algo errado
 [link da planilha]
 nao substitua nada, crie uma aba nova (...)
 mas primeiro faça de forma independente a obtencao dos dados e apresente as fontes</div>
     </section>
+
     <section><span class="tag">Prompt</span><h2>Por que “primeiro de forma independente”</h2><div class="divider"></div>
       <div class="two-col"><div><h3>Se a IA lê a planilha antes</h3><p>Tende a confirmar o que já está lá.</p></div><div><h3>Se levanta os dados antes</h3><p>Tem números próprios para comparar. Diferença vira alerta.</p></div></div>
       <p class="note">“Não substitua nada” protege o original. As correções vão para outro lugar.</p>
     </section>
+
     <section><span class="tag">Prompts</span><h2>Perguntas que vieram depois</h2>
       <div class="two-col"><div><div class="prompt"><small>Prompt 2</small>como achar nos pdfs da quaest os resultados</div><div class="prompt"><small>Prompt 3</small>checar realmente se a qaest nao fez pesquisas nesses estados que nao estao la; ver se nao saiu materia, nada</div></div><div><div class="prompt"><small>Prompt 4</small>me de uma tabela mostrando quando sai a qaest de cada estado mais recente e quando saem as proximas mostrando a fonte</div><div class="prompt"><small>Prompt 5</small>qual link eu abro no site deles pra achar isso</div></div></div>
       <p class="note">Pedir o caminho, não só a resposta. Assim você refaz a checagem sozinho.</p>
     </section>
+
     <section class="section-break"><p class="eyebrow">Caso 2 · Parte 2</p><h2>Resultado de 2022</h2><div class="divider-center"></div></section>
+
     <section><span class="tag">TSE</span><h2>Usar o arquivo oficial, não uma tabela de site</h2><div class="divider"></div>
       <div class="steps"><div><b>1</b><h3>Baixar</h3><p>Portal de Dados Abertos do TSE: <i>votacao_candidato_munzona_2022</i>.</p></div><div><b>2</b><h3>Filtrar</h3><p>1º turno, presidente, Lula e Bolsonaro.</p></div><div><b>3</b><h3>Somar</h3><p>Votos por estado e percentual dos votos válidos.</p></div><div><b>4</b><h3>Conferir o total</h3><p>Brasil: Lula 48,43%, Bolsonaro 43,20%. Bate com o oficial.</p></div></div>
+      <p class="note">Na primeira versão, os resultados de 2022 vinham da Wikipédia. Pedi para ir aos dados originais do TSE.</p>
       <a class="btn-read" href="https://dadosabertos.tse.jus.br/dataset/resultados-2022" target="_blank">DADOS ABERTOS DO TSE</a>
     </section>
-    <section><span class="tag">Conferência</span><h2>O teste do total</h2><div class="divider"></div>
-      <p class="lead">Se a soma dos estados não dá o resultado nacional conhecido, algo foi filtrado errado.</p>
-      <p>Esse teste pega erro de filtro (turno, cargo, candidato) antes de qualquer comparação.</p>
-    </section>
+
     <section class="section-break"><p class="eyebrow">Caso 2 · Parte 3</p><h2>Pesquisas de 2026</h2><div class="divider-center"></div></section>
+
     <section><span class="tag">Quaest</span><h2>Onde estão os PDFs</h2>
       <div class="two-col"><div><h3>Lista de arquivos do site</h3><p class="code">quaest.com.br/wp-json/wp/v2/media?mime_type=application/pdf&amp;per_page=100</p><p>Do mais novo para o mais antigo.</p></div><div><h3>O nome do arquivo diz o que é</h3><p class="code">QUAEST2SP0809.pdf</p><p>Rodada 2, São Paulo, divulgada em 08/09.</p></div></div>
       <a class="btn-read" href="https://quaest.com.br/relatorios-quaest/" target="_blank">RELATÓRIOS QUAEST</a>
     </section>
+
     <section><span class="tag">Quaest</span><h2>Achar a página certa</h2><div class="divider"></div>
       <div class="steps"><div><b>1</b><h3>Buscar</h3><p>Cmd+F: “estimulada para presidente”.</p></div><div><b>2</b><h3>Cenário I</h3><p>Com Pablo Marçal.</p></div><div><b>3</b><h3>Cenário II</h3><p>Sem Marçal. É o que vale, porque ele foi substituído.</p></div><div><b>4</b><h3>Anotar</h3><p>Número da página de cada estado.</p></div></div>
       <p class="note">Os números estão em imagem, não em texto. A busca acha o título; o número se lê no gráfico.</p>
     </section>
+
     <section><span class="tag">Quaest</span><h2>Mesmo PDF, dois cenários</h2>
       <div class="gallery two"><img src="assets/quaest_am_p108.png" alt="Amazonas, Cenário I, página 108"><img src="assets/quaest_am_p116.png" alt="Amazonas, Cenário II, página 116"></div>
       <p class="cap">Amazonas: Cenário I (p. 108), Flávio 35% · Cenário II (p. 116), Flávio 33%</p>
     </section>
+
     <section><span class="tag">Quaest</span><h2>Ficha técnica: página 2</h2><img class="doc-shot" src="assets/quaest_am_p2.png" alt="Especificações técnicas da pesquisa do Amazonas"><p class="cap">Registro no TSE, amostra, margem de erro, período de campo e contratante</p></section>
+
     <section><span class="tag">TSE</span><h2>Confirmar o registro da pesquisa</h2><div class="divider"></div>
       <div class="two-col"><div><h3>PesqEle</h3><p>Buscar pelo número (ex.: BR-06252/2026). Clicar na lupa para ver campo, divulgação e plano amostral.</p><a class="btn-read" href="https://pesqele-divulgacao.tse.jus.br/app/pesquisa/listar.xhtml" target="_blank">PESQELE</a></div><div><h3>Planilha completa</h3><p>Dados abertos: “pesquisa_eleitoral_2026”. Filtrar a empresa.</p><a class="btn-read" href="https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais" target="_blank">PESQUISAS NO TSE</a></div></div>
       <p class="note">Toda pesquisa divulgada tem registro. Sem registro, não use.</p>
     </section>
+
     <section><span class="tag">Lacunas</span><h2>Estados sem PDF</h2>
       <div class="three-col"><div><h3>Paraíba e Sergipe</h3><p>Sem PDF no site. Resultado publicado no g1, com número de registro. Registro confirmado no TSE.</p></div><div><h3>Piauí</h3><p>176 registros da Quaest em 2026 no TSE, nenhum no Piauí. Usado o Datafolha como referência, identificado como tal.</p></div><div><h3>Próxima rodada</h3><p>O TSE já mostrava a 3ª rodada registrada, com data de divulgação. A planilha envelhece em dias.</p></div></div>
     </section>
+
     <section class="section-break"><p class="eyebrow">Caso 2 · Parte 4</p><h2>Comparar e entregar</h2><div class="divider-center"></div></section>
+
     <section><span class="tag">Comparação</span><h2>A aba de conferência</h2><img class="doc-shot wide" src="assets/aba_conferencia.png" alt="Aba de conferência com o erro do Amazonas"><p class="note">Uma linha por estado: número do TSE, os dois cenários da Quaest, o número da planilha, o resultado da conferência e a página do PDF.</p></section>
+
     <section><span class="tag">Resultado</span><h2>O que a checagem achou</h2><div class="divider"></div>
       <div class="three-col"><div><h3>Erro</h3><p>Amazonas: Flávio com 35% (Cenário I). O certo é 33% (Cenário II). Saldo +5, não +3.</p></div><div><h3>Confirmado</h3><p>2022 bate com o TSE nos 27 estados. Quaest bate em 23 estados.</p></div><div><h3>Ressalvas</h3><p>PB e SE vêm do g1. Registros lidos em letra pequena: conferir dígitos.</p></div></div>
     </section>
-    <section><span class="tag">Método</span><h2>Comparar só o que é comparável</h2>
-      <div class="two-col"><div><h3>Eleição de 2022</h3><p>Percentual dos votos válidos. Exclui brancos e nulos.</p></div><div><h3>Pesquisa de 2026</h3><p>Percentual de todos os entrevistados. Inclui indecisos.</p></div></div>
-      <p class="note">Compare saldo e liderança, não o percentual absoluto. Pesquisa nacional não serve para ver estado: poucas entrevistas por estado.</p>
-    </section>
-    <section><span class="tag">Entrega</span><h2>A planilha “checagem”</h2><div class="divider"></div>
-      <p>Uma linha por estado com fonte, registro no TSE, datas de campo e link do PDF. Notas no pé explicam o cenário usado e os limites da comparação.</p>
-      <p class="note">O original não foi alterado. As correções estão em arquivo separado.</p>
-      <a class="btn-read" href="https://docs.google.com/spreadsheets/d/1D6AWrLYyGr_muh9Ul__P6dMm7ei_36I0wFHOkCh7Deg/edit?usp=sharing" target="_blank">ABRIR PLANILHA</a>
-    </section>
+
     <section><span class="tag">Caso 2 · Resumo</span><h2>O que levar do caso 2</h2>
       <div class="checklist"><p><b>1</b>Levantar os dados antes de ver os do outro.</p><p><b>2</b>Usar o arquivo oficial e testar o total.</p><p><b>3</b>Anotar página e cenário de cada número.</p><p><b>4</b>Confirmar o registro no TSE.</p><p><b>5</b>Corrigir em arquivo separado e dizer a fonte.</p></div>
     </section>
@@ -184,7 +201,7 @@ mas primeiro faça de forma independente a obtencao dos dados e apresente as fon
     <section class="section-break"><p class="eyebrow">Técnicas</p><h2>Outras formas de checar o que veio da IA</h2><div class="divider-center"></div></section>
 
     <section><span class="tag">Técnicas</span><h2>Conferir a resposta</h2><div class="divider"></div>
-      <div class="agenda"><div><b>01</b><h3>Buscar a frase exata</h3><p>Peça a citação literal e procure com Cmd+F no PDF. Se não achar, não use.</p></div><div><b>02</b><h3>Abrir cada link</h3><p>A IA pode inventar endereço ou apontar para página que não diz aquilo.</p></div><div><b>03</b><h3>Testar o total</h3><p>Some as partes e compare com um número oficial conhecido.</p></div><div><b>04</b><h3>Checar a ordem de grandeza</h3><p>R$ 157 milhões para móveis de um hotel? Desconfie e procure o documento.</p></div></div>
+      <div class="agenda"><div><b>01</b><h3>Buscar a frase exata</h3><p>Peça a citação literal e procure com Cmd+F no PDF. Se não achar, não use.</p></div><div><b>02</b><h3>Abrir cada link</h3><p>A IA pode inventar endereço ou apontar para página que não diz aquilo.</p></div><div><b>03</b><h3>Testar o total</h3><p>Some as partes e compare com um número oficial conhecido.</p></div><div><b>04</b><h3>Checar a ordem de grandeza</h3><p>Número alto ou baixo demais? Desconfie e procure o documento.</p></div></div>
     </section>
 
     <section><span class="tag">Técnicas</span><h2>Conferir o método</h2><div class="divider"></div>
@@ -207,7 +224,7 @@ mas primeiro faça de forma independente a obtencao dos dados e apresente as fon
   </div></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
   <script>
-const blockMap=[{from:1,label:'Abertura'},{from:3,label:'Caso 1: Vila COP'},{from:29,label:'Caso 2: pesquisa eleitoral'},{from:49,label:'Link para o original'},{from:54,label:'Outras formas de checar'}];
+const blockMap=[{from:1,label:'Abertura'},{from:3,label:'Caso 1: Vila COP'},{from:26,label:'Caso 2: pesquisa eleitoral'},{from:43,label:'Link para o original'},{from:48,label:'Outras formas de checar'}];
   </script>
   <script src="script.js"></script>
 </body>
