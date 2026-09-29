@@ -93,25 +93,30 @@
     }
 
     .hero {
-      padding: 48px 0 72px;
+      padding: 24px 0 40px;
       text-align: center;
     }
 
     .hero-image {
-      padding: 12px;
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 8px;
       border: 1px solid var(--light-gray);
       background: var(--white);
       box-shadow: 0 16px 40px rgba(17, 17, 17, 0.1);
     }
 
     .hero-image img {
-      width: 100%;
+      width: auto;
       height: auto;
+      max-height: min(34svh, 320px);
+      object-fit: contain;
     }
 
     .hero-copy {
       width: min(760px, 100%);
-      margin: 34px auto 0;
+      margin: 18px auto 0;
     }
 
     .kicker {
@@ -124,7 +129,7 @@
     }
 
     .byline {
-      margin-top: 12px;
+      margin-top: 8px;
       color: var(--black);
       font-size: 1rem;
       font-weight: 400;
@@ -135,7 +140,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 16px;
     }
 
     .button {
@@ -174,8 +179,15 @@
       color: var(--accent);
     }
 
+    .hero-description {
+      max-width: 620px;
+      margin: 12px auto 0;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
     .edition-note {
-      margin-top: 20px;
+      margin-top: 10px;
       color: var(--mid);
       font-size: 0.88rem;
     }
@@ -307,7 +319,7 @@
       }
 
       .hero {
-        padding: 24px 0 56px;
+        padding: 16px 0 32px;
       }
 
       .hero-image {
@@ -335,6 +347,26 @@
     }
 
     @media (max-width: 560px) {
+      .hero-image img {
+        max-height: min(28svh, 220px);
+      }
+
+      .hero-copy {
+        margin-top: 14px;
+      }
+
+      .byline,
+      .hero-description,
+      .edition-note {
+        font-size: 0.875rem;
+        line-height: 1.5;
+      }
+
+      .hero .actions {
+        margin-top: 12px;
+        gap: 8px;
+      }
+
       .kicker {
         font-size: 0.72rem;
       }
@@ -385,11 +417,12 @@
         <div class="hero-copy">
           <p class="kicker">3 edições realizadas · A 4ª vem aí</p>
           <p class="byline">Com Luiz Fernando Toledo e Juliana Faddul</p>
+          <p class="hero-description">Um curso ao vivo para usar IA no jornalismo sem abrir mão da criatividade e do seu olhar sobre uma história.</p>
+          <p class="edition-note">Já realizamos 3 edições! A 4ª ainda não tem data prevista. Entre na lista de espera para saber quando a próxima turma abrir.</p>
           <div class="actions">
             <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSepI2SLGVb9_Jizwzn9kq5rbafKfXpSLDOe7Cu3KGglP6znlQ/viewform" target="_blank" rel="noopener">Entrar na lista de espera</a>
             <a class="button button-secondary" href="#modulos">Ver os módulos</a>
           </div>
-          <p class="edition-note">Já realizamos 3 edições do curso! Estamos preparando a 4ª, ainda sem data prevista. Entre na lista de espera para saber quando a próxima turma abrir.</p>
         </div>
       </div>
     </section>
