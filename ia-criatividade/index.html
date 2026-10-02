@@ -321,15 +321,9 @@
     .testimonials { position: relative; padding: 84px 0; background: var(--cream); }
     .testimonials .section-intro { margin-bottom: 18px; }
     .testimonials-intro { max-width: 760px; margin-bottom: 20px; color: #444; }
-    .testimonial-controls { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin: 0 0 8px; }
-    .testimonial-hint { margin-right: auto; color: var(--mid); font-size: .86rem; }
-    .testimonial-hint-mobile { display: none; }
-    .testimonial-controls button { width: 42px; height: 42px; border: 1px solid var(--black); background: var(--white); color: var(--black); cursor: pointer; font-size: 1.25rem; }
-    .testimonial-controls button:hover, .testimonial-controls button:focus-visible { background: var(--black); color: var(--white); }
-    .testimonial-controls button:disabled { opacity: .35; cursor: default; background: var(--white); color: var(--black); }
     .testimonials-stage { position: relative; }
-    .testimonials-grid { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-inline: contain; scrollbar-width: thin; padding: 16px 2px 24px; }
-    .testimonial { flex: 0 0 calc((100% - 18px) / 2); min-width: 0; display: flex; flex-direction: column; scroll-snap-align: start; padding: 22px; border: 1px solid var(--light-gray); background: var(--white); box-shadow: 0 4px 14px rgba(17,17,17,.04); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 18px; }
+    .testimonial { min-width: 0; display: flex; flex-direction: column; padding: 22px; border: 1px solid var(--light-gray); background: var(--white); box-shadow: 0 4px 14px rgba(17,17,17,.04); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
     .testimonial:focus-within { border-color: var(--accent); box-shadow: 0 14px 30px rgba(17,17,17,.13); }
     @media (hover: hover) { .testimonial:hover { transform: translateY(-6px) rotate(-.5deg); border-color: var(--accent); box-shadow: 0 18px 34px rgba(17,17,17,.15); } .testimonial:nth-child(even):hover { transform: translateY(-6px) rotate(.5deg); } }
     .testimonial-course { color: var(--accent); font-size: .78rem; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; }
@@ -338,7 +332,7 @@
     .testimonial iframe { display: block; width: 100%; height: 550px; margin-bottom: 18px; border: 1px solid var(--light-gray); background: var(--white); }
     .testimonial-links { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: auto; }
     .testimonial-links a { color: var(--accent); font-weight: 500; text-underline-offset: 3px; }
-    .carousel-finale { position: absolute; inset: 0 0 auto auto; width: 170px; height: 140px; pointer-events: none; opacity: 0; z-index: 3; }
+    .carousel-finale { position: absolute; inset: auto 0 0 auto; width: 170px; height: 140px; pointer-events: none; opacity: 0; z-index: 3; }
     .carousel-finale span { position: absolute; color: var(--accent); font-size: 1.8rem; }
     .carousel-finale span:nth-child(1) { left: 8%; top: 45%; }
     .carousel-finale span:nth-child(2) { left: 42%; top: 10%; }
@@ -348,9 +342,8 @@
     .testimonials.is-at-end .carousel-finale span { animation: sparkle 1.4s ease-in-out infinite alternate; }
     .testimonials.is-at-end .carousel-finale span:nth-child(even) { animation-delay: .4s; }
     @keyframes sparkle { from { opacity: .35; transform: translateY(4px) scale(.8) rotate(-12deg); } to { opacity: 1; transform: translateY(-9px) scale(1.15) rotate(12deg); } }
-    .testimonials-end-note { margin: 12px 0 0; color: var(--accent); font-weight: 500; text-align: right; }
-    .testimonials-end-note[hidden] { display: none; }
-    @media (max-width: 700px) { .testimonial { flex-basis: 95%; padding: 16px; } .testimonial iframe { height: 520px; } .testimonial-hint { max-width: 125px; line-height: 1.3; } .testimonial-hint-desktop { display: none; } .testimonial-hint-mobile { display: inline; } .testimonials { padding: 64px 0; } }
+    .testimonials-end-note { margin: 22px 0 0; color: var(--accent); font-weight: 500; text-align: right; }
+    @media (max-width: 700px) { .testimonials-grid { grid-template-columns: 1fr; } .testimonial { padding: 16px; } .testimonial iframe { height: 520px; } .testimonials { padding: 64px 0; } }
     @media (max-width: 800px) { .editions-grid, .presenters-grid { grid-template-columns: 1fr; } .editions, .presenters { padding: 64px 0; } }
 
     .final-cta {
@@ -626,15 +619,10 @@
     <section class="testimonials" aria-labelledby="testimonials-title">
       <div class="container">
         <div class="section-intro"><h2 id="testimonials-title">Ainda não se convenceu? Veja o que dizem os participantes</h2></div>
-        <p class="testimonials-intro">Quem já passou pelos cursos conta como levou o aprendizado para a prática. Deslize pelos posts publicados pelos próprios participantes no LinkedIn.</p>
-        <div class="testimonial-controls">
-          <span class="testimonial-hint"><span class="testimonial-hint-desktop">Passe o mouse ou deslize para explorar ↗</span><span class="testimonial-hint-mobile">Deslize para ver mais ↗</span></span>
-          <button type="button" id="testimonials-prev" aria-label="Depoimentos anteriores">←</button>
-          <button type="button" id="testimonials-next" aria-label="Próximos depoimentos">→</button>
-        </div>
+        <p class="testimonials-intro">Aqui estão os dez relatos publicados pelos próprios participantes no LinkedIn. Role a página para conhecer todos.</p>
         <div class="testimonials-stage">
           <div class="carousel-finale" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span><span>✧</span></div>
-        <div class="testimonials-grid" id="testimonials-track" role="region" aria-label="Depoimentos de participantes" tabindex="0">
+        <div class="testimonials-grid" aria-label="Dez depoimentos de participantes">
           <article class="testimonial">
             <p class="testimonial-course">IA e criatividade</p>
             <h3>Joana Berwanger</h3>
@@ -707,7 +695,7 @@
           </article>
         </div>
         </div>
-        <p class="testimonials-end-note" id="testimonials-end-note" hidden>Você viu todos os relatos ✨</p>
+        <p class="testimonials-end-note" id="testimonials-end-note">Você viu os dez relatos ✨</p>
       </div>
     </section>
 
@@ -726,27 +714,13 @@
     </div>
   </footer>
   <script>
-    const testimonialsTrack = document.getElementById('testimonials-track');
-    const testimonialsPrev = document.getElementById('testimonials-prev');
-    const testimonialsNext = document.getElementById('testimonials-next');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const testimonialsSection = document.querySelector('.testimonials');
     const testimonialsEndNote = document.getElementById('testimonials-end-note');
-    function updateTestimonialControls() {
-      testimonialsPrev.disabled = testimonialsTrack.scrollLeft < 2;
-      testimonialsNext.disabled = testimonialsTrack.scrollLeft + testimonialsTrack.clientWidth >= testimonialsTrack.scrollWidth - 2;
-      testimonialsSection.classList.toggle('is-at-end', testimonialsNext.disabled);
-      testimonialsEndNote.hidden = !testimonialsNext.disabled;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        testimonialsSection.classList.toggle('is-at-end', entry.isIntersecting);
+      }, { threshold: 0.5 }).observe(testimonialsEndNote);
     }
-    function moveTestimonials(direction) {
-      const card = testimonialsTrack.querySelector('.testimonial');
-      testimonialsTrack.scrollBy({ left: direction * (card.getBoundingClientRect().width + 18), behavior: reducedMotion.matches ? 'auto' : 'smooth' });
-    }
-    testimonialsPrev.addEventListener('click', () => moveTestimonials(-1));
-    testimonialsNext.addEventListener('click', () => moveTestimonials(1));
-    testimonialsTrack.addEventListener('scroll', updateTestimonialControls, { passive: true });
-    window.addEventListener('resize', updateTestimonialControls);
-    updateTestimonialControls();
   </script>
 </body>
 </html>
