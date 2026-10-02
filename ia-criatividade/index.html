@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A reportagem ainda é sua! Como usar IA sem abrir mão da criatividade</title>
-  <meta name="description" content="Já realizamos 3 cursos juntos. O próximo ainda não tem data prevista. Entre na lista de espera para receber novidades dos cursos de Juliana Faddul e Luiz Fernando Toledo.">
+  <title>Cursos de jornalismo com Ju Faddul e Luiz Fernando Toledo</title>
+  <meta name="description" content="Três edições de cursos para quem quer investigar, desenvolver pautas e produzir reportagens: duas de jornalismo investigativo para freelancers e uma de criatividade e IA.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="A reportagem ainda é sua! Como usar IA sem abrir mão da criatividade">
-  <meta property="og:description" content="Já realizamos 3 cursos juntos. O próximo ainda não tem data prevista. Entre na lista de espera para receber novidades dos cursos de Juliana Faddul e Luiz Fernando Toledo.">
+  <meta property="og:title" content="Cursos de jornalismo com Ju Faddul e Luiz Fernando Toledo">
+  <meta property="og:description" content="Duas edições de jornalismo investigativo para freelancers e uma de criatividade e IA. Conheça os cursos e os projetos dos participantes.">
   <meta property="og:locale" content="pt_BR">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,6 +118,14 @@
       width: min(760px, 100%);
       margin: 18px auto 0;
     }
+    .hero-title { margin: 12px auto 0; max-width: 850px; font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.5rem, 6vw, 4.6rem); line-height: 1.06; letter-spacing: -.035em; }
+    .editions { padding: 76px 0; }
+    .editions-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .edition { padding: 28px; border: 1px solid var(--light-gray); }
+    .edition .tag { color: var(--accent); font-size: .88rem; font-weight: 500; }
+    .edition h3 { margin: 12px 0; }
+    .edition p:last-child { color: #444; }
+    .edition-context { max-width: 780px; margin: 0 0 30px; }
 
     .kicker {
       color: var(--accent);
@@ -284,6 +292,20 @@
       text-underline-offset: 3px;
     }
 
+    .testimonials { padding: 84px 0; background: var(--cream); }
+    .testimonials .section-intro { margin-bottom: 18px; }
+    .testimonials-intro { max-width: 760px; margin-bottom: 32px; color: #444; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 18px; }
+    .testimonial { min-width: 0; padding: 22px; border: 1px solid var(--light-gray); background: var(--white); }
+    .testimonial-course { color: var(--accent); font-size: .88rem; font-weight: 500; }
+    .testimonial h3 { margin-top: 8px; }
+    .testimonial > p:not(.testimonial-course) { margin: 12px 0 18px; color: #444; }
+    .testimonial iframe { display: block; width: 100%; max-width: 100%; border: 0; background: var(--white); }
+    .testimonial-links { display: flex; flex-wrap: wrap; gap: 10px 20px; }
+    .testimonial-links a { color: var(--accent); font-weight: 500; text-underline-offset: 3px; }
+    @media (max-width: 700px) { .testimonials-grid { grid-template-columns: 1fr; } .testimonials { padding: 64px 0; } }
+    @media (max-width: 800px) { .editions-grid { grid-template-columns: 1fr; } .editions { padding: 64px 0; } }
+
     .final-cta {
       padding: 84px 0;
       text-align: center;
@@ -410,33 +432,43 @@
   <main>
     <section class="hero" aria-labelledby="page-title">
       <div class="container">
-        <h1 id="page-title" class="sr-only">A reportagem ainda é sua! Como usar IA sem abrir mão da criatividade</h1>
-        <div class="hero-image">
-          <img src="hero-ilustracao.jpg" alt="Ilustração em um caderno com o título A reportagem ainda é sua!, um robô desenhado e os nomes de Ju Faddul e Luiz Fernando Toledo" width="1490" height="1056">
-        </div>
+        <h1 id="page-title" class="hero-title">Da ideia à reportagem</h1>
         <div class="hero-copy">
-          <p class="kicker">3 cursos realizados · O próximo vem aí</p>
+          <p class="kicker">Três edições realizadas</p>
           <p class="byline">Com Luiz Fernando Toledo e Juliana Faddul</p>
-          <p class="hero-description">Um curso ao vivo para usar IA no jornalismo sem abrir mão da criatividade e do seu olhar sobre uma história.</p>
-          <p class="edition-note">Já realizamos 3 cursos juntos! Estamos preparando o próximo, ainda sem data prevista. Entre na lista de espera para receber novidades.</p>
+          <p class="hero-description">Cursos para quem quer encontrar boas pautas, investigar e produzir reportagens relevantes, trabalhando de forma independente ou em redações.</p>
+          <p class="edition-note">Foram duas edições de jornalismo investigativo para freelancers e uma de criatividade e inteligência artificial aplicada ao jornalismo. O próximo curso ainda não tem data.</p>
           <div class="actions">
             <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSepI2SLGVb9_Jizwzn9kq5rbafKfXpSLDOe7Cu3KGglP6znlQ/viewform" target="_blank" rel="noopener">Entrar na lista de espera</a>
-            <a class="button button-secondary" href="#modulos">Ver os módulos</a>
+            <a class="button button-secondary" href="#edicoes">Conhecer as edições</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="editions" id="edicoes" aria-labelledby="editions-title">
+      <div class="container">
+        <div class="section-intro"><h2 id="editions-title">O que já fizemos</h2></div>
+        <p class="edition-context">As três edições combinam prática, troca entre jornalistas e caminhos para transformar uma ideia em trabalho publicado. Os dois cursos de investigação foram voltados a freelancers; a terceira edição explorou como usar IA para desenvolver ideias sem abrir mão da apuração e da autoria.</p>
+        <div class="editions-grid">
+          <article class="edition"><p class="tag">Edição 01 · Jornalismo investigativo</p><h3>Investigar como freelancer</h3><p>Da escolha da pauta à busca de dados, documentos e personagens, com atenção aos desafios de trabalhar fora de uma redação.</p></article>
+          <article class="edition"><p class="tag">Edição 02 · Jornalismo investigativo</p><h3>Apurar e viabilizar a reportagem</h3><p>Uma nova turma sobre técnicas de investigação, acesso à informação e caminhos para apresentar e financiar pautas.</p></article>
+          <article class="edition"><p class="tag">Edição 03 · Criatividade e IA</p><h3>A reportagem ainda é sua</h3><p>Experimentação com ferramentas de IA para encontrar caminhos criativos, construir protótipos e checar resultados com responsabilidade.</p></article>
         </div>
       </div>
     </section>
 
     <section class="hook">
       <div class="narrow">
-        <p>Tá desesperado (e perdido) com medo da IA roubar a sua criatividade? A verdade é que nenhuma tecnologia pode substituir a sua forma de pensar, a sua curiosidade ou o seu olhar sobre uma história. Mas pode te ajudar! E muito!</p>
+        <p>Uma boa reportagem começa com uma pergunta. Nossos cursos ajudam a encontrar evidências, testar ideias e dar forma a histórias que merecem ser contadas.</p>
       </div>
     </section>
 
     <section class="modules" id="modulos" aria-labelledby="modules-title">
       <div class="container">
         <div class="section-intro">
-          <h2 id="modules-title">Os módulos</h2>
+          <h2 id="modules-title">Na edição de criatividade e IA</h2>
+          <p>Estes foram os temas da terceira edição. A programação de uma próxima turma será divulgada quando houver data.</p>
         </div>
 
         <article class="module">
@@ -478,21 +510,100 @@
 
     <section class="rules" aria-labelledby="rules-title">
       <div class="container">
-        <h2 id="rules-title">Regras do curso</h2>
+        <h2 id="rules-title">Como trabalhamos</h2>
         <div class="rules-grid">
           <article class="rule">
-            <h3>As aulas NÃO serão gravadas</h3>
-            <p>Primeiro: quase ninguém assiste às gravações depois. Segundo: queremos criar um ambiente seguro e livre de julgamentos. Terceiro: a ideia não é oferecer uma fórmula genérica, mas ajudar você a construir seu próprio mecanismo para exercitar ideias.</p>
+            <h3>Troca ao vivo</h3>
+            <p>Nas edições anteriores, priorizamos a participação e a conversa sobre as pautas de cada pessoa. O formato da próxima edição será anunciado com a abertura das inscrições.</p>
           </article>
 
           <article class="rule">
             <h3>Bolsas e descontos</h3>
-            <p>As bolsas integrais serão destinadas prioritariamente a pessoas afastadas de centros urbanos e/ou em situação de vulnerabilidade social (áreas de conflito ou dificuldade socioeconômica). As bolsas com 50% de desconto são destinadas a profissionais acima de 60 anos e ex-alunos de qualquer curso realizado pela Ju e pelo Toledo. Se você se enquadra em alguma dessas condições, escreva para <a href="mailto:jornalismoindependentecurso@gmail.com">jornalismoindependentecurso@gmail.com</a>.</p>
+            <p>Já oferecemos bolsas e descontos para ampliar o acesso aos cursos. As condições da próxima edição serão divulgadas com as inscrições. Para dúvidas, escreva para <a href="mailto:jornalismoindependentecurso@gmail.com">jornalismoindependentecurso@gmail.com</a>.</p>
           </article>
 
           <article class="rule">
-            <h3>Por que cobramos esse preço?</h3>
-            <p>Porque esse é, em média, o valor mínimo que muitas redações pagam por uma única reportagem. A ideia é simples: se este curso ajudar você a produzir apenas uma boa pauta, ele praticamente se paga. Pagamento no PIX tem desconto! Quer saber mais? Escreva para <a href="mailto:jornalismoindependentecurso@gmail.com">jornalismoindependentecurso@gmail.com</a>.</p>
+            <h3>Prática com foco em publicação</h3>
+            <p>O objetivo é sair da aula com perguntas melhores, métodos de apuração e passos concretos para desenvolver uma reportagem. Preço e formas de pagamento serão informados na próxima edição.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-intro"><h2 id="testimonials-title">O que participantes disseram</h2></div>
+        <p class="testimonials-intro">Relatos publicados pelos próprios participantes no LinkedIn. Cada post aparece aqui na íntegra, com um resumo e o link original. Quando alguém compartilhou um projeto feito a partir do curso, incluímos também o trabalho.</p>
+        <div class="testimonials-grid">
+          <article class="testimonial">
+            <p class="testimonial-course">IA e criatividade</p>
+            <h3>Joana Berwanger</h3>
+            <p>Usou as ferramentas do curso para começar um arquivo consultável com mais de 6 mil jogos do Internacional desde 1909. A base ainda estava em desenvolvimento quando publicou o relato.</p>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7510355116043214848" title="Publicação de Joana Berwanger no LinkedIn" height="850" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="testimonial-links"><a href="https://www.linkedin.com/posts/joanaberwanger_nas-%C3%BAltimas-duas-semanas-participei-de-um-activity-7510355116043214848-Td5k" target="_blank" rel="noopener noreferrer">Publicação original</a><a href="https://lnkd.in/ddgFyjkv" target="_blank" rel="noopener noreferrer">Ver projeto</a></div>
+          </article>
+          <article class="testimonial">
+            <p class="testimonial-course">Jornalismo investigativo</p>
+            <h3>Laíse Ribeiro</h3>
+            <p>Participou como bolsista e destacou a troca com os professores e a importância de ampliar o acesso à formação.</p>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7381490949530693632" title="Publicação de Laíse Ribeiro no LinkedIn" height="720" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="testimonial-links"><a href="https://www.linkedin.com/posts/la%C3%ADse-ribeiro-412927305_a-correria-da-vida-%C3%A0s-vezes-nos-faz-esquecer-activity-7381490949530693632-QIQ9" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
+          </article>
+          <article class="testimonial">
+            <p class="testimonial-course">Jornalismo investigativo</p>
+            <h3>Madson Lopes</h3>
+            <p>Destacou aulas práticas sobre pautas com dados, personagens, LAI, financiamento e uso de IA na apuração.</p>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7463045667804934144" title="Publicação de Madson Lopes no LinkedIn" height="900" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="testimonial-links"><a href="https://www.linkedin.com/posts/madson-lopes_curso-jornalismo-investigativo-activity-7463045667804934144-QIqL" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
+          </article>
+          <article class="testimonial">
+            <p class="testimonial-course">Jornalismo investigativo</p>
+            <h3>Elisa Soares Heinski</h3>
+            <p>Relatou ter aprendido a explorar planilhas, usar a LAI e pensar em estratégias para vender pautas.</p>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7384572256942702592" title="Publicação de Elisa Soares Heinski no LinkedIn" height="760" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="testimonial-links"><a href="https://www.linkedin.com/posts/elisa-soares-heinski_desde-que-decidi-dar-um-tempo-do-ritmo-fren%C3%A9tico-activity-7384572256942702592-6Gxz" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
+          </article>
+          <article class="testimonial">
+            <p class="testimonial-course">Jornalismo investigativo</p>
+            <h3>Juliana Menezes</h3>
+            <p>Descreveu o curso como uma imersão em jornalismo de dados e transparência pública, com dicas práticas para a carreira.</p>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7387528711136305152" title="Publicação de Juliana Menezes no LinkedIn" height="700" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="testimonial-links"><a href="https://www.linkedin.com/posts/menezesjuliana_certificado-activity-7387528711136305152-7nmE" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
+          </article>
+          <article class="testimonial">
+            <p class="testimonial-course">Jornalismo investigativo</p>
+            <h3>Renan Honorato</h3>
+            <p>Disse que a troca de experiências ajudou a destravar pautas que pretendia publicar.</p>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7461002456617967616" title="Publicação de Renan Honorato no LinkedIn" height="650" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="testimonial-links"><a href="https://www.linkedin.com/posts/jor-renan-honorato_certificado-jornalismo-investigativo-activity-7461002456617967616-D8Sh" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
+          </article>
+          <article class="testimonial">
+            <p class="testimonial-course">Jornalismo investigativo</p>
+            <h3>Clarisse Amaral</h3>
+            <p>Destacou a troca entre profissionais de diferentes regiões e as discussões sobre como vender pautas e construir credibilidade.</p>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7461016682656903168" title="Publicação de Clarisse Amaral no LinkedIn" height="650" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="testimonial-links"><a href="https://www.linkedin.com/posts/clarisse-amaral-632a43207_no-%C3%BAltimo-m%C3%AAs-tive-a-oportunidade-de-participar-activity-7461016682656903168-yfaX" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
+          </article>
+          <article class="testimonial">
+            <p class="testimonial-course">Jornalismo investigativo</p>
+            <h3>Claudia Araujo Macedo</h3>
+            <p>Participou como bolsista e disse que a experiência reacendeu seu interesse pelo jornalismo.</p>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7461201557108346880" title="Publicação de Claudia Araujo Macedo no LinkedIn" height="600" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="testimonial-links"><a href="https://www.linkedin.com/posts/claudia-araujo-macedo_em-abril-tive-a-honra-de-participar-como-activity-7461201557108346880-gYF7" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
+          </article>
+          <article class="testimonial">
+            <p class="testimonial-course">Jornalismo investigativo</p>
+            <h3>Gabriel Barros</h3>
+            <p>Compartilhou o aprendizado sobre venda de pautas, LAI, Portal da Transparência e ferramentas de IA para jornalismo de dados.</p>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7450699562345713664" title="Publicação de Gabriel Barros no LinkedIn" height="650" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="testimonial-links"><a href="https://www.linkedin.com/posts/gabriel-barros-1b4811260_hoje-foi-o-dia-do-segundo-m%C3%B3dulo-do-curso-activity-7450699562345713664-PK3d" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
+          </article>
+          <article class="testimonial">
+            <p class="testimonial-course">Jornalismo investigativo</p>
+            <h3>Helen Teixeira</h3>
+            <p>Considerou inspiradoras as conversas sobre investigação, cobertura internacional e trabalho freelancer em um momento de decisões na carreira.</p>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7458176349401280513" title="Publicação de Helen Teixeira no LinkedIn" height="650" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="testimonial-links"><a href="https://www.linkedin.com/posts/helen-teixeira_it-was-great-to-learn-from-the-amazing-brazilian-activity-7458176349401280513-xBZp" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
           </article>
         </div>
       </div>
