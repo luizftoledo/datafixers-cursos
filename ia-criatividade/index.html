@@ -128,6 +128,14 @@
     .edition p:last-child { color: #444; }
     .edition-context { max-width: 780px; margin: 0 0 30px; }
 
+    .presenters { padding: 76px 0; background: var(--cream); }
+    .presenters-intro { max-width: 700px; margin-bottom: 30px; color: #444; }
+    .presenters-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .presenter { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 22px; align-items: center; padding: 22px; background: var(--white); border: 1px solid var(--light-gray); }
+    .presenter img { width: 140px; height: 150px; object-fit: cover; object-position: center 25%; }
+    .presenter h3 { margin-bottom: 8px; }
+    .presenter p { color: #444; font-size: .95rem; }
+
     .kicker {
       color: var(--accent);
       font-size: 0.78rem;
@@ -314,7 +322,7 @@
     .testimonial-links { display: flex; flex-wrap: wrap; gap: 10px 20px; }
     .testimonial-links a { color: var(--accent); font-weight: 500; text-underline-offset: 3px; }
     @media (max-width: 700px) { .testimonials-grid { grid-template-columns: 1fr; } .testimonials { padding: 64px 0; } }
-    @media (max-width: 800px) { .editions-grid { grid-template-columns: 1fr; } .editions { padding: 64px 0; } }
+    @media (max-width: 800px) { .editions-grid, .presenters-grid { grid-template-columns: 1fr; } .editions, .presenters { padding: 64px 0; } }
 
     .final-cta {
       padding: 84px 0;
@@ -426,6 +434,8 @@
       .rule {
         padding: 22px;
       }
+      .presenter { grid-template-columns: 100px minmax(0, 1fr); gap: 16px; padding: 16px; }
+      .presenter img { width: 100px; height: 120px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -453,6 +463,29 @@
             <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSepI2SLGVb9_Jizwzn9kq5rbafKfXpSLDOe7Cu3KGglP6znlQ/viewform" target="_blank" rel="noopener">Entrar na lista de espera</a>
             <a class="button button-secondary" href="#edicoes">Conhecer os cursos</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="presenters" aria-labelledby="presenters-title">
+      <div class="container">
+        <div class="section-intro"><h2 id="presenters-title">Quem dá os cursos</h2></div>
+        <p class="presenters-intro">Somos a Ju e o Toledo. Levamos para as aulas o que aprendemos investigando, trabalhando em redações e tirando projetos independentes do papel.</p>
+        <div class="presenters-grid">
+          <article class="presenter">
+            <img src="../jornalismo-investigativo/photos/ju.png" alt="Retrato de Juliana Faddul" width="625" height="650" loading="lazy">
+            <div>
+              <h3>Juliana (Ju) Faddul</h3>
+              <p>Jornalista independente, já publicou em veículos como <em>piauí</em> e <em>Folha de S.Paulo</em>. Investiga temas sociais e ambientais e teve reportagens apoiadas pelo Pulitzer Center.</p>
+            </div>
+          </article>
+          <article class="presenter">
+            <img src="../jornalismo-investigativo/photos/luiz.jpg" alt="Retrato de Luiz Fernando Toledo" width="365" height="422" loading="lazy">
+            <div>
+              <h3>Luiz Fernando Toledo</h3>
+              <p>Repórter da BBC News Brasil em Londres. É mestre em jornalismo de dados pela Universidade Columbia e em administração pública pela FGV. Investiga políticas públicas com dados e documentos.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
