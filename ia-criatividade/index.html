@@ -323,6 +323,7 @@
     .testimonials-intro { max-width: 760px; margin-bottom: 20px; color: #444; }
     .testimonial-controls { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin: 0 0 8px; }
     .testimonial-hint { margin-right: auto; color: var(--mid); font-size: .86rem; }
+    .testimonial-hint-mobile { display: none; }
     .testimonial-controls button { width: 42px; height: 42px; border: 1px solid var(--black); background: var(--white); color: var(--black); cursor: pointer; font-size: 1.25rem; }
     .testimonial-controls button:hover, .testimonial-controls button:focus-visible { background: var(--black); color: var(--white); }
     .testimonial-controls button:disabled { opacity: .35; cursor: default; background: var(--white); color: var(--black); }
@@ -349,7 +350,7 @@
     @keyframes sparkle { from { opacity: .35; transform: translateY(4px) scale(.8) rotate(-12deg); } to { opacity: 1; transform: translateY(-9px) scale(1.15) rotate(12deg); } }
     .testimonials-end-note { margin: 12px 0 0; color: var(--accent); font-weight: 500; text-align: right; }
     .testimonials-end-note[hidden] { display: none; }
-    @media (max-width: 700px) { .testimonial { flex-basis: 88%; padding: 16px; } .testimonial iframe { height: 520px; } .testimonial-hint { max-width: 125px; line-height: 1.3; } .testimonials { padding: 64px 0; } }
+    @media (max-width: 700px) { .testimonial { flex-basis: 95%; padding: 16px; } .testimonial iframe { height: 520px; } .testimonial-hint { max-width: 125px; line-height: 1.3; } .testimonial-hint-desktop { display: none; } .testimonial-hint-mobile { display: inline; } .testimonials { padding: 64px 0; } }
     @media (max-width: 800px) { .editions-grid, .presenters-grid { grid-template-columns: 1fr; } .editions, .presenters { padding: 64px 0; } }
 
     .final-cta {
@@ -627,7 +628,7 @@
         <div class="section-intro"><h2 id="testimonials-title">Ainda não se convenceu? Veja o que dizem os participantes</h2></div>
         <p class="testimonials-intro">Quem já passou pelos cursos conta como levou o aprendizado para a prática. Deslize pelos posts publicados pelos próprios participantes no LinkedIn.</p>
         <div class="testimonial-controls">
-          <span class="testimonial-hint">Passe o mouse ou deslize para explorar ↗</span>
+          <span class="testimonial-hint"><span class="testimonial-hint-desktop">Passe o mouse ou deslize para explorar ↗</span><span class="testimonial-hint-mobile">Deslize para ver mais ↗</span></span>
           <button type="button" id="testimonials-prev" aria-label="Depoimentos anteriores">←</button>
           <button type="button" id="testimonials-next" aria-label="Próximos depoimentos">→</button>
         </div>
