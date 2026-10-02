@@ -131,10 +131,16 @@
     .presenters { padding: 76px 0; background: var(--cream); }
     .presenters-intro { max-width: 700px; margin-bottom: 30px; color: #444; }
     .presenters-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-    .presenter { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 22px; align-items: center; padding: 22px; background: var(--white); border: 1px solid var(--light-gray); }
+    .presenter { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 22px; align-items: start; padding: 22px; background: var(--white); border: 1px solid var(--light-gray); }
     .presenter img { width: 140px; height: 150px; object-fit: cover; object-position: center 25%; }
     .presenter h3 { margin-bottom: 8px; }
     .presenter p { color: #444; font-size: .95rem; }
+    .presenter-work { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--light-gray); }
+    .presenter-work h4 { margin-bottom: 10px; font-size: .82rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+    .presenter-work ul { list-style: none; }
+    .presenter-work li + li { margin-top: 12px; }
+    .presenter-work span { display: block; color: var(--mid); font-size: .76rem; }
+    .presenter-work a { color: var(--accent); font-size: .9rem; font-weight: 500; line-height: 1.45; text-underline-offset: 3px; }
 
     .kicker {
       color: var(--accent);
@@ -151,6 +157,8 @@
       font-size: 1rem;
       font-weight: 400;
     }
+
+    .byline a { text-decoration-color: var(--accent); text-underline-offset: 4px; }
 
     .actions {
       display: flex;
@@ -313,15 +321,19 @@
     .testimonials { padding: 84px 0; background: var(--cream); }
     .testimonials .section-intro { margin-bottom: 18px; }
     .testimonials-intro { max-width: 760px; margin-bottom: 32px; color: #444; }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 18px; }
-    .testimonial { min-width: 0; padding: 22px; border: 1px solid var(--light-gray); background: var(--white); }
-    .testimonial-course { color: var(--accent); font-size: .88rem; font-weight: 500; }
-    .testimonial h3 { margin-top: 8px; }
-    .testimonial > p:not(.testimonial-course) { margin: 12px 0 18px; color: #444; }
-    .testimonial iframe { display: block; width: 100%; max-width: 100%; border: 0; background: var(--white); }
-    .testimonial-links { display: flex; flex-wrap: wrap; gap: 10px 20px; }
+    .testimonial-controls { display: flex; justify-content: flex-end; gap: 10px; margin: 0 0 18px; }
+    .testimonial-controls button { width: 42px; height: 42px; border: 1px solid var(--black); background: var(--white); color: var(--black); cursor: pointer; font-size: 1.25rem; }
+    .testimonial-controls button:hover, .testimonial-controls button:focus-visible { background: var(--black); color: var(--white); }
+    .testimonial-controls button:disabled { opacity: .35; cursor: default; background: var(--white); color: var(--black); }
+    .testimonials-grid { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-inline: contain; scrollbar-width: thin; padding-bottom: 12px; }
+    .testimonial { flex: 0 0 calc((100% - 36px) / 3); min-width: 0; min-height: 250px; display: flex; flex-direction: column; scroll-snap-align: start; padding: 24px; border: 1px solid var(--light-gray); background: var(--white); }
+    .testimonial-course { color: var(--accent); font-size: .78rem; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; }
+    .testimonial h3 { margin-top: 10px; }
+    .testimonial > p:not(.testimonial-course) { margin: 12px 0 20px; color: #444; font-size: .95rem; }
+    .testimonial-links { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: auto; }
     .testimonial-links a { color: var(--accent); font-weight: 500; text-underline-offset: 3px; }
-    @media (max-width: 700px) { .testimonials-grid { grid-template-columns: 1fr; } .testimonials { padding: 64px 0; } }
+    @media (max-width: 900px) { .testimonial { flex-basis: calc((100% - 18px) / 2); } }
+    @media (max-width: 700px) { .testimonial { flex-basis: 85%; } .testimonials { padding: 64px 0; } }
     @media (max-width: 800px) { .editions-grid, .presenters-grid { grid-template-columns: 1fr; } .editions, .presenters { padding: 64px 0; } }
 
     .final-cta {
@@ -456,36 +468,13 @@
         <p class="kicker">Três edições realizadas, quarta edição em breve!</p>
         <h1 id="page-title" class="hero-title">Da ideia à reportagem</h1>
         <div class="hero-copy">
-          <p class="byline">Com Luiz Fernando Toledo e Juliana Faddul</p>
+          <p class="byline">Com <a href="#presenters-title">Luiz Fernando Toledo</a> e <a href="#presenters-title">Juliana Faddul</a></p>
           <p class="hero-description">Cursos para quem quer <strong>encontrar boas pautas, investigar e produzir reportagens relevantes, trabalhando de forma independente ou em redações.</strong></p>
           <p class="edition-note">Somos dois jornalistas com mais de 10 anos de experiência e muito interesse em compartilhar o que aprendemos. Já estamos indo para o nosso quarto curso juntos — e esperamos vocês. Veja o que já fizemos e entre na lista de espera para os próximos.</p>
           <div class="actions">
             <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSepI2SLGVb9_Jizwzn9kq5rbafKfXpSLDOe7Cu3KGglP6znlQ/viewform" target="_blank" rel="noopener">Entrar na lista de espera</a>
             <a class="button button-secondary" href="#edicoes">Conhecer os cursos</a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="presenters" aria-labelledby="presenters-title">
-      <div class="container">
-        <div class="section-intro"><h2 id="presenters-title">Quem dá os cursos</h2></div>
-        <p class="presenters-intro">Somos a Ju e o Toledo. Levamos para as aulas o que aprendemos investigando, trabalhando em redações e tirando projetos independentes do papel.</p>
-        <div class="presenters-grid">
-          <article class="presenter">
-            <img src="../jornalismo-investigativo/photos/ju.png" alt="Retrato de Juliana Faddul" width="625" height="650" loading="lazy">
-            <div>
-              <h3>Juliana (Ju) Faddul</h3>
-              <p>Jornalista independente, já publicou em veículos como <em>piauí</em> e <em>Folha de S.Paulo</em>. Investiga temas sociais e ambientais e teve reportagens apoiadas pelo Pulitzer Center.</p>
-            </div>
-          </article>
-          <article class="presenter">
-            <img src="../jornalismo-investigativo/photos/luiz.jpg" alt="Retrato de Luiz Fernando Toledo" width="365" height="422" loading="lazy">
-            <div>
-              <h3>Luiz Fernando Toledo</h3>
-              <p>Repórter da BBC News Brasil em Londres. É mestre em jornalismo de dados pela Universidade Columbia e em administração pública pela FGV. Investiga políticas públicas com dados e documentos.</p>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -577,79 +566,112 @@
       </div>
     </section>
 
+    <section class="presenters" aria-labelledby="presenters-title">
+      <div class="container">
+        <div class="section-intro"><h2 id="presenters-title">Quem dá os cursos</h2></div>
+        <p class="presenters-intro">Somos a Ju e o Toledo. Levamos para as aulas o que aprendemos investigando, trabalhando em redações e tirando projetos independentes do papel.</p>
+        <div class="presenters-grid">
+          <article class="presenter">
+            <img src="../jornalismo-investigativo/photos/ju.png" alt="Retrato de Juliana Faddul" width="625" height="650" loading="lazy">
+            <div>
+              <h3>Juliana (Ju) Faddul</h3>
+              <p>Jornalista independente, já publicou em veículos como <em>piauí</em> e <em>Folha de S.Paulo</em>. Investiga temas sociais e ambientais e teve reportagens apoiadas pelo Pulitzer Center.</p>
+              <div class="presenter-work">
+                <h4>Reportagens</h4>
+                <ul>
+                  <li><span>Recente · piauí, 2026</span><a href="https://piaui.uol.com.br/web/os-cacadores-de-balas-perdidas/" target="_blank" rel="noopener noreferrer">Os caçadores de balas perdidas</a></li>
+                  <li><span>Recente · piauí, 2025 · com Allan de Abreu</span><a href="https://piaui.uol.com.br/web/o-hub-empresarial-do-pcc-na-avenida-paulista/" target="_blank" rel="noopener noreferrer">O hub empresarial do PCC na Avenida Paulista</a></li>
+                  <li><span>Destaque · piauí, 2023</span><a href="https://piaui.uol.com.br/revista/198/um-estado-as-escuras/" target="_blank" rel="noopener noreferrer">Pará às escuras</a></li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article class="presenter">
+            <img src="../jornalismo-investigativo/photos/luiz.jpg" alt="Retrato de Luiz Fernando Toledo" width="365" height="422" loading="lazy">
+            <div>
+              <h3>Luiz Fernando Toledo</h3>
+              <p>Repórter da BBC News Brasil em Londres. É mestre em jornalismo de dados pela Universidade Columbia e em administração pública pela FGV. Investiga políticas públicas com dados e documentos.</p>
+              <div class="presenter-work">
+                <h4>Reportagens</h4>
+                <ul>
+                  <li><span>Recente · BBC News Brasil, 2025–2026</span><a href="https://luizftoledo.github.io/portfolio-investigativo/epstein/index.html" target="_blank" rel="noopener noreferrer">A rede de Jeffrey Epstein no Brasil</a></li>
+                  <li><span>Recente · BBC News Brasil, 2026</span><a href="https://www.bbc.com/portuguese/articles/c5ydlv11pe1o" target="_blank" rel="noopener noreferrer">Alunas denunciam PMs por assédio em escolas cívico-militares</a></li>
+                  <li><span>Destaque · BBC News Brasil, 2025</span><a href="https://www.bbc.com/portuguese/articles/c1drv0wkr9ro" target="_blank" rel="noopener noreferrer">Emenda do orçamento secreto em obra com produto de trabalho escravo</a></li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="testimonials" aria-labelledby="testimonials-title">
       <div class="container">
-        <div class="section-intro"><h2 id="testimonials-title">O que dizem os participantes</h2></div>
-        <p class="testimonials-intro">Não se convenceu ainda? Então veja o que quem já passou pelos cursos está dizendo por aí. Os relatos foram publicados pelos próprios participantes no LinkedIn; você pode ler cada post na íntegra e acessar a publicação original.</p>
-        <div class="testimonials-grid">
+        <div class="section-intro"><h2 id="testimonials-title">Ainda não se convenceu? Veja o que dizem os participantes</h2></div>
+        <p class="testimonials-intro">Quem já passou pelos cursos conta como levou o aprendizado para a prática. Deslize os relatos e abra as publicações originais no LinkedIn.</p>
+        <div class="testimonial-controls">
+          <button type="button" id="testimonials-prev" aria-label="Depoimentos anteriores">←</button>
+          <button type="button" id="testimonials-next" aria-label="Próximos depoimentos">→</button>
+        </div>
+        <div class="testimonials-grid" id="testimonials-track" role="region" aria-label="Depoimentos de participantes" tabindex="0">
           <article class="testimonial">
             <p class="testimonial-course">IA e criatividade</p>
             <h3>Joana Berwanger</h3>
             <p>Usou as ferramentas do curso para começar um arquivo consultável com mais de 6 mil jogos do Internacional desde 1909. A base ainda estava em desenvolvimento quando publicou o relato.</p>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7510355116043214848" title="Publicação de Joana Berwanger no LinkedIn" height="850" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="testimonial-links"><a href="https://www.linkedin.com/posts/joanaberwanger_nas-%C3%BAltimas-duas-semanas-participei-de-um-activity-7510355116043214848-Td5k" target="_blank" rel="noopener noreferrer">Publicação original</a><a href="https://lnkd.in/ddgFyjkv" target="_blank" rel="noopener noreferrer">Ver projeto</a></div>
           </article>
           <article class="testimonial">
             <p class="testimonial-course">Jornalismo investigativo</p>
             <h3>Laíse Ribeiro</h3>
             <p>Participou como bolsista e destacou a troca com os professores e a importância de ampliar o acesso à formação.</p>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7381490949530693632" title="Publicação de Laíse Ribeiro no LinkedIn" height="720" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="testimonial-links"><a href="https://www.linkedin.com/posts/la%C3%ADse-ribeiro-412927305_a-correria-da-vida-%C3%A0s-vezes-nos-faz-esquecer-activity-7381490949530693632-QIQ9" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
           </article>
           <article class="testimonial">
             <p class="testimonial-course">Jornalismo investigativo</p>
             <h3>Madson Lopes</h3>
             <p>Destacou aulas práticas sobre pautas com dados, personagens, LAI, financiamento e uso de IA na apuração.</p>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7463045667804934144" title="Publicação de Madson Lopes no LinkedIn" height="900" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="testimonial-links"><a href="https://www.linkedin.com/posts/madson-lopes_curso-jornalismo-investigativo-activity-7463045667804934144-QIqL" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
           </article>
           <article class="testimonial">
             <p class="testimonial-course">Jornalismo investigativo</p>
             <h3>Elisa Soares Heinski</h3>
             <p>Relatou ter aprendido a explorar planilhas, usar a LAI e pensar em estratégias para vender pautas.</p>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7384572256942702592" title="Publicação de Elisa Soares Heinski no LinkedIn" height="760" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="testimonial-links"><a href="https://www.linkedin.com/posts/elisa-soares-heinski_desde-que-decidi-dar-um-tempo-do-ritmo-fren%C3%A9tico-activity-7384572256942702592-6Gxz" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
           </article>
           <article class="testimonial">
             <p class="testimonial-course">Jornalismo investigativo</p>
             <h3>Juliana Menezes</h3>
             <p>Descreveu o curso como uma imersão em jornalismo de dados e transparência pública, com dicas práticas para a carreira.</p>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7387528711136305152" title="Publicação de Juliana Menezes no LinkedIn" height="700" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="testimonial-links"><a href="https://www.linkedin.com/posts/menezesjuliana_certificado-activity-7387528711136305152-7nmE" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
           </article>
           <article class="testimonial">
             <p class="testimonial-course">Jornalismo investigativo</p>
             <h3>Renan Honorato</h3>
             <p>Disse que a troca de experiências ajudou a destravar pautas que pretendia publicar.</p>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7461002456617967616" title="Publicação de Renan Honorato no LinkedIn" height="650" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="testimonial-links"><a href="https://www.linkedin.com/posts/jor-renan-honorato_certificado-jornalismo-investigativo-activity-7461002456617967616-D8Sh" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
           </article>
           <article class="testimonial">
             <p class="testimonial-course">Jornalismo investigativo</p>
             <h3>Clarisse Amaral</h3>
             <p>Destacou a troca entre profissionais de diferentes regiões e as discussões sobre como vender pautas e construir credibilidade.</p>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7461016682656903168" title="Publicação de Clarisse Amaral no LinkedIn" height="650" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="testimonial-links"><a href="https://www.linkedin.com/posts/clarisse-amaral-632a43207_no-%C3%BAltimo-m%C3%AAs-tive-a-oportunidade-de-participar-activity-7461016682656903168-yfaX" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
           </article>
           <article class="testimonial">
             <p class="testimonial-course">Jornalismo investigativo</p>
             <h3>Claudia Araujo Macedo</h3>
             <p>Participou como bolsista e disse que a experiência reacendeu seu interesse pelo jornalismo.</p>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7461201557108346880" title="Publicação de Claudia Araujo Macedo no LinkedIn" height="600" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="testimonial-links"><a href="https://www.linkedin.com/posts/claudia-araujo-macedo_em-abril-tive-a-honra-de-participar-como-activity-7461201557108346880-gYF7" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
           </article>
           <article class="testimonial">
             <p class="testimonial-course">Jornalismo investigativo</p>
             <h3>Gabriel Barros</h3>
             <p>Compartilhou o aprendizado sobre venda de pautas, LAI, Portal da Transparência e ferramentas de IA para jornalismo de dados.</p>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7450699562345713664" title="Publicação de Gabriel Barros no LinkedIn" height="650" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="testimonial-links"><a href="https://www.linkedin.com/posts/gabriel-barros-1b4811260_hoje-foi-o-dia-do-segundo-m%C3%B3dulo-do-curso-activity-7450699562345713664-PK3d" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
           </article>
           <article class="testimonial">
             <p class="testimonial-course">Jornalismo investigativo</p>
             <h3>Helen Teixeira</h3>
             <p>Considerou inspiradoras as conversas sobre investigação, cobertura internacional e trabalho freelancer em um momento de decisões na carreira.</p>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7458176349401280513" title="Publicação de Helen Teixeira no LinkedIn" height="650" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="testimonial-links"><a href="https://www.linkedin.com/posts/helen-teixeira_it-was-great-to-learn-from-the-amazing-brazilian-activity-7458176349401280513-xBZp" target="_blank" rel="noopener noreferrer">Publicação original</a></div>
           </article>
         </div>
@@ -670,5 +692,24 @@
       <p>Ficou com alguma dúvida? Fale conosco no <a href="mailto:jornalismoindependentecurso@gmail.com">jornalismoindependentecurso@gmail.com</a></p>
     </div>
   </footer>
+  <script>
+    const testimonialsTrack = document.getElementById('testimonials-track');
+    const testimonialsPrev = document.getElementById('testimonials-prev');
+    const testimonialsNext = document.getElementById('testimonials-next');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function updateTestimonialControls() {
+      testimonialsPrev.disabled = testimonialsTrack.scrollLeft < 2;
+      testimonialsNext.disabled = testimonialsTrack.scrollLeft + testimonialsTrack.clientWidth >= testimonialsTrack.scrollWidth - 2;
+    }
+    function moveTestimonials(direction) {
+      const card = testimonialsTrack.querySelector('.testimonial');
+      testimonialsTrack.scrollBy({ left: direction * (card.getBoundingClientRect().width + 18), behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    }
+    testimonialsPrev.addEventListener('click', () => moveTestimonials(-1));
+    testimonialsNext.addEventListener('click', () => moveTestimonials(1));
+    testimonialsTrack.addEventListener('scroll', updateTestimonialControls, { passive: true });
+    window.addEventListener('resize', updateTestimonialControls);
+    updateTestimonialControls();
+  </script>
 </body>
 </html>
