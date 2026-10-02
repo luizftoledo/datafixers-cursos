@@ -114,6 +114,9 @@
       object-fit: contain;
     }
 
+    .dfhd { width: min(100%, 1080px); margin: 0 auto 8px; }
+    .dfhd canvas { display: block; width: 100%; height: auto; border-radius: 12px; background: #2a1a14; box-shadow: 0 16px 40px rgba(17, 17, 17, 0.14); }
+    @media (max-width: 560px) { .dfhd { width: calc(100% + 16px); margin: 0 -8px 4px; } .dfhd canvas { border-radius: 8px; } }
     .hero-copy {
       width: min(760px, 100%);
       margin: 18px auto 0;
@@ -473,6 +476,10 @@
   <main>
     <section class="hero" aria-labelledby="page-title">
       <div class="container">
+        <div class="dfhd" role="img" aria-label="Ilustração animada em pixel art: Luiz e Juliana numa sala de aula apresentando os temas do curso na lousa — pautas e narrativa, dados e investigação, grants e carreira, IA e criatividade — enquanto os alunos acompanham nos notebooks.">
+          <canvas width="800" height="400"></canvas>
+        </div>
+        <script src="header-hd2d.js"></script>
         <h1 id="page-title" class="hero-title">Da ideia à reportagem</h1>
         <div class="hero-copy">
           <p class="byline">Com <a href="#presenters-title">Luiz Fernando Toledo</a> e <a href="#presenters-title">Juliana Faddul</a></p>
