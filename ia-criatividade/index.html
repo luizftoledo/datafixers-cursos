@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cursos de jornalismo com Ju Faddul e Luiz Fernando Toledo</title>
-  <meta name="description" content="Três edições de cursos para quem quer investigar, desenvolver pautas e produzir reportagens: duas de jornalismo investigativo para freelancers e uma de criatividade e IA.">
+  <meta name="description" content="Cursos de jornalismo com Ju Faddul e Luiz Fernando Toledo para encontrar pautas, investigar, financiar projetos e produzir reportagens relevantes.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Cursos de jornalismo com Ju Faddul e Luiz Fernando Toledo">
-  <meta property="og:description" content="Duas edições de jornalismo investigativo para freelancers e uma de criatividade e IA. Conheça os cursos e os projetos dos participantes.">
+  <meta property="og:description" content="Conheça os cursos de jornalismo da Ju e do Toledo, as habilidades ensinadas e os projetos dos participantes.">
   <meta property="og:locale" content="pt_BR">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,6 +119,7 @@
       margin: 18px auto 0;
     }
     .hero-title { margin: 12px auto 0; max-width: 850px; font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.5rem, 6vw, 4.6rem); line-height: 1.06; letter-spacing: -.035em; }
+    .hero > .container > .kicker { margin-top: 22px; }
     .editions { padding: 76px 0; }
     .editions-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
     .edition { padding: 28px; border: 1px solid var(--light-gray); }
@@ -193,6 +194,7 @@
       font-size: 1rem;
       line-height: 1.5;
     }
+    .hero-description strong, .hook strong { font-weight: 700; }
 
     .edition-note {
       margin-top: 10px;
@@ -213,9 +215,17 @@
       line-height: 1.45;
     }
 
-    .modules {
+    .skills {
       padding: 88px 0 80px;
     }
+
+    .skills-intro { max-width: 760px; margin-bottom: 30px; color: #444; }
+    .skills-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .skill { padding: 28px; border: 1px solid var(--light-gray); }
+    .skill h3 { margin-bottom: 14px; }
+    .skill ul { padding-left: 1.2em; color: #444; }
+    .skill li + li { margin-top: 9px; }
+    .skill li::marker { color: var(--accent); }
 
     .section-intro {
       margin-bottom: 34px;
@@ -356,7 +366,7 @@
         font-size: 1.35rem;
       }
 
-      .modules,
+      .skills,
       .rules,
       .final-cta {
         padding-top: 64px;
@@ -366,6 +376,7 @@
       .rules-grid {
         grid-template-columns: 1fr;
       }
+      .skills-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 560px) {
@@ -432,15 +443,15 @@
   <main>
     <section class="hero" aria-labelledby="page-title">
       <div class="container">
+        <p class="kicker">Três edições realizadas, quarta edição em breve!</p>
         <h1 id="page-title" class="hero-title">Da ideia à reportagem</h1>
         <div class="hero-copy">
-          <p class="kicker">Três edições realizadas</p>
           <p class="byline">Com Luiz Fernando Toledo e Juliana Faddul</p>
-          <p class="hero-description">Cursos para quem quer encontrar boas pautas, investigar e produzir reportagens relevantes, trabalhando de forma independente ou em redações.</p>
-          <p class="edition-note">Foram duas edições de jornalismo investigativo para freelancers e uma de criatividade e inteligência artificial aplicada ao jornalismo. O próximo curso ainda não tem data.</p>
+          <p class="hero-description">Cursos para quem quer <strong>encontrar boas pautas, investigar e produzir reportagens relevantes, trabalhando de forma independente ou em redações.</strong></p>
+          <p class="edition-note">Somos dois jornalistas com mais de 10 anos de experiência e muito interesse em compartilhar o que aprendemos. Já estamos indo para o nosso quarto curso juntos — e esperamos vocês. Veja o que já fizemos e entre na lista de espera para os próximos.</p>
           <div class="actions">
             <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSepI2SLGVb9_Jizwzn9kq5rbafKfXpSLDOe7Cu3KGglP6znlQ/viewform" target="_blank" rel="noopener">Entrar na lista de espera</a>
-            <a class="button button-secondary" href="#edicoes">Conhecer as edições</a>
+            <a class="button button-secondary" href="#edicoes">Conhecer os cursos</a>
           </div>
         </div>
       </div>
@@ -448,7 +459,7 @@
 
     <section class="editions" id="edicoes" aria-labelledby="editions-title">
       <div class="container">
-        <div class="section-intro"><h2 id="editions-title">O que já fizemos</h2></div>
+        <div class="section-intro"><h2 id="editions-title">Cursos</h2></div>
         <p class="edition-context">As três edições combinam prática, troca entre jornalistas e caminhos para transformar uma ideia em trabalho publicado. Os dois cursos de investigação foram voltados a freelancers; a terceira edição explorou como usar IA para desenvolver ideias sem abrir mão da apuração e da autoria.</p>
         <div class="editions-grid">
           <article class="edition"><p class="tag">Edição 01 · Jornalismo investigativo</p><h3>Investigar como freelancer</h3><p>Da escolha da pauta à busca de dados, documentos e personagens, com atenção aos desafios de trabalhar fora de uma redação.</p></article>
@@ -460,51 +471,54 @@
 
     <section class="hook">
       <div class="narrow">
-        <p>Uma boa reportagem começa com uma pergunta. Nossos cursos ajudam a encontrar evidências, testar ideias e dar forma a histórias que merecem ser contadas.</p>
+        <p>Uma boa reportagem começa com uma pergunta. Nossos cursos ajudam a <strong>encontrar evidências, testar ideias e dar forma a histórias que merecem ser contadas.</strong></p>
       </div>
     </section>
 
-    <section class="modules" id="modulos" aria-labelledby="modules-title">
+    <section class="skills" id="habilidades" aria-labelledby="skills-title">
       <div class="container">
         <div class="section-intro">
-          <h2 id="modules-title">Na edição de criatividade e IA</h2>
-          <p>Estes foram os temas da terceira edição. A programação de uma próxima turma será divulgada quando houver data.</p>
+          <h2 id="skills-title">O que você aprende nos nossos cursos</h2>
         </div>
-
-        <article class="module">
-          <div class="module-number" aria-hidden="true">01</div>
-          <div>
-            <h3>Muito além do ChatGPT</h3>
-            <p>Para tirar o melhor das ferramentas de inteligência artificial, é fundamental saber qual usar em cada situação. A IA pode te ajudar a encontrar dados, documentos e informações em lugares que você nem imaginava existir. Neste módulo, vamos conhecer ferramentas que vale a pena testar, com exemplos já testados no jornalismo. Falaremos, por exemplo, de fluxos de trabalho criativo com Codex / ChatGPT Work e do Claude Cowork / Claude Code, uma baita mão na roda de muitos profissionais. E não precisa saber nada de programação — tipo a Ju — pra acompanhar, tá?</p>
-          </div>
-        </article>
-
-        <article class="module">
-          <div class="module-number" aria-hidden="true">02</div>
-          <div>
-            <h3>Pororoca de ideias</h3>
-            <p>Sabe aquela ideia maluca, que você pensou nossa, isso nunca vai ser aprovado, mas que legal seria se fosse?. Pois bem, aqui a IA pode ser super útil, nem que seja para criar apenas um protótipo dessa ideia. Que tal um jogo interativo sobre um assunto complexo? Ou uma ferramenta que compara diferentes versões de uma mesma música? Um portfólio interativo diferentão? Mesmo que nada saia pro mundo, criatividade é também sobre experimentar.</p>
-          </div>
-        </article>
-
-        <article class="module">
-          <div class="module-number" aria-hidden="true">03</div>
-          <div>
-            <h3>Como não ser controlado pela IA</h3>
-            <p>Aqui é tão sério que nem tem piadinha: vamos te mostrar como duvidamos de uma resposta de IA e formas que usamos para checar as respostas com responsabilidade.</p>
-          </div>
-        </article>
-
-        <article class="module">
-          <div class="module-number" aria-hidden="true">04</div>
-          <div>
-            <h3>Use a sua neurose ao seu favor</h3>
-            <p>Aqui é onde os pensamentos intrusivos assumem o prompt! Vamos fazer atividades práticas para entender onde você está criativamente emperrado, quais obstáculos precisamos driblar e como fazer uma ideia maluca virar uma reportagem.</p>
-          </div>
-        </article>
-
-
-        <blockquote class="pull-quote">A IA pode roubar seu tempo, seus dados e até a sua água, mas nunca as caraminholas da tua cabeça. Então vem com a gente!</blockquote>
+        <p class="skills-intro">Das primeiras perguntas à publicação, reunimos técnicas de apuração e caminhos para tirar uma reportagem do papel. Os temas variam de um curso para outro.</p>
+        <div class="skills-grid">
+          <article class="skill">
+            <h3>Pautas e narrativa</h3>
+            <ul>
+              <li>Encontrar boas pautas em dados, documentos e perguntas ainda sem resposta.</li>
+              <li>Propor pautas mínimas e máximas para adaptar a ideia aos recursos disponíveis.</li>
+              <li>Fazer pitches para diferentes veículos de comunicação.</li>
+              <li>Transformar números em histórias com personagens e contexto.</li>
+            </ul>
+          </article>
+          <article class="skill">
+            <h3>Investigação e dados</h3>
+            <ul>
+              <li>Explorar planilhas, bases públicas e o Portal da Transparência.</li>
+              <li>Fazer pedidos pela Lei de Acesso à Informação e buscar documentos.</li>
+              <li>Entrevistar fontes e conferir o que os dados realmente mostram.</li>
+              <li>Checar informações antes de publicar.</li>
+            </ul>
+          </article>
+          <article class="skill">
+            <h3>Financiamento e carreira</h3>
+            <ul>
+              <li>Levantar recursos para um projeto jornalístico por meio de bolsas, grants e editais.</li>
+              <li>Montar currículos, cartas de apresentação e pedidos de recomendação.</li>
+              <li>Planejar etapas, entregas e orçamento de uma proposta.</li>
+              <li>Apresentar o próprio trabalho e construir uma trajetória como freelancer.</li>
+            </ul>
+          </article>
+          <article class="skill">
+            <h3>Criatividade e IA</h3>
+            <ul>
+              <li>Usar IA para pesquisar documentos e explorar caminhos de apuração.</li>
+              <li>Testar ideias e criar protótipos para contar histórias de outras formas.</li>
+              <li>Escolher ferramentas para cada tarefa sem abrir mão da autoria.</li>
+              <li>Conferir as respostas da IA e reconhecer suas limitações.</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -532,8 +546,8 @@
 
     <section class="testimonials" aria-labelledby="testimonials-title">
       <div class="container">
-        <div class="section-intro"><h2 id="testimonials-title">O que participantes disseram</h2></div>
-        <p class="testimonials-intro">Relatos publicados pelos próprios participantes no LinkedIn. Cada post aparece aqui na íntegra, com um resumo e o link original. Quando alguém compartilhou um projeto feito a partir do curso, incluímos também o trabalho.</p>
+        <div class="section-intro"><h2 id="testimonials-title">O que dizem os participantes</h2></div>
+        <p class="testimonials-intro">Não se convenceu ainda? Então veja o que quem já passou pelos cursos está dizendo por aí. Os relatos foram publicados pelos próprios participantes no LinkedIn; você pode ler cada post na íntegra e acessar a publicação original.</p>
         <div class="testimonials-grid">
           <article class="testimonial">
             <p class="testimonial-course">IA e criatividade</p>
@@ -612,7 +626,7 @@
     <section class="final-cta" aria-labelledby="final-title">
       <div class="narrow">
         <h2 id="final-title">Entrar na lista de espera</h2>
-        <p>Depois de 3 cursos juntos, estamos preparando o próximo! Ainda não há data prevista. Entre na lista de espera para receber novidades dos cursos da Ju e do Toledo.</p>
+        <p>Estamos preparando nosso quarto curso juntos! Ainda não há data prevista. Entre na lista de espera para receber novidades dos cursos da Ju e do Toledo.</p>
         <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSepI2SLGVb9_Jizwzn9kq5rbafKfXpSLDOe7Cu3KGglP6znlQ/viewform" target="_blank" rel="noopener">Entrar na lista de espera</a>
       </div>
     </section>
