@@ -331,24 +331,34 @@
     .testimonial iframe { display: block; width: 100%; height: 550px; margin-bottom: 18px; border: 1px solid var(--light-gray); background: var(--white); }
     .testimonial-links { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: auto; }
     .testimonial-links a { color: var(--accent); font-weight: 500; text-underline-offset: 3px; }
-    .carousel-finale { position: absolute; inset: auto 0 0 auto; width: 170px; height: 140px; pointer-events: none; opacity: 0; z-index: 3; }
-    .carousel-finale span { position: absolute; color: var(--accent); font-size: 1.8rem; }
-    .carousel-finale span:nth-child(1) { left: 8%; top: 45%; }
-    .carousel-finale span:nth-child(2) { left: 42%; top: 10%; }
-    .carousel-finale span:nth-child(3) { left: 75%; top: 55%; }
-    .carousel-finale span:nth-child(4) { left: 54%; top: 78%; }
-    .testimonials.is-at-end .carousel-finale { opacity: 1; }
-    .testimonials.is-at-end .carousel-finale span { animation: sparkle 1.4s ease-in-out infinite alternate; }
-    .testimonials.is-at-end .carousel-finale span:nth-child(even) { animation-delay: .4s; }
-    @keyframes sparkle { from { opacity: .35; transform: translateY(4px) scale(.8) rotate(-12deg); } to { opacity: 1; transform: translateY(-9px) scale(1.15) rotate(12deg); } }
-    .testimonials-end-note { margin: 22px 0 0; color: var(--accent); font-weight: 500; text-align: right; }
     @media (max-width: 700px) { .testimonials-grid { grid-template-columns: 1fr; } .testimonial { padding: 16px; } .testimonial iframe { height: 520px; } .testimonials { padding: 64px 0; } }
     @media (max-width: 800px) { .editions-grid, .presenters-grid { grid-template-columns: 1fr; } .editions, .presenters { padding: 64px 0; } }
 
     .final-cta {
+      position: relative;
+      overflow: hidden;
       padding: 84px 0;
       text-align: center;
     }
+    .final-cta .narrow { position: relative; z-index: 1; }
+    .final-sparkles { position: absolute; inset: 0; pointer-events: none; }
+    .final-sparkles span { position: absolute; color: var(--accent); font-size: clamp(1.1rem, 2.5vw, 2.4rem); opacity: 0; }
+    .final-sparkles span:nth-child(1) { left: 5%; top: 15%; }
+    .final-sparkles span:nth-child(2) { left: 16%; top: 52%; }
+    .final-sparkles span:nth-child(3) { left: 28%; top: 8%; }
+    .final-sparkles span:nth-child(4) { left: 38%; top: 78%; }
+    .final-sparkles span:nth-child(5) { left: 52%; top: 5%; }
+    .final-sparkles span:nth-child(6) { left: 64%; top: 82%; }
+    .final-sparkles span:nth-child(7) { left: 75%; top: 12%; }
+    .final-sparkles span:nth-child(8) { left: 88%; top: 60%; }
+    .final-sparkles span:nth-child(9) { left: 95%; top: 18%; }
+    .final-sparkles span:nth-child(10) { left: 7%; top: 82%; }
+    .final-sparkles span:nth-child(11) { left: 22%; top: 30%; }
+    .final-sparkles span:nth-child(12) { left: 80%; top: 83%; }
+    .final-cta.is-visible .final-sparkles span { animation: sparkle-pop 2.2s ease-in-out infinite; }
+    .final-cta.is-visible .final-sparkles span:nth-child(3n) { animation-delay: .4s; }
+    .final-cta.is-visible .final-sparkles span:nth-child(3n + 1) { animation-delay: .9s; }
+    @keyframes sparkle-pop { 0%, 100% { opacity: 0; transform: translateY(12px) scale(.4) rotate(-20deg); } 40%, 65% { opacity: 1; transform: translateY(-12px) scale(1.2) rotate(15deg); } }
 
     .final-cta p {
       max-width: 620px;
@@ -460,7 +470,8 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .testimonial, .testimonials.is-at-end .carousel-finale span { animation: none; transition: none; }
+      .testimonial, .final-cta.is-visible .final-sparkles span { animation: none; transition: none; }
+      .final-cta.is-visible .final-sparkles span { opacity: .65; }
       html {
         scroll-behavior: auto;
       }
@@ -619,7 +630,6 @@
       <div class="container">
         <div class="section-intro"><h2 id="testimonials-title">Ainda não se convenceu? Veja o que dizem os participantes</h2></div>
         <div class="testimonials-stage">
-          <div class="carousel-finale" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span><span>✧</span></div>
         <div class="testimonials-grid" aria-label="Dez depoimentos de participantes">
           <article class="testimonial">
             <p class="testimonial-course">IA e criatividade</p>
@@ -693,14 +703,14 @@
           </article>
         </div>
         </div>
-        <p class="testimonials-end-note" id="testimonials-end-note">Você viu os dez relatos ✨</p>
       </div>
     </section>
 
     <section class="final-cta" aria-labelledby="final-title">
+      <div class="final-sparkles" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span><span>✧</span><span>✦</span><span>✧</span><span>✦</span><span>✧</span><span>✦</span><span>✧</span><span>✦</span><span>✧</span></div>
       <div class="narrow">
-        <h2 id="final-title">Entrar na lista de espera</h2>
-        <p>Estamos preparando nosso quarto curso juntos! Ainda não há data prevista. Entre na lista de espera para receber novidades dos cursos da Ju e do Toledo.</p>
+        <h2 id="final-title">Obrigado por chegar até aqui!!!</h2>
+        <p>E já que chegou, clique na lista de espera! Estamos preparando nosso quarto curso juntos. Ainda não há data prevista.</p>
         <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSepI2SLGVb9_Jizwzn9kq5rbafKfXpSLDOe7Cu3KGglP6znlQ/viewform" target="_blank" rel="noopener">Entrar na lista de espera</a>
       </div>
     </section>
@@ -712,12 +722,13 @@
     </div>
   </footer>
   <script>
-    const testimonialsSection = document.querySelector('.testimonials');
-    const testimonialsEndNote = document.getElementById('testimonials-end-note');
+    const finalCta = document.querySelector('.final-cta');
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(([entry]) => {
-        testimonialsSection.classList.toggle('is-at-end', entry.isIntersecting);
-      }, { threshold: 0.5 }).observe(testimonialsEndNote);
+        finalCta.classList.toggle('is-visible', entry.isIntersecting);
+      }, { threshold: 0.2 }).observe(finalCta);
+    } else {
+      finalCta.classList.add('is-visible');
     }
   </script>
 </body>
